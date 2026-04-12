@@ -1,4 +1,4 @@
-const CACHE='vitalplan-v13';
+const CACHE='vitalplan-v15';
 self.addEventListener('install',e=>{
   e.waitUntil(caches.open(CACHE).then(c=>c.addAll(['./vitalplan.html'])));
   self.skipWaiting();

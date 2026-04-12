@@ -321,6 +321,11 @@ chest:{hy:['III'],cue:'Rücken an Wand · Arme bis Brusthöhe · Schulterblätte
 trunk_rotation:{id:'trunk_rotation',cat:'posture',name:'Rumpf-Rotation',type:'reps',baseReps:6,baseSets:2,restSec:20,secsPerRep:4,illus:'🔄',illusAlt:'Rumpf drehen',citations:['mak2017'],variants:{
 standing:{hy:['none','I','II'],cue:'Rumpf dreht · Arme schwingen locker mit · kontrolliert',safety:'Weicher, kontrollierter Schwung, nicht ruckartig schleudern. Füße bleiben fest am Boden. Bei Schwindel langsamer werden oder stoppen.',voice:'Rumpf drehen mit Armschwung.',audioDesc:'Stellen Sie sich aufrecht hin, Füße hüftbreit. Arme hängen locker an den Seiten. Drehen Sie Ihren Oberkörper langsam nach links, die Arme schwingen locker mit. Dann nach rechts. Stellen Sie sich vor, Ihr Rumpf ist eine Waschmaschine auf Schongang. Kontrolliert, nicht ruckartig. Die Hüfte und Füße bleiben nach vorn gerichtet, nur der Oberkörper dreht. Tempo: zwei Sekunden pro Seite. Diese Rotation verbessert die axiale Beweglichkeit, die bei Parkinson oft verloren geht.'},
 seated:{hy:['III'],cue:'Im Sitzen · Oberkörper dreht · Arme vor der Brust',safety:'Rücken aufrecht. Stuhl mit Lehne. Langsam und kontrolliert drehen, nie ruckartig.',voice:'Rumpf im Sitzen drehen.',audioDesc:'Setzen Sie sich aufrecht hin, Arme vor der Brust verschränkt. Drehen Sie den Oberkörper langsam nach links, als wollten Sie hinter sich schauen. Zwei Sekunden halten. Zurück zur Mitte, dann nach rechts. Die Hüfte bleibt nach vorn, nur der Oberkörper dreht. Langsam und kontrolliert.'}}},
+full_tandem:{id:'full_tandem',cat:'balance',name:'Voll-Tandem-Stand',type:'time',baseSec:20,baseSets:2,illus:'🧍',illusAlt:'Tandemstand eng',citations:['sherrington2019','mak2017'],equipment:['wall_or_chair'],variants:{
+free:{hy:['none','I'],cue:'Ferse direkt vor Zehen des anderen Fußes · wie auf einer Linie · ruhig stehen',safety:'Wand oder Stuhl in Griffweite. Bei starkem Wackeln sofort greifen. Blick auf festen Punkt. Schwerer als Halb-Tandem!',voice:'Voll-Tandem-Stand.',audioDesc:'Stellen Sie sich aufrecht hin, Wand oder Stuhl in Griffweite. Setzen Sie die Ferse eines Fußes direkt vor die Zehen des anderen Fußes, wie auf einer schmalen Linie. Beide Füße zeigen nach vorn. Dies ist deutlich schwerer als der Halb-Tandem-Stand. Fixieren Sie einen festen Punkt an der Wand. Arme dürfen seitlich leicht ausgestreckt sein. Bei starkem Wackeln sofort zur Wand greifen. Diese Übung ist der Goldstandard für Gleichgewichtstraining laut Sherrington 2019.',
+coaching:['Ruhig stehen. Ferse direkt vor den Zehen.','Blick auf einen festen Punkt fixieren.','Atmen nicht vergessen. Gleichmäßig.','Sehr gut gehalten. Sie trainieren Ihr Gleichgewicht optimal.']},
+supported:{hy:['II','III'],cue:'Hand an Wand · Ferse direkt vor Zehen · ruhig halten',safety:'Eine Hand immer an Wand oder Stuhl. Nicht loslassen bei Unsicherheit. Nur versuchen wenn Halb-Tandem sicher klappt.',voice:'Voll-Tandem mit Halt.',audioDesc:'Eine Hand hält sich an der Wand oder Stuhllehne fest. Setzen Sie die Ferse eines Fußes direkt vor die Zehen des anderen. Versuchen Sie, möglichst wenig Druck auf die Stützhand zu geben. Ruhig stehen, Blick geradeaus. Wenn Sie sich sicher fühlen, versuchen Sie nur die Fingerspitzen aufzulegen.',
+coaching:['Hand gibt Sicherheit. Ferse vor Zehen.','Ruhig atmen. Blick geradeaus.','Weniger Druck auf die Stützhand versuchen.','Gut gehalten. Gleich geschafft.']}}},
 heel_toe_walk:{id:'heel_toe_walk',cat:'balance',name:'Fersen-Zehen-Gang',type:'time',baseSec:60,illus:'👟',illusAlt:'Tandemgang',citations:['sherrington2019','mak2017'],variants:{
 free:{hy:['none','I'],cue:'Ferse direkt vor Zehen · wie auf einer Linie · Blick geradeaus',safety:'Freie Fläche. Wand oder Möbel in Griffweite. Blick geradeaus, nicht auf die Füße. Bei starkem Wackeln kurz pausieren.',voice:'Fersen-Zehen-Gang.',audioDesc:'Gehen Sie wie auf einer geraden Linie. Setzen Sie die Ferse des vorderen Fußes direkt vor die Zehen des hinteren Fußes. Schritt für Schritt, wie ein Seiltänzer. Blick auf einen festen Punkt an der Wand, nicht auf die Füße schauen. Arme dürfen seitlich leicht ausgestreckt sein. Wenn Sie wackeln, kurz anhalten und Gleichgewicht finden. Dann weiter. Am Ende des Wegs umdrehen und zurück. Diese Übung trainiert gezielt Ihren Gleichgewichtssinn und den Gangrhythmus.',
 coaching:['Ferse vor Zehen. Wie auf einer Linie.','Blick geradeaus, nicht nach unten.','Ruhig und gleichmäßig. Kein Eilen.','Umdrehen und zurück. Weiter auf der Linie.','Sehr gut. Letzte Schritte.']},
@@ -347,15 +352,18 @@ norms:{60:{M:14,W:12},65:{M:12,W:11},70:{M:12,W:10},75:{M:11,W:10},80:{M:10,W:9}
 tug:{id:'tug',name:'Timed Up and Go',unit:'Sekunden',
 protocol:'Auf stabilem Stuhl sitzen. Auf "Los" aufstehen, 3 m gehen, wenden, zurück, hinsetzen.',
 audioProtocol:'Stabiler Stuhl mit Rückenlehne. Drei Meter vor Ihnen einen Wendepunkt markieren. Gewohnte Schuhe. Start-Taste drücken, aufstehen, drei Meter gehen, wenden, zurück, setzen. Stop-Taste wenn Po Stuhl berührt.',
-evidence:'Podsiadlo & Richardson. Parkinson-Meta: SMD −0,41. > 13,5 s = erhöhtes Sturzrisiko.',
-type:'time',higherIsBetter:false,
-thresholds:[{max:10,label:'Normal, niedriges Sturzrisiko'},{max:13.5,label:'Grenzwertig'},{max:20,label:'Erhöhtes Sturzrisiko'},{max:999,label:'Hohes Sturzrisiko · ärztlich abklären'}]},
+evidence:'Podsiadlo & Richardson 1991. Sturzrisiko: >13,5 s allgemein (Shumway-Cook 2000), >11,5 s bei Parkinson (Nocera 2013). MDC: 3,5 s.',
+type:'time',higherIsBetter:false},
 gait_4m:{id:'gait_4m',name:'4-Meter-Gang',unit:'m/s',
 protocol:'4 m markieren, 2 m Anlauf + 1 m Auslauf. Gewohntes Tempo. Zeit auf 4 m.',
 audioProtocol:'Vier Meter Gehstrecke markieren, mit zwei Metern Anlauf davor und einem Meter Auslauf danach. Gewohntes Tempo. Start drücken wenn der Fuß die Startlinie überschreitet, Stop bei der Ziellinie.',
-evidence:'SPPB-Standard. < 0,8 m/s: erhöhte Morbidität.',
-type:'speed',distanceM:4,higherIsBetter:true,
-thresholds:[{min:1.0,label:'Robust'},{min:0.8,label:'Unteres Normalmaß'},{min:0.6,label:'Gebrechlichkeit möglich'},{min:0,label:'Deutlich reduziert'}]}
+evidence:'SPPB-Standard (Guralnik 1994). < 0,8 m/s: erhöhte Morbidität. < 0,6 m/s: schwere Einschränkung.',
+type:'speed',distanceM:4,higherIsBetter:true},
+sppb_balance:{id:'sppb_balance',name:'SPPB Balance-Test',unit:'Punkte (0–4)',
+protocol:'Drei Positionen je max. 10 Sekunden. 1) Side-by-Side: Füße nebeneinander. 2) Semi-Tandem: Ferse neben großem Zeh. 3) Tandem: Ferse direkt vor Zehen. Jede Position maximal 10 Sekunden halten.',
+audioProtocol:'SPPB Balance-Test nach Guralnik 1994. Drei Positionen, jede maximal zehn Sekunden. Position eins: Side-by-Side. Stellen Sie die Füße direkt nebeneinander, Seite an Seite. Halten Sie zehn Sekunden. Position zwei: Semi-Tandem. Die Ferse eines Fußes neben den großen Zeh des anderen. Zehn Sekunden halten. Position drei: Voll-Tandem. Die Ferse direkt vor die Zehen des anderen Fußes. Zehn Sekunden halten. Wand oder Stuhl in Griffweite. Bei jeder Position Start-Button drücken.',
+evidence:'SPPB-Gleichgewichtskomponente (Guralnik 1994). 0–4 Punkte. Teil der Short Physical Performance Battery.',
+type:'sppb_balance',higherIsBetter:true}
 };
 
 /* ===== BEST-PRACTICE GUIDE ===== */
@@ -415,10 +423,12 @@ const GUIDE=[
 'Der blaue runde Knopf oben rechts sagt jederzeit den aktuellen Bildschirm an.',
 'In Einstellungen: hoher Kontrast, große Schrift, Vibrationsfeedback.']},
 {id:'evidence',title:'Die Evidenz im Überblick',content:[
-'Parkinson, Aerobic-Meta 20 Studien: TUG verbessert sich deutlich, Schrittlänge und Ganggeschwindigkeit nehmen zu, UPDRS-Motorik sinkt.',
-'Ältere, Kraft-Meta 22 Studien, über 3.600 Teilnehmer: Beinkraft deutlich besser, 6-Minuten-Gehstrecke plus 16 Meter.',
-'Typ-2-Diabetes ab 8 Wochen Training: 6-Minuten-Gehstrecke plus 51 Meter, Chair-Stand plus 4 bis 5 Wiederholungen, Beinpresse plus 18 Kilogramm.',
-'Einfache Mittel — Stuhl, Wand, Wasserflaschen — reichen für messbare Verbesserungen.']}
+'Sturzprävention (Sherrington 2019, 108 Studien, 23.407 Teilnehmer): Balance- und Funktionstraining reduziert Stürze um 24 Prozent. Kombiniertes Kraft- und Balance-Training sogar um 34 Prozent. Sturzbedingte Frakturen sinken um 27 Prozent.',
+'Parkinson-Aerobic (Shu 2014, 18 Studien, 901 Patienten): Motorische Funktion verbessert sich deutlich (UPDRS-III, Effektstärke 0,57). Balance-Verbesserung besonders groß (Effektstärke 2,02). Ganggeschwindigkeit und Schrittlänge nehmen signifikant zu.',
+'Langzeiteffekte Parkinson (Mak 2017, 46 Studien): Balance-Training hat die längsten Nachwirkungen (3 bis 12 Monate). Kraft und Ausdauer brauchen mindestens 12 Wochen für nachhaltige Effekte.',
+'Krafttraining Ältere (Liu & Latham 2009, 121 Studien, 6.700 Teilnehmer): Beinkraft steigt deutlich (Effektstärke 0,84). Stuhlaufstehen verbessert sich am stärksten (Effektstärke 0,94). 6-Minuten-Gehstrecke plus 52 Meter. Ganggeschwindigkeit plus 0,08 Meter pro Sekunde.',
+'Diabetes (Colberg 2016, ADA-Empfehlung): Mindestens 150 Minuten moderate Aktivität pro Woche. 2 bis 3 Krafteinheiten. Typ-1-Diabetes: Blutzucker 126 bis 180 optimal für Training (Riddell 2017).',
+'Einfache Mittel — Stuhl, Wand, Wasserflaschen — reichen für messbare Verbesserungen. Der Stuhlaufsteh-Test zeigt den größten Trainingseffekt aller gemessenen Funktionen.']}
 ];
 
 /* ===== IDB ===== */
@@ -555,8 +565,8 @@ function releaseWakeLock(){try{wakeLock?.release();wakeLock=null;}catch(e){}}
 document.addEventListener('visibilitychange',async()=>{if(document.visibilityState==='visible'){if(STATE.workout){requestWakeLock();render();}}else{if(STATE.workout)persistActiveWorkout();}});
 
 /* ===== SAFETY ===== */
-function evalGlucose(mg,type){if(mg==null||isNaN(mg))return null;if(mg<70)return{level:'stop',title:'Zu niedrig · Hypo-Gefahr',msg:'15 bis 20 Gramm schnelle Kohlenhydrate. 15 Min warten, neu messen. Erst starten wenn stabil über 90.'};if(mg<90)return{level:'warn',title:'Grenzwertig niedrig',msg:'Vor Training 15 bis 20 g KH. 10 bis 15 Min warten.'};if(mg<=126)return{level:'warn',title:'Niedrig-normal',msg:'Für Kraft und Balance vertretbar. Für längeres Gehen Snack erwägen.'};if(mg<=180)return{level:'ok',title:'Optimaler Bereich',msg:'Günstiger Ausgangswert.'};if(mg<=250)return{level:'warn',title:'Erhöht',msg:type==='T1'?'Bei Unwohlsein Ketone messen.':'Training OK. Viel trinken.'};return{level:'stop',title:'Zu hoch · Keton-Gefahr',msg:type==='T1'?'Über 250: Ketone zwingend prüfen. Bei Ketonen moderat oder hoch: nicht trainieren.':'Sehr hoch. Heute nur ruhiges Gehen bei Wohlbefinden.'};}
-function evalKetones(l){if(!l||l==='none')return null;if(l==='trace')return{level:'warn',title:'Spuren von Ketonen',msg:'Ruhig bleiben, trinken, leichte Bewegung nur bei Wohlbefinden.'};return{level:'stop',title:'Moderate oder hohe Ketone',msg:'Heute nicht trainieren. Insulinschema prüfen.'};}
+function evalGlucose(mg,type){if(mg==null||isNaN(mg))return null;if(mg<70)return{level:'stop',title:'Zu niedrig · Hypo-Gefahr',msg:'15 bis 20 Gramm schnelle Kohlenhydrate (z.B. 4 Traubenzucker oder 150 ml Saft). 15 Min warten, neu messen. Erst starten wenn stabil über 90. (Riddell 2017)'};if(mg<90)return{level:'warn',title:'Grenzwertig niedrig (< 90 mg/dl)',msg:'Vor Training 10 bis 20 g Kohlenhydrate essen. 10 bis 15 Min warten. Aerobes Training erst über 90. (Riddell 2017)'};if(mg<=126)return{level:'warn',title:'Niedrig-normal (90–126 mg/dl)',msg:'Für Kraft und Balance vertretbar. Für längeres Gehen 10 g Kohlenhydrate als Snack erwägen. (Riddell 2017)'};if(mg<=180)return{level:'ok',title:'Optimaler Bereich (126–180 mg/dl)',msg:'Günstiger Ausgangswert für alle Trainingsarten. (Riddell 2017)'};if(mg<=250)return{level:'warn',title:'Erhöht (180–250 mg/dl)',msg:type==='T1'?'Bei Unwohlsein Ketone messen. Krafttraining kann Wert weiter erhöhen.':'Training OK. Viel trinken.'};return{level:'stop',title:'Zu hoch · Keton-Gefahr (> 250 mg/dl)',msg:type==='T1'?'Über 250: Ketone zwingend prüfen. Bei Ketonen ≥ 1,5 mmol/L: nicht trainieren. (Riddell 2017)':'Sehr hoch. Heute nur ruhiges Gehen bei Wohlbefinden.'};}
+function evalKetones(l){if(!l||l==='none')return null;if(l==='trace')return{level:'warn',title:'Spuren von Ketonen (< 1,5 mmol/L)',msg:'Nur leichte Intensität, maximal 30 Minuten. Viel Wasser trinken. (Riddell 2017)'};return{level:'stop',title:'Moderate oder hohe Ketone (≥ 1,5 mmol/L)',msg:'Training kontraindiziert. Erst Insulin geben, Ketone senken. (Riddell 2017)'};}
 function evalSymptoms(f){if(f.chestPain||f.newShortness)return{level:'stop',title:'Akute Warnzeichen',msg:'Brustschmerz oder Luftnot: Training aussetzen. Bei anhaltenden Beschwerden 112.'};if(f.fallToday)return{level:'stop',title:'Sturz heute',msg:'Nach Sturz keine neue Belastung.'};if(f.severeDizziness||f.feverish)return{level:'warn',title:'Unwohlsein',msg:'Schwindel oder Fieber: heute ruhen.'};if(f.severeFreezing)return{level:'warn',title:'Starkes Freezing heute',msg:'Sehr langsam. Nur Übungen mit Halt.'};return null;}
 
 /* ===== BUILDER ===== */
@@ -572,7 +582,7 @@ const PHASE_POOL={
 warmup:['march','trunk_rotation','big_arms','weight_shift','neck_mob','ankle_pump'],
 strength:['sit_to_stand','calf_raise','chair_squat'],
 posture:['bottle_row','wall_pushup','thoracic_ext','trunk_rotation'],
-balance:['half_tandem','side_walk','big_steps','heel_toe_walk'],
+balance:['half_tandem','full_tandem','side_walk','big_steps','heel_toe_walk'],
 cardio:['walk_cool'],
 cooldown:['breathing','static_stretch']
 };
@@ -655,7 +665,70 @@ async function maybeCloseWeek(){const plan=STATE.plan;const pS=new Date(plan.wee
 /* ===== BENCHMARKS ===== */
 function benchDueDays(){const l=STATE.benchmarks[0];if(!l)return 0;return Math.max(0,28-daysAgo(l.date));}
 function benchIsDue(){if(STATE.plan.baselineSessionsRemaining>0)return false;return benchDueDays()===0;}
-function benchClassify(tid,v){const t=BENCH[tid];if(t.thresholds){if(t.higherIsBetter){for(const th of t.thresholds)if(v>=th.min)return th.label;}else{for(const th of t.thresholds)if(v<=th.max)return th.label;}}if(t.norms&&STATE.profile.birthYear&&STATE.profile.sex){const age=new Date().getFullYear()-STATE.profile.birthYear;const bk=Math.min(90,Math.max(60,Math.floor(age/5)*5));const n=t.norms[bk]?.[STATE.profile.sex];if(n!=null)return v>=n?`Über Altersnorm (≥ ${n})`:`Unter Altersnorm (${n})`;}return null;}
+function benchClassify(tid,v){const t=BENCH[tid],p=STATE.profile,age=p.birthYear?(new Date().getFullYear()-p.birthYear):null,isPD=p.parkinsonStage&&p.parkinsonStage!=='none';
+/* — Chair Stand: Rikli & Jones Normtabelle 25.–75. Perzentile — */
+const CS_NORMS={60:{M:[14,19],W:[12,17]},65:{M:[12,18],W:[11,16]},70:{M:[12,17],W:[10,15]},75:{M:[11,17],W:[10,15]},80:{M:[10,15],W:[9,14]},85:{M:[8,14],W:[8,13]},90:{M:[7,12],W:[4,11]}};
+/* — TUG: Altersnormen (Steffen 2002) + PD-Normen (Schenkman 2011) — */
+const TUG_AGE={60:8,70:9,80:11};
+const TUG_PD={'I':8.4,'II':9.2,'III':10.9};
+const TUG_FALL_PD=11.5; /* Nocera 2013 – PD-spezifisch */
+const TUG_FALL_GEN=13.5; /* Shumway-Cook 2000 – allgemein */
+const TUG_MDC=3.5; /* Minimal Detectable Change (Huang 2011) */
+/* — Gangtest: SPPB-Scoring — */
+const GAIT_BANDS=[{min:1.0,label:'Robust (> 1,0 m/s)',color:'#059669'},{min:0.8,label:'Unteres Normalmaß (0,8–1,0 m/s)',color:'#d97706'},{min:0.6,label:'Gebrechlichkeit möglich (0,6–0,8 m/s)',color:'#dc2626'},{min:0,label:'Deutlich reduziert (< 0,6 m/s)',color:'#7f1d1d'}];
+
+if(tid==='chair_stand_30'&&age&&p.sex){
+  const bk=Math.min(90,Math.max(60,Math.floor(age/5)*5));
+  const range=CS_NORMS[bk]?.[p.sex];
+  if(range){const[lo,hi]=range;
+    if(v>=hi)return `Überdurchschnittlich für Ihr Alter (${age} J., Normbereich: ${lo}–${hi})`;
+    if(v>=lo)return `Im Normalbereich für Ihr Alter (${age} J., Normbereich: ${lo}–${hi})`;
+    if(v>=8)return `Unter dem Normalbereich (${v} von ${lo}–${hi}). Regelmäßiges Training kann das verbessern.`;
+    return `Unter 8 Wiederholungen – funktionelle Einschränkung möglich (Normbereich ${lo}–${hi}). Bitte mit Arzt besprechen.`;
+  }}
+
+if(tid==='tug'){
+  const parts=[];
+  /* Sturzrisiko-Schwellenwert */
+  const fallCut=isPD?TUG_FALL_PD:TUG_FALL_GEN;
+  const fallLabel=isPD?'PD-Sturzrisiko >11,5 s (Nocera 2013)':'Sturzrisiko >13,5 s (Shumway-Cook 2000)';
+  if(v>fallCut)parts.push(`⚠ Erhöhtes Sturzrisiko: ${v} s > ${fallCut} s. ${fallLabel}.`);
+  else parts.push(`Sturzrisiko niedrig: ${v} s ≤ ${fallCut} s.`);
+  /* Altersnorm */
+  if(age){const ak=age<70?60:age<80?70:80;const norm=TUG_AGE[ak];
+    if(norm)parts.push(`Altersnorm (${ak}–${ak+9} J.): ~${norm} s.`);}
+  /* PD-Stadiennorm */
+  if(isPD){const pdNorm=TUG_PD[p.parkinsonStage];
+    if(pdNorm)parts.push(`PD-Stadium ${p.parkinsonStage} Durchschnitt: ${pdNorm} s.`);}
+  /* MDC */
+  parts.push(`Klinisch relevante Veränderung: ≥ ${TUG_MDC} s.`);
+  return parts.join(' ');
+}
+
+if(tid==='gait_4m'){
+  for(const b of GAIT_BANDS)if(v>=b.min)return b.label;
+}
+if(tid==='sppb_balance'){
+  const labels={4:'Volle Punktzahl – alle 3 Positionen 10 s gehalten (Guralnik 1994)',3:'Tandem 3–9 s gehalten. Gutes Gleichgewicht, Tandem weiter üben.',2:'Semi-Tandem gehalten, Tandem unter 3 s. Balance-Training besonders wichtig.',1:'Nur Side-by-Side gehalten. Sturzrisiko erhöht – bitte mit Arzt besprechen.',0:'Side-by-Side nicht gehalten. Deutliche Einschränkung – ärztliche Beratung empfohlen.'};
+  const parts=[labels[v]||''];
+  /* SPPB-Gesamtscore berechnen wenn alle 3 Tests vorhanden */
+  const latestGait=STATE.benchmarks.find(b=>b.testId==='gait_4m');
+  const latestChair=STATE.benchmarks.find(b=>b.testId==='chair_stand_30');
+  if(latestGait&&latestChair){
+    /* Gait SPPB score: Guralnik time-based scoring on 4m */
+    const gaitTime=latestGait.value>0?4/latestGait.value:99;
+    let gaitPts=0;if(gaitTime<=4.82)gaitPts=4;else if(gaitTime<=6.20)gaitPts=3;else if(gaitTime<=8.70)gaitPts=2;else gaitPts=1;
+    /* Chair SPPB: use 5x time estimate from 30s count: ~150/count seconds for 5 reps */
+    const est5x=latestChair.value>0?Math.round(150/latestChair.value*10)/10:99;
+    let chairPts=0;if(est5x<=11.19)chairPts=4;else if(est5x<=13.69)chairPts=3;else if(est5x<=16.69)chairPts=2;else chairPts=1;
+    const total=v+gaitPts+chairPts;
+    const cat=total<=3?'Schwere Einschränkung':total<=6?'Moderate Einschränkung':total<=9?'Leichte Einschränkung':'Minimale Einschränkung';
+    parts.push(`SPPB-Gesamtscore: ${total} von 12 (Balance ${v} + Gang ${gaitPts} + Stuhl ${chairPts}) = ${cat}.`);
+    if(total<=6)parts.push('Score 4–6: 4,2-faches Risiko für Behinderung in 4 Jahren (Guralnik 1994).');
+  }else{parts.push('Für den SPPB-Gesamtscore (0–12) auch Gangtest und Stuhltest durchführen.');}
+  return parts.join(' ');
+}
+return null;}
 
 /* ===== HYPO ===== */
 function scheduleHypoReminder(iso){if(STATE.profile.diabetesType!=='T1')return;const s=new Date(iso).getTime();const pending=[{at:s+2*3600*1000,hours:2},{at:s+4*3600*1000,hours:4}].filter(r=>r.at>Date.now());STATE.profile.pendingHypoReminders=pending;saveProfile();if(STATE.profile.notifications&&'Notification'in window&&Notification.permission==='granted'){for(const r of pending){const ms=r.at-Date.now();if(ms>0&&ms<10*3600*1000)setTimeout(()=>{try{new Notification('Blutzucker prüfen',{body:`${r.hours} h nach Training.`});}catch(e){}},ms);}}}
@@ -900,9 +973,20 @@ if(benchIsDue())out.appendChild(h('div',{class:'card',style:'background:#eef2ff;
 
 const sessToday=STATE.sessions.filter(s=>s.date===todayIso());
 const wk=evaluateCurrentWeek();
+/* Weekly minutes vs 150 min ADA target (Colberg 2016) */
+const wkStart=mondayOf(new Date());const wkEnd=new Date(wkStart);wkEnd.setDate(wkEnd.getDate()+7);
+const weekSess=STATE.sessions.filter(s=>{const d=new Date(s.startedAt);return d>=wkStart&&d<wkEnd;});
+const weekMin=Math.round(weekSess.reduce((a,s)=>a+(s.durationMin||0),0));
+const adaTarget=150;const adaPct=Math.min(100,Math.round(weekMin/adaTarget*100));
 const st=h('div',{class:'card'});st.appendChild(h('h2',{},'Heute'));
 if(sessToday.length>0){const s=sessToday[0];st.appendChild(h('p',{},`✅ ${Math.round(s.durationMin||0)} Min · RPE ${s.rpe||'—'} von 10`));st.appendChild(h('p',{class:'text-muted'},'Regeneration ist Teil der Evidenz.'));}
 else st.appendChild(h('p',{},`Noch kein Training. Diese Woche: ${wk.count} von ${wk.target} Einheiten.`));
+/* Weekly minutes progress bar */
+const minBar=h('div',{style:'margin-top:12px'});
+minBar.appendChild(h('div',{style:'display:flex;justify-content:space-between;font-size:14px;margin-bottom:4px'},h('span',{},`${weekMin} von ${adaTarget} Min/Woche`),h('span',{style:'color:'+(adaPct>=100?'#059669':'#64748b')},adaPct>=100?'✓ ADA-Ziel erreicht':`${adaPct}%`)));
+minBar.appendChild(h('div',{style:'height:8px;border-radius:4px;background:#e2e8f0;overflow:hidden'},h('div',{style:`height:100%;width:${adaPct}%;border-radius:4px;background:${adaPct>=100?'#059669':adaPct>=66?'#d97706':'#94a3b8'};transition:width 0.3s`})));
+minBar.appendChild(h('div',{class:'text-muted',style:'font-size:12px;margin-top:2px'},'ADA-Empfehlung: ≥ 150 Min./Woche moderate Aktivität (Colberg 2016)'));
+st.appendChild(minBar);
 out.appendChild(st);
 
 if(sessToday.length===0)out.appendChild(h('button',{class:'btn big success',style:'margin:6px 0 16px','aria-label':'Training starten. Beginnt mit Sicherheits-Check.',onclick:()=>{unlockVoice();startPreCheck();}},'▶  Training starten'));
@@ -913,6 +997,19 @@ for(let i=0;i<wk.target;i++)dots.appendChild(h('div',{style:`flex:1;height:12px;
 out.appendChild(h('div',{class:'card'},h('h2',{},`Woche ${plan.weekNumber}${plan.inDeload?' (Deload)':''}`),dots,h('p',{class:'text-muted'},`${wk.count} von ${wk.target} Einheiten`+(plan.baselineSessionsRemaining===0?` · Stabil: ${plan.consecutiveStableWeeks} von 2`:''))));
 
 if(STATE.sessions.length>0&&sessToday.length===0){const last=STATE.sessions[0];out.appendChild(h('div',{class:'card'},h('h3',{},'Letztes Training'),h('p',{},`${fmtDate(last.date)} · ${Math.round(last.durationMin||0)} Min · RPE ${last.rpe} von 10`),last.isBaseline?h('span',{class:'baseline-tag'},'Kalibrierung'):null,last.freezing>=3?h('p',{class:'text-muted'},`Freezing: ${last.freezing} von 5`):null));}
+
+/* Training-Meilensteine (Mak 2017): 8 Wochen Balance = nachhaltig, 12 Wochen Kraft = Langzeiteffekt */
+const wn=plan.weekNumber;
+if(wn>=2){const milestones=[];
+if(wn<8)milestones.push({icon:'⚖️',text:`Balance-Meilenstein in ${8-wn} Wochen`,sub:'Nach 8 Wochen werden Balance-Effekte nachhaltig (Mak 2017).',pct:Math.round(wn/8*100)});
+else if(wn===8)milestones.push({icon:'🎉',text:'8-Wochen-Meilenstein erreicht!',sub:'Ihre Balance-Verbesserungen sind jetzt nachhaltig (Mak 2017, Carry-over-Effekt).',pct:100});
+if(wn<12)milestones.push({icon:'🦵',text:`Kraft-Meilenstein in ${12-wn} Wochen`,sub:'Nach 12 Wochen treten Langzeiteffekte bei Kraft ein (Mak 2017).',pct:Math.round(wn/12*100)});
+else if(wn===12)milestones.push({icon:'🎉',text:'12-Wochen-Meilenstein erreicht!',sub:'Ihre Kraftzuwächse sind jetzt langfristig gefestigt (Mak 2017).',pct:100});
+else if(wn>12)milestones.push({icon:'🏆',text:'Beide Meilensteine erreicht',sub:`Woche ${wn}: Balance und Kraft nachhaltig verbessert.`,pct:100});
+if(milestones.length>0){const mc=h('div',{class:'card',style:'background:#f0f9ff;border-color:#bae6fd'});mc.appendChild(h('h3',{},'📅 Trainings-Meilensteine'));
+milestones.forEach(ms=>{mc.appendChild(h('div',{style:'margin-bottom:10px'},h('div',{style:'display:flex;align-items:center;gap:8px'},h('span',{style:'font-size:24px'},ms.icon),h('div',{style:'flex:1'},h('div',{style:'font-weight:600'},ms.text),h('div',{class:'text-muted',style:'font-size:13px'},ms.sub))),ms.pct<100?h('div',{style:'height:6px;border-radius:3px;background:#e2e8f0;margin-top:4px;overflow:hidden'},h('div',{style:`height:100%;width:${ms.pct}%;border-radius:3px;background:#0284c7`})):null));});
+out.appendChild(mc);}}
+
 return out;
 }
 
@@ -1352,7 +1449,13 @@ const p=STATE.profile,plan=STATE.plan;const out=frag();
 out.appendChild(h('h1',{},'Plan'));out.appendChild(h('p',{class:'subtitle'},`Woche ${plan.weekNumber} · Eindimensionale Progression.`));
 out.appendChild(h('div',{class:'card'},h('h2',{},'Aktuelle Einstellungen'),h('p',{},`📅 Wochenziel: ${p.targetSessionsPerWeek} Einheiten`),h('p',{},`🦵 Kraft-Sätze: ${plan.strengthSets}`),h('p',{},`🔁 Wdh-Faktor: ${plan.strengthRepsMultiplier.toFixed(2)}`),h('p',{},`⚖️ Balance-Faktor: ${plan.balanceSecMultiplier.toFixed(2)}`),h('p',{},`🚶 Gehzeit: ${plan.walkMinutes} Min`),plan.inDeload?h('p',{class:'pill pill-warn',style:'margin-top:8px'},'🌿 Deload aktiv (70 %)'):null));
 
-const ev=evaluateCurrentWeek();const e=h('div',{class:'card'});e.appendChild(h('h2',{},'Diese Woche'));e.appendChild(h('p',{},`${ev.count} von ${ev.target} Einheiten · Ø RPE ${ev.avgRpe.toFixed(1)}`));if(plan.baselineSessionsRemaining===0)e.appendChild(h('p',{},`Stabile Wochen: ${plan.consecutiveStableWeeks} von 2`));e.appendChild(h('p',{},`Progressionen bis Deload: ${plan.progressionsSinceDeload} von 4`));if(ev.reasons.length>0){e.appendChild(h('div',{class:'divider'}));e.appendChild(h('h3',{},'Warum noch keine Steigerung?'));ev.reasons.forEach(r=>e.appendChild(h('p',{class:'text-muted'},`· ${r}`)));}out.appendChild(e);
+const ev=evaluateCurrentWeek();const e=h('div',{class:'card'});e.appendChild(h('h2',{},'Diese Woche'));e.appendChild(h('p',{},`${ev.count} von ${ev.target} Einheiten · Ø RPE ${ev.avgRpe.toFixed(1)}`));
+/* Wöchentliche Minuten */
+const plWkS=mondayOf(new Date()),plWkE=new Date(plWkS);plWkE.setDate(plWkE.getDate()+7);
+const plWkMin=Math.round(STATE.sessions.filter(s=>{const d=new Date(s.startedAt);return d>=plWkS&&d<plWkE;}).reduce((a,s)=>a+(s.durationMin||0),0));
+const plPct=Math.min(100,Math.round(plWkMin/150*100));
+e.appendChild(h('div',{style:'margin:8px 0'},h('div',{style:'display:flex;justify-content:space-between;font-size:14px;margin-bottom:3px'},h('span',{},`⏱ ${plWkMin} von 150 Min/Woche`),h('span',{style:'font-weight:600;color:'+(plPct>=100?'#059669':'#64748b')},`${plPct}%`)),h('div',{style:'height:6px;border-radius:3px;background:#e2e8f0;overflow:hidden'},h('div',{style:`height:100%;width:${plPct}%;border-radius:3px;background:${plPct>=100?'#059669':plPct>=66?'#d97706':'#94a3b8'}`}))));
+if(plan.baselineSessionsRemaining===0)e.appendChild(h('p',{},`Stabile Wochen: ${plan.consecutiveStableWeeks} von 2`));e.appendChild(h('p',{},`Progressionen bis Deload: ${plan.progressionsSinceDeload} von 4`));if(ev.reasons.length>0){e.appendChild(h('div',{class:'divider'}));e.appendChild(h('h3',{},'Warum noch keine Steigerung?'));ev.reasons.forEach(r=>e.appendChild(h('p',{class:'text-muted'},`· ${r}`)));}out.appendChild(e);
 
 if(shouldOfferProgression())out.appendChild(h('div',{class:'prog-card'},h('h2',{},'Steigerung verfügbar'),h('p',{},'Nach 2 stabilen Wochen.'),h('button',{class:'btn',onclick:openProgressionModal},'Steigerung wählen')));
 
@@ -1628,6 +1731,36 @@ else{const el=(performance.now()-m.startTime)/1000;w.appendChild(h('div',{class:
 else if(t.type==='speed'){
 if(!m.startTime){w.appendChild(h('p',{style:'margin-bottom:12px'},'Start bei Fuß auf Startlinie. Stop bei Ziellinie.'));w.appendChild(h('button',{class:'btn big success',onclick:()=>{m.startTime=performance.now();beep(880,200);render();}},'Jetzt starten'));}
 else{const el=(performance.now()-m.startTime)/1000;w.appendChild(h('div',{class:'timer-huge','aria-hidden':'true'},el.toFixed(1)));w.appendChild(h('div',{class:'timer-label'},'Sekunden · 4 m'));w.appendChild(h('button',{class:'btn big danger',onclick:()=>{const s=(performance.now()-m.startTime)/1000;m.value=Math.round((t.distanceM/s)*100)/100;m.step=2;beep(880,300);narrator.critical(`${m.value} Meter pro Sekunde.`);render();}},'⏹  Ziel überschritten'));setTimeout(()=>{if(STATE.modal===m&&m.step===1&&m.startTime&&!m.value)render();},100);}
+}
+else if(t.type==='sppb_balance'){
+/* SPPB Balance: 3 positions, each max 10s, scored 0-4 per Guralnik 1994 */
+const POS=['Side-by-Side: Füße nebeneinander','Semi-Tandem: Ferse neben großem Zeh','Tandem: Ferse direkt vor Zehen'];
+if(!m._sppb){m._sppb={pos:0,results:[],running:false};}
+const sb=m._sppb;
+if(sb.pos<3){
+const posName=POS[sb.pos];
+w.appendChild(h('h3',{},`Position ${sb.pos+1} von 3`));
+w.appendChild(h('p',{style:'font-size:18px;font-weight:600;margin-bottom:12px'},posName));
+if(sb.pos>0&&sb.results.length>0){const prev=sb.results[sb.results.length-1];w.appendChild(h('p',{class:'text-muted'},`Position ${sb.pos}: ${prev>=10?'✓ 10 Sek. gehalten':prev+' Sek.'}`));}
+if(!sb.running&&!sb.timer){
+w.appendChild(h('p',{style:'margin-bottom:12px'},'Stellen Sie sich in Position. Drücken Sie Start wenn bereit.'));
+w.appendChild(h('button',{class:'btn big success',onclick:()=>{sb.running=true;sb.timer=new MonoTimer(10,()=>render(),()=>{sb.results.push(10);sb.running=false;sb.timer=null;sb.pos++;beep(880,200);narrator.cue(sb.pos<3?`Geschafft. Zehn Sekunden gehalten. Nächste Position: ${POS[sb.pos]}.`:'Alle drei Positionen fertig.');render();},{speakCountdown:true});sb.timer.start();narrator.cue('Los. Halten Sie die Position.');render();}},'▶ Position starten'));
+}else if(sb.running&&sb.timer){
+const rem=sb.timer.snapshot();
+w.appendChild(h('div',{class:'timer-huge'+(rem<=3?' alert':''),'aria-hidden':'true'},String(rem)));
+w.appendChild(h('div',{class:'timer-label'},'Sekunden'));
+w.appendChild(h('button',{class:'btn big danger',onclick:()=>{const held=10-sb.timer.snapshot();sb.timer.stop();sb.results.push(Math.round(held*10)/10);sb.running=false;sb.timer=null;if(sb.pos===0&&held<10){/* Failed side-by-side = 0 points, test ends (Guralnik 1994) */sb.pos=3;m.count=0;m.value=0;m.step=2;narrator.critical('Side-by-Side nicht gehalten. SPPB Balance: 0 Punkte.');render();return;}if(sb.pos===1&&held<10){/* Failed semi-tandem = 1 point, skip tandem (Guralnik 1994) */sb.pos=3;m.count=1;m.value=1;m.step=2;narrator.critical('Semi-Tandem nicht gehalten. SPPB Balance: 1 von 4 Punkten.');render();return;}sb.pos++;beep(440,100);narrator.cue(sb.pos<3?`${held.toFixed(1)} Sekunden. Nächste Position: ${POS[sb.pos]}.`:'Alle Positionen fertig.');render();}},'⏹ Losgelassen / Wackeln'));
+}
+w.appendChild(h('button',{class:'btn ghost',style:'margin-top:12px',onclick:()=>{sb.timer?.stop();STATE.modal=null;render();restoreFocus();}},'Abbrechen'));
+}else{
+/* Score per Guralnik 1994 */
+const r=sb.results;let score=0;
+if(r[0]>=10&&r[1]>=10&&r[2]>=10)score=4;
+else if(r[0]>=10&&r[1]>=10&&r[2]>=3)score=3;
+else if(r[0]>=10&&r[1]>=10)score=2;
+else if(r[0]>=10)score=1;
+m.count=score;m.value=score;m.step=2;render();
+}
 }
 w.appendChild(h('button',{class:'btn ghost',onclick:()=>{m.timer?.stop();STATE.modal=null;render();restoreFocus();}},'Abbrechen'));
 }
