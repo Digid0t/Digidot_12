@@ -1,0 +1,111 @@
+{
+  "name": "VitalPlan – Evidenzbasiertes Training",
+  "short_name": "VitalPlan",
+  "description": "Evidenzbasierte Trainings-App für Menschen mit Parkinson und/oder Diabetes. Vollständig barrierefrei mit Sprachführung.",
+  "start_url": "./vitalplan.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "lang": "de-DE",
+  "dir": "ltr",
+  "theme_color": "#1e40af",
+  "background_color": "#f8fafc",
+  "categories": ["health", "fitness", "medical"],
+  "prefer_related_applications": false,
+  "id": "vitalplan-pwa",
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "icons": [
+    {
+      "src": "icons/icon-72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-maskable-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "icons/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "icons/screenshot-wide.png",
+      "sizes": "1280x800",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "VitalPlan Startseite auf dem Tablet"
+    },
+    {
+      "src": "icons/screenshot-narrow.png",
+      "sizes": "800x1280",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "VitalPlan Startseite auf dem Smartphone"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Training starten",
+      "short_name": "Training",
+      "url": "./vitalplan.html#start",
+      "icons": [{"src": "icons/icon-96.png", "sizes": "96x96"}]
+    },
+    {
+      "name": "Tagebuch",
+      "short_name": "Tagebuch",
+      "url": "./vitalplan.html#diary",
+      "icons": [{"src": "icons/icon-96.png", "sizes": "96x96"}]
+    }
+  ]
+}

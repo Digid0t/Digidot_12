@@ -9,7 +9,11 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="description" content="Evidenzbasierte Trainings-App für ältere Menschen, mit Parkinson oder Diabetes. Vollständig barrierefrei.">
 <title>VitalPlan · Evidenzbasiert · Barrierefrei</title>
-<link rel="manifest" href='data:application/manifest+json,{"name":"VitalPlan","short_name":"VitalPlan","start_url":".","display":"standalone","background_color":"%23f8fafc","theme_color":"%231e40af","icons":[{"src":"data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 192 192%22><rect width=%22192%22 height=%22192%22 rx=%2240%22 fill=%22%231e40af%22/><text x=%2296%22 y=%22128%22 font-size=%22110%22 text-anchor=%22middle%22 fill=%22white%22>%F0%9F%9A%B6</text></svg>","sizes":"192x192","type":"image/svg+xml"}]}'>
+<link rel="manifest" href="./manifest.json">
+<link rel="icon" type="image/png" sizes="192x192" href="./icons/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="./icons/icon-512.png">
+<link rel="apple-touch-icon" sizes="192x192" href="./icons/icon-192.png">
+<link rel="apple-touch-icon" sizes="512x512" href="./icons/icon-512.png">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
@@ -557,7 +561,7 @@ async function idbAll(s){const db=await openDB();return new Promise((res,rej)=>{
 async function idbDel(s,id){const db=await openDB();return new Promise((res,rej)=>{const r=db.transaction(s,'readwrite').objectStore(s).delete(id);r.onsuccess=()=>res();r.onerror=()=>rej(r.error);});}
 
 /* ===== STATE ===== */
-const DEFAULT_PROFILE={id:'profile',onboardingDone:false,name:'',birthYear:null,sex:null,diabetesType:'none',parkinsonStage:'none',unsureStage:false,targetSessionsPerWeek:3,voiceCues:true,equipment:{chair:true,wall:true,weights:false,step:false},notifications:false,reminderEnabled:false,reminderTime:'09:00',lastReminderDate:null,createdAt:null,pendingHypoReminders:[],a11y:{fullNarration:false,haptics:true,highContrast:false,largeText:false,voiceRate:0.92,guideSeen:false,tapSound:true,tourCompleted:false},parkinson:{stage:'none',unsure:false,medication:{doseTimes:[],lastDoseAt:null,expectedOnWindowMin:60,selfRatedState:null},freezing:{hasFOG:false,triggers:{initiation:false,turning:false,doorway:false,dualTask:false,stress:false},severity:0,cueResponse:{auditory:null,visual:null,tactile:null}},balanceProfile:{static:0,dynamic:0,turning:0,reactive:0,dualTask:0},falls:{falls30d:0,nearFalls7d:0,fearOfFalling:0}}};
+const DEFAULT_PROFILE={id:'profile',onboardingDone:false,name:'',birthYear:null,sex:null,diabetesType:'none',parkinsonStage:'none',unsureStage:false,targetSessionsPerWeek:3,voiceCues:true,equipment:{chair:true,wall:true,weights:false,step:false},notifications:false,reminderEnabled:false,reminderTime:'09:00',lastReminderDate:null,_lastBackupDate:null,createdAt:null,pendingHypoReminders:[],a11y:{fullNarration:false,haptics:true,highContrast:false,largeText:false,voiceRate:0.92,guideSeen:false,tapSound:true,tourCompleted:false},parkinson:{stage:'none',unsure:false,medication:{doseTimes:[],lastDoseAt:null,expectedOnWindowMin:60,selfRatedState:null},freezing:{hasFOG:false,triggers:{initiation:false,turning:false,doorway:false,dualTask:false,stress:false},severity:0,cueResponse:{auditory:null,visual:null,tactile:null}},balanceProfile:{static:0,dynamic:0,turning:0,reactive:0,dualTask:0},falls:{falls30d:0,nearFalls7d:0,fearOfFalling:0}}};
 const DEFAULT_PLAN={id:'plan',weekNumber:1,weekStartIso:null,walkMinutes:5,strengthSets:2,strengthRepsMultiplier:1.0,balanceSecMultiplier:1.0,consecutiveStableWeeks:0,progressionsSinceDeload:0,inDeload:false,lastProgressionDate:null,lastDeloadDate:null,baselineSessionsRemaining:2,progressionHistory:[],pdDose:{gait:{walkMinutes:5,amplitudeLevel:0,cueComplexity:0},strength:{sets:2,repsMultiplier:1.0},balance:{secMultiplier:1.0,reactiveLevel:0,dualTaskLevel:0},cue:{complexity:0}}};
 let STATE={profile:null,plan:null,sessions:[],benchmarks:[],nutrition:[],wellbeing:[],view:'home',workout:null,preCheck:null,onboardStep:0,onboardPdSub:0,modal:null,autosaveTimer:null,lastFocusEl:null,historyTab:'week'};
 
@@ -2273,18 +2277,144 @@ out.appendChild(nnc);
 // Guide link
 out.appendChild(h('button',{class:'btn secondary',onclick:()=>navTo('guide')},'📖 Zur Anleitung'));
 
-// Data
-out.appendChild(h('div',{class:'card'},h('h3',{},'Daten'),h('p',{class:'text-muted',style:'font-size:15px;margin-bottom:12px;line-height:1.5'},'Sichern Sie Ihre Daten als JSON-Datei. Auf einem anderen Gerät können Sie diese Datei importieren.'),h('button',{class:'btn secondary',onclick:exportData},'📥 Backup speichern (JSON)'),h('button',{class:'btn secondary',onclick:importData},'📤 Backup laden (JSON)'),h('button',{class:'btn danger',onclick:confirmReset},'⚠ Alle Daten löschen')));
+// Data — Enhanced Backup Section
+const dataCard=h('div',{class:'card'});
+dataCard.appendChild(h('h3',{},'💾 Daten & Backup'));
+dataCard.appendChild(h('p',{class:'text-muted',style:'font-size:15px;margin-bottom:8px;line-height:1.5'},'Alle Daten werden lokal in der IndexedDB gespeichert. Erstellen Sie regelmäßig ein JSON-Backup als Sicherung.'));
+/* Stats */
+const statsP=h('div',{style:'background:#f1f5f9;border-radius:14px;padding:14px;margin-bottom:14px;font-size:15px;line-height:1.8'});
+statsP.innerHTML=`<strong>Gespeicherte Daten:</strong><br>📊 ${STATE.sessions.length} Training${STATE.sessions.length!==1?'s':''}<br>📏 ${STATE.benchmarks.length} Messung${STATE.benchmarks.length!==1?'en':''}<br>🥗 ${(STATE.nutrition||[]).length} Ernährungs-Eintr${(STATE.nutrition||[]).length!==1?'äge':'ag'}<br>😊 ${(STATE.wellbeing||[]).length} Wohlbefinden-Eintr${(STATE.wellbeing||[]).length!==1?'äge':'ag'}`;
+dataCard.appendChild(statsP);
+/* Last backup info */
+if(STATE.profile._lastBackupDate){dataCard.appendChild(h('p',{style:'font-size:14px;color:#16a34a;margin-bottom:10px'},'✅ Letztes Backup: '+new Date(STATE.profile._lastBackupDate).toLocaleString('de-DE')));}else{dataCard.appendChild(h('p',{style:'font-size:14px;color:#dc2626;font-weight:600;margin-bottom:10px'},'⚠ Noch kein Backup erstellt!'));}
+dataCard.appendChild(h('button',{class:'btn primary',style:'font-size:18px;min-height:56px;margin-bottom:8px;width:100%',onclick:exportData},'📥 Backup speichern (JSON)'));
+dataCard.appendChild(h('button',{class:'btn secondary',style:'font-size:18px;min-height:56px;margin-bottom:8px;width:100%',onclick:importData},'📤 Backup laden (JSON)'));
+dataCard.appendChild(h('button',{class:'btn danger',style:'font-size:16px;min-height:48px;width:100%;margin-top:12px',onclick:confirmReset},'⚠ Alle Daten löschen'));
+out.appendChild(dataCard);
 out.appendChild(h('div',{class:'card'},h('h3',{},'Geführte Tour'),h('p',{class:'text-muted',style:'font-size:15px;margin-bottom:12px'},'Lernen Sie die App-Bedienung Schritt für Schritt kennen.'),h('button',{class:'btn secondary',onclick:()=>{GuidedTour.start();}},'🎓 Tour starten')));
 
-out.appendChild(h('div',{class:'card'},h('h3',{},'Offline-Hinweis'),h('p',{class:'text-muted',style:'font-size:14px;line-height:1.5'},'Die App läuft offline nach erstem Laden. Für garantiertes Offline: HTML-Datei lokal speichern. Daten bleiben ohnehin auf diesem Gerät.')));
+/* --- PWA Install Card --- */
+const pwaCard=h('div',{class:'card'});
+pwaCard.appendChild(h('h3',{},'📲 App installieren'));
+const isStandalone=window.matchMedia('(display-mode:standalone)').matches||navigator.standalone;
+if(isStandalone){
+pwaCard.appendChild(h('p',{style:'font-size:16px;color:#16a34a;font-weight:700'},'✅ VitalPlan ist als App installiert'));
+pwaCard.appendChild(h('p',{class:'text-muted',style:'font-size:15px;line-height:1.5'},'Die App läuft offline, Benachrichtigungen sind aktiv und Ihre Daten sind sicher auf diesem Gerät gespeichert.'));
+}else{
+pwaCard.appendChild(h('p',{class:'text-muted',style:'font-size:15px;line-height:1.5'},'Installieren Sie VitalPlan als App auf Ihrem Startbildschirm. Sie erhalten dann Push-Benachrichtigungen für Trainings-Erinnerungen und können auch ohne Internet trainieren.'));
+const installBtn=h('button',{class:'btn primary',style:'font-size:18px;min-height:56px;margin-top:8px',onclick:async()=>{if(_deferredInstallPrompt){_deferredInstallPrompt.prompt();const r=await _deferredInstallPrompt.userChoice;if(r.outcome==='accepted'){narrator.announce('Installation gestartet.');}else{narrator.cue('Installation abgebrochen.');}_deferredInstallPrompt=null;}else{narrator.cue('Öffnen Sie das Browser-Menü und wählen Sie Zum Startbildschirm hinzufügen oder App installieren.');alert('Um VitalPlan zu installieren:\n\n1. Tippen Sie auf das Browser-Menü (⋮ oben rechts)\n2. Wählen Sie "Zum Startbildschirm hinzufügen" oder "App installieren"\n3. Bestätigen Sie die Installation\n\nDanach finden Sie VitalPlan als App auf Ihrem Startbildschirm.');}}},'📲 Jetzt als App installieren');
+pwaCard.appendChild(installBtn);
+}
+out.appendChild(pwaCard);
 
 out.appendChild(h('button',{class:'btn ghost',onclick:()=>navTo('home')},'Zurück'));
 return out;
 }
-function exportData(){const data={version:3,profile:STATE.profile,plan:STATE.plan,sessions:STATE.sessions,benchmarks:STATE.benchmarks,nutrition:STATE.nutrition,wellbeing:STATE.wellbeing,exportedAt:new Date().toISOString()};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=`vitalplan-${todayIso()}.json`;a.click();URL.revokeObjectURL(url);narrator.announce('Export erstellt und heruntergeladen.');}
-async function importData(){const input=document.createElement('input');input.type='file';input.accept='.json';input.onchange=async(e)=>{const file=e.target.files[0];if(!file)return;try{const text=await file.text();const data=JSON.parse(text);if(!data.profile||!data.plan){narrator.critical('Ungültige Datei. Profil oder Plan fehlt.');return;}const summary=`Import: ${(data.sessions||[]).length} Trainings, ${(data.benchmarks||[]).length} Messungen, ${(data.nutrition||[]).length} Ernährungseinträge, ${(data.wellbeing||[]).length} Wohlbefinden-Einträge. Bestehende Daten werden überschrieben.`;if(!confirm(summary))return;await idbPut('kv',data.profile);await idbPut('kv',data.plan);for(const s of(data.sessions||[]))await idbPut('sessions',s);for(const b of(data.benchmarks||[]))await idbPut('benchmarks',b);for(const n of(data.nutrition||[]))await idbPut('nutrition',n);for(const w of(data.wellbeing||[]))await idbPut('wellbeing',w);narrator.announce('Import erfolgreich. Seite wird neu geladen.');setTimeout(()=>location.reload(),800);}catch(err){narrator.critical('Fehler beim Import: '+err.message);}};input.click();}
-async function confirmReset(){if(!confirm('Alle Daten unwiderruflich löschen?'))return;if(!confirm('Sicher? Nicht rückgängig zu machen.'))return;const db=await openDB();db.close();_dbP=null;indexedDB.deleteDatabase(DB_NAME);setTimeout(()=>location.reload(),300);}
+function buildExportData(){
+return{
+version:4,
+appVersion:'VitalPlan-PWA-2.0',
+exportedAt:new Date().toISOString(),
+device:navigator.userAgent.slice(0,120),
+profile:STATE.profile,
+plan:STATE.plan,
+sessions:STATE.sessions||[],
+benchmarks:STATE.benchmarks||[],
+nutrition:STATE.nutrition||[],
+wellbeing:STATE.wellbeing||[],
+stats:{
+totalSessions:(STATE.sessions||[]).length,
+totalBenchmarks:(STATE.benchmarks||[]).length,
+totalNutrition:(STATE.nutrition||[]).length,
+totalWellbeing:(STATE.wellbeing||[]).length,
+firstSession:(STATE.sessions||[]).length>0?STATE.sessions[STATE.sessions.length-1].date:null,
+lastSession:(STATE.sessions||[]).length>0?STATE.sessions[0].date:null
+}};
+}
+function downloadJson(data,filename){
+const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json;charset=utf-8'});
+const url=URL.createObjectURL(blob);
+const a=document.createElement('a');a.href=url;a.download=filename;
+document.body.appendChild(a);a.click();document.body.removeChild(a);
+URL.revokeObjectURL(url);
+}
+function exportData(){
+try{
+const data=buildExportData();
+const filename=`vitalplan-backup-${todayIso()}.json`;
+downloadJson(data,filename);
+/* Backup-Datum merken */
+STATE.profile._lastBackupDate=new Date().toISOString();
+saveProfile();
+narrator.announce(`Backup erstellt: ${data.stats.totalSessions} Trainings, ${data.stats.totalBenchmarks} Messungen, ${data.stats.totalNutrition} Ernährungs- und ${data.stats.totalWellbeing} Wohlbefinden-Einträge gesichert.`);
+render();
+}catch(err){narrator.critical('Fehler beim Export: '+err.message);}
+}
+function validateBackup(data){
+const errors=[];
+if(!data||typeof data!=='object')return['Datei enthält kein gültiges JSON-Objekt.'];
+if(!data.profile||typeof data.profile!=='object')errors.push('Profil fehlt oder ist ungültig.');
+if(!data.plan||typeof data.plan!=='object')errors.push('Trainingsplan fehlt oder ist ungültig.');
+if(!data.profile?.id)errors.push('Profil hat keine ID — möglicherweise beschädigt.');
+if(data.sessions&&!Array.isArray(data.sessions))errors.push('Trainings-Daten sind kein Array.');
+if(data.benchmarks&&!Array.isArray(data.benchmarks))errors.push('Benchmark-Daten sind kein Array.');
+if(data.nutrition&&!Array.isArray(data.nutrition))errors.push('Ernährungs-Daten sind kein Array.');
+if(data.wellbeing&&!Array.isArray(data.wellbeing))errors.push('Wohlbefinden-Daten sind kein Array.');
+return errors;
+}
+async function importData(){
+const input=document.createElement('input');input.type='file';input.accept='.json,application/json';
+input.onchange=async(e)=>{
+const file=e.target.files[0];if(!file)return;
+try{
+const text=await file.text();
+let data;
+try{data=JSON.parse(text);}catch(pe){narrator.critical('Die Datei ist kein gültiges JSON. Bitte prüfen Sie die Datei.');return;}
+/* Validierung */
+const errors=validateBackup(data);
+if(errors.length>0){narrator.critical('Backup ungültig: '+errors.join(' '));alert('Backup-Datei ungültig:\n\n'+errors.join('\n'));return;}
+/* Zusammenfassung */
+const sessions=data.sessions||[];const benchmarks=data.benchmarks||[];const nutrition=data.nutrition||[];const wellbeing=data.wellbeing||[];
+const summary=`Backup vom ${data.exportedAt?new Date(data.exportedAt).toLocaleString('de-DE'):'unbekannt'}\n\nVersion: ${data.version||'?'}\nName: ${data.profile?.name||'?'}\n\n${sessions.length} Trainings\n${benchmarks.length} Messungen\n${nutrition.length} Ernährungseinträge\n${wellbeing.length} Wohlbefinden-Einträge\n\n⚠ Ihre aktuellen Daten werden zuerst automatisch gesichert, dann überschrieben.\n\nFortfahren?`;
+if(!confirm(summary))return;
+/* Auto-Backup vor Import */
+narrator.cue('Erstelle Sicherungskopie Ihrer aktuellen Daten...');
+try{
+const autoBackup=buildExportData();
+downloadJson(autoBackup,`vitalplan-vor-import-${todayIso()}.json`);
+}catch(ab){/* Auto-Backup fehlgeschlagen — warnen aber weitermachen */
+if(!confirm('Automatisches Backup fehlgeschlagen. Trotzdem importieren?'))return;
+}
+/* Import durchführen */
+narrator.cue('Import läuft...');
+await idbPut('kv',data.profile);
+await idbPut('kv',data.plan);
+let imported={s:0,b:0,n:0,w:0};
+for(const s of sessions){if(s&&s.id){await idbPut('sessions',s);imported.s++;}}
+for(const b of benchmarks){if(b&&b.id){await idbPut('benchmarks',b);imported.b++;}}
+for(const n of nutrition){if(n&&n.id){await idbPut('nutrition',n);imported.n++;}}
+for(const w of wellbeing){if(w&&w.id){await idbPut('wellbeing',w);imported.w++;}}
+narrator.announce(`Import erfolgreich: ${imported.s} Trainings, ${imported.b} Messungen, ${imported.n} Ernährungs- und ${imported.w} Wohlbefinden-Einträge geladen. Seite wird neu geladen.`);
+setTimeout(()=>location.reload(),1200);
+}catch(err){narrator.critical('Fehler beim Import: '+err.message);alert('Import fehlgeschlagen: '+err.message);}
+};input.click();
+}
+async function confirmReset(){
+if(!confirm('Alle Daten unwiderruflich löschen?\n\nDies kann nicht rückgängig gemacht werden.'))return;
+/* Auto-Backup vor dem Löschen */
+try{
+const autoBackup=buildExportData();
+downloadJson(autoBackup,`vitalplan-vor-loeschung-${todayIso()}.json`);
+narrator.cue('Sicherungskopie erstellt.');
+}catch(e){/* ignore */}
+if(!confirm('Sicherungskopie wurde heruntergeladen.\n\nWirklich ALLE Daten löschen?'))return;
+const db=await openDB();db.close();_dbP=null;
+indexedDB.deleteDatabase(DB_NAME);
+/* Service Worker Cache leeren */
+if('caches'in window){const keys=await caches.keys();await Promise.all(keys.map(k=>caches.delete(k)));}
+narrator.announce('Alle Daten gelöscht. Seite wird neu geladen.');
+setTimeout(()=>location.reload(),500);
+}
 
 /* ===== MODAL ===== */
 function openProgressionModal(){saveFocus();STATE.modal={type:'progression'};render();}
@@ -2486,7 +2616,10 @@ return r==='granted';
 }
 function sendNotification(title,body,tag){
 if(!('Notification' in window)||Notification.permission!=='granted')return;
-try{new Notification(title,{body,icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🏋️</text></svg>',tag:tag||'vitalplan',badge:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💪</text></svg>',requireInteraction:false});}catch(e){if('serviceWorker' in navigator&&navigator.serviceWorker.controller){navigator.serviceWorker.ready.then(reg=>{reg.showNotification(title,{body,tag:tag||'vitalplan'});}).catch(()=>{});}}
+const opts={body,icon:'./icons/icon-192.png',badge:'./icons/icon-96.png',tag:tag||'vitalplan',vibrate:[200,100,200,100,200],requireInteraction:true,renotify:true,actions:[{action:'open',title:'🏋️ Öffnen'},{action:'dismiss',title:'Später'}]};
+/* Service Worker Notification (funktioniert im Hintergrund auf Samsung/Android) */
+if('serviceWorker'in navigator){navigator.serviceWorker.ready.then(reg=>{reg.showNotification(title,opts);}).catch(()=>{try{new Notification(title,opts);}catch(e){}});return;}
+try{new Notification(title,opts);}catch(e){}
 }
 let _reminderInterval=null;
 function startReminderEngine(){
@@ -2527,7 +2660,55 @@ await loadAll();
 narrator.init();
 await maybeCloseWeek();
 if(navigator.storage?.persist)navigator.storage.persist().catch(()=>{});
-if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
+/* --- PWA Service Worker Registration --- */
+if ('serviceWorker' in navigator) {
+  // Clevere Abfrage: Nur ausführen, wenn wir nicht im lokalen Dateisystem sind
+  if (window.location.protocol !== 'file:') {
+    try {
+      const swReg = await navigator.serviceWorker.register('./sw.js', {scope: './'});
+      swReg.addEventListener('updatefound', () => {
+        const nw = swReg.installing;
+        if (nw) nw.addEventListener('statechange', () => {
+          if (nw.state === 'installed' && navigator.serviceWorker.controller) {
+            nw.postMessage({type: 'SKIP_WAITING'});
+            narrator.announce('VitalPlan wurde aktualisiert. Seite wird neu geladen.');
+            setTimeout(() => location.reload(), 1500);
+          }
+        });
+      });
+      /* Periodic Background Sync für Erinnerungen */
+      if (swReg.periodicSync) {
+        try { await swReg.periodicSync.register('vitalplan-reminder-check', {minInterval: 60 * 60 * 1000}); } catch (e) {}
+      }
+      /* Notification-Schedules an SW senden */
+      if (STATE.profile?.reminderEnabled && STATE.profile?.reminderTime) {
+        const [rh, rm] = STATE.profile.reminderTime.split(':').map(Number);
+        const now = new Date();
+        const sched = new Date(now);
+        sched.setHours(rh, rm, 0, 0);
+        if (sched <= now) sched.setDate(sched.getDate() + 1);
+        navigator.serviceWorker.ready.then(r => {
+          if (r.active) r.active.postMessage({type: 'SCHEDULE_NOTIFICATION', payload: {title: 'VitalPlan Erinnerung', body: 'Zeit für Ihr Training! Starten Sie jetzt Ihre Übungen.', tag: 'vitalplan-training-daily', scheduledTime: sched.toISOString(), recurring: true, recurringTime: STATE.profile.reminderTime}});
+        });
+      }
+    } catch (err) {
+      // Fängt alle anderen Fehler ab (z.B. sw.js Datei fehlt, Browser blockiert es)
+      console.warn('PWA-Info: Service Worker nicht registriert (Offline-Modus inaktiv). Grund:', err.message);
+    }
+  } else {
+    console.log('PWA-Info: Lokale Datei (file://) erkannt. Service Worker wird übersprungen.');
+  }
+}
+/* --- PWA Install Prompt --- */
+let _deferredInstallPrompt=null;
+window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();_deferredInstallPrompt=e;showInstallBanner();});
+window.addEventListener('appinstalled',()=>{_deferredInstallPrompt=null;hideInstallBanner();narrator.announce('VitalPlan wurde erfolgreich als App installiert! Sie finden die App jetzt auf Ihrem Startbildschirm.');});
+function showInstallBanner(){let b=document.getElementById('pwa-install-banner');if(b)return;b=document.createElement('div');b.id='pwa-install-banner';b.setAttribute('role','alert');b.style.cssText='position:fixed;bottom:80px;left:12px;right:12px;background:linear-gradient(135deg,#1e40af,#1e3a8a);color:#fff;padding:20px;border-radius:20px;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,0.3);display:flex;flex-direction:column;gap:12px;animation:slideUp 0.4s ease';
+b.innerHTML=`<div style="display:flex;align-items:center;gap:12px"><span style="font-size:40px">📲</span><div><div style="font-size:20px;font-weight:700">VitalPlan installieren</div><div style="font-size:16px;opacity:0.9">Als App auf dem Startbildschirm — offline verfügbar, Benachrichtigungen, schnellerer Zugriff</div></div></div><div style="display:flex;gap:10px"><button id="pwa-install-btn" style="flex:1;padding:14px;font-size:18px;font-weight:700;background:#fff;color:#1e40af;border:none;border-radius:14px;cursor:pointer;min-height:52px">✓ Jetzt installieren</button><button id="pwa-dismiss-btn" style="padding:14px 20px;font-size:16px;background:rgba(255,255,255,0.2);color:#fff;border:2px solid rgba(255,255,255,0.4);border-radius:14px;cursor:pointer;min-height:52px">Später</button></div>`;
+document.body.appendChild(b);narrator.cue('VitalPlan kann als App installiert werden. Sie erhalten dann Benachrichtigungen und können offline trainieren. Tippen Sie auf Jetzt installieren oder auf Später.');
+document.getElementById('pwa-install-btn').addEventListener('click',async()=>{if(!_deferredInstallPrompt)return;_deferredInstallPrompt.prompt();const r=await _deferredInstallPrompt.userChoice;if(r.outcome==='accepted'){narrator.announce('Installation gestartet.');}else{narrator.cue('Installation abgebrochen. Sie können jederzeit über die Einstellungen installieren.');}hideInstallBanner();});
+document.getElementById('pwa-dismiss-btn').addEventListener('click',()=>{hideInstallBanner();narrator.cue('Installation wird übersprungen. Sie können jederzeit in den Einstellungen installieren.');});}
+function hideInstallBanner(){const b=document.getElementById('pwa-install-banner');if(b)b.remove();}
 startReminderEngine();
 const saved=await loadActiveWorkout();
 if(saved&&STATE.profile?.onboardingDone)STATE.modal={type:'resume',saved};
