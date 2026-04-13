@@ -250,7 +250,16 @@ riddell2017:{authors:'Riddell MC, Gallen IW, Smart CE, et al.',year:2017,journal
 sherrington2019:{authors:'Sherrington C, Fairhall NJ, Wallbank GK, et al.',year:2019,journal:'Cochrane Database Syst Rev',vol:'(1)',pages:'CD012424',title:'Exercise for preventing falls in older people living in the community'},
 podsiadlo1991:{authors:'Podsiadlo D, Richardson S',year:1991,journal:'J Am Geriatr Soc',vol:'39(2)',pages:'142-148',title:'The timed "Up & Go": a test of basic functional mobility'},
 rikli2013:{authors:'Rikli RE, Jones CJ',year:2013,journal:'J Aging Phys Act',vol:'21(3)',pages:'298-310',title:'Senior Fitness Test Manual (2nd ed.)'},
-guralnik1994:{authors:'Guralnik JM, Simonsick EM, Ferrucci L, et al.',year:1994,journal:'N Engl J Med',vol:'332(9)',pages:'556-561',title:'A short physical performance battery assessing lower extremity function'}
+guralnik1994:{authors:'Guralnik JM, Simonsick EM, Ferrucci L, et al.',year:1994,journal:'N Engl J Med',vol:'332(9)',pages:'556-561',title:'A short physical performance battery assessing lower extremity function'},
+nieuwboer2007:{authors:'Nieuwboer A, Kwakkel G, Rochester L, et al.',year:2007,journal:'J Neurol Neurosurg Psychiatry',vol:'78(2)',pages:'134-140',title:'Cueing training in the home improves gait-related mobility in Parkinson\'s disease'},
+mirelman2016:{authors:'Mirelman A, Rochester L, Maidan I, et al.',year:2016,journal:'Lancet',vol:'388(10050)',pages:'1170-1182',title:'Addition of a non-immersive virtual reality component to treadmill training to reduce fall risk in older adults'},
+allen2010:{authors:'Allen NE, Canning CG, Sherrington C, et al.',year:2010,journal:'Mov Disord',vol:'25(11)',pages:'1605-1611',title:'The effects of an exercise program on fall risk factors in people with Parkinson\'s disease'},
+vanderKolk2019:{authors:'van der Kolk NM, de Vries NM, Kessels RPC, et al.',year:2019,journal:'Lancet Neurol',vol:'18(11)',pages:'998-1008',title:'Effectiveness of home-based and remotely supervised aerobic exercise in Parkinson\'s disease'},
+domingos2022:{authors:'Domingos J, Dean J, Fernandes JB, et al.',year:2022,journal:'Npj Parkinson\'s Disease',vol:'8(1)',pages:'1-12',title:'Adherence to a community-based exercise program for people with PD'},
+shen2022:{authors:'Shen X, Mak MKY',year:2022,journal:'Npj Parkinson\'s Disease',vol:'8(1)',pages:'113',title:'Aerobic exercise for PD: a systematic review and meta-analysis of RCTs'},
+boucaMachado2020:{authors:'Bouça-Machado R, Rosário A, Caldeira D, et al.',year:2020,journal:'J Parkinsons Dis',vol:'10(1)',pages:'9-26',title:'Physical activity, exercise, and physiotherapy in Parkinson\'s disease: defining the concepts'},
+donovan2019:{authors:'Donovan S, Lim C, Diaz N, et al.',year:2019,journal:'Mov Disord Clin Pract',vol:'6(3)',pages:'212-219',title:'Laserlight cues for gait freezing in Parkinson\'s disease'},
+nocera2013:{authors:'Nocera JR, Stegemöller EL, Malaty IA, et al.',year:2013,journal:'Parkinsonism Relat Disord',vol:'19(11)',pages:'1027-1029',title:'Using the TUG with a dual task in people with Parkinson\'s disease'}
 };
 function fmtCitation(key){const c=CITATIONS[key];if(!c)return key;return`${c.authors.split(',')[0]} et al. ${c.year}, ${c.journal}`;}
 function fmtCitationFull(key){const c=CITATIONS[key];if(!c)return key;return`${c.authors} (${c.year}). ${c.title}. ${c.journal}, ${c.vol}, ${c.pages}.`;}
@@ -261,7 +270,32 @@ aero_pd:{short:"Parkinson · Aerobic-Meta (20 RCTs)",detail:"TUG SMD −0,41 · 
 strength_old:{short:"Ältere · Kraft (22 RCTs, n=3.656)",detail:"6-MWT +16,1 m · Ganggeschwindigkeit +0,05 m/s · Beinkraft SMD 2,01.",citationKeys:['liu2009']},
 t2d:{short:"Typ-2-Diabetes · Training ≥ 8 Wo.",detail:"6-MWT +51,6 m · 30-Sek-Chair-Stand +4,66 Wdh. · Leg-Press 1RM +18 kg · VO₂max +2,41 ml/kg/min.",citationKeys:['colberg2016']},
 t1d_safety:{short:"Typ-1-Diabetes · Belastungssteuerung",detail:"Vor moderatem Ausdauer 120–180 mg/dl · Kraft/HIIT 90–126 oft vertretbar · < 90 erst KH · > 250 + Ketone → nicht trainieren. Late-onset-Hypo bis 6 h nach Belastung.",citationKeys:['riddell2017']},
-sppb_tug:{short:"SPPB / TUG · Standard-Assessments",detail:"TUG > 13,5 s: erhöhtes Sturzrisiko. Chair-Stand (Rikli & Jones): altersnormierter Test.",citationKeys:['podsiadlo1991','rikli2013','guralnik1994']}
+sppb_tug:{short:"SPPB / TUG · Standard-Assessments",detail:"TUG > 13,5 s: erhöhtes Sturzrisiko. Chair-Stand (Rikli & Jones): altersnormierter Test.",citationKeys:['podsiadlo1991','rikli2013','guralnik1994']},
+pd_cueing:{short:"Parkinson · Cueing bei Freezing",detail:"Auditive/visuelle Cues verbessern Ganginitiierung und Schrittlänge. Wirkung ist aufgaben- und personspezifisch — Personalisierung entscheidend.",citationKeys:['nieuwboer2007','donovan2019']},
+pd_amplitude:{short:"Parkinson · Amplitude-Training",detail:"Gezielt übertriebene Schrittlänge und Armbewegung kompensiert PD-typische Hypokinesie. Effekt auf Ganggeschwindigkeit SMD +0,49.",citationKeys:['shen2022','mak2017']},
+pd_dualTask:{short:"Parkinson · Dual-Task-Training",detail:"Gestuftes Dual-Task-Training reduziert Sturzrisiko. Nur bei stabiler motorischer Basis einsetzen. Bei FOG oder OFF-State kontraindiziert.",citationKeys:['mirelman2016','nocera2013']},
+pd_reactive:{short:"Parkinson · Reaktive Balance",detail:"Reaktive Schrittübungen verbessern Sturzprävention bei PD. Immer abgesichert durchführen (Wand/Barren).",citationKeys:['allen2010','sherrington2019']},
+pd_aerobic:{short:"Parkinson · Aerobes Training (Meta 2022)",detail:"Balance SMD +0,99 · Ganggeschwindigkeit +0,49 · UPDRS-III −0,40. 150 Min/Woche moderat-intensiv empfohlen.",citationKeys:['shen2022','vanderKolk2019']},
+pd_strength_balance:{short:"Parkinson · Kraft-Balance-Kopplung",detail:"Gezieltes Krafttraining der unteren Extremität verbessert dynamische Balance und reduziert Fatigue. Sit-to-Stand, Step-up und Calf-Raise als Kernübungen.",citationKeys:['liu2009','allen2010']}
+};
+
+/* ===== EVIDENCE REGISTRY ===== */
+const EVIDENCE_REGISTRY={
+aerobic_pd:{rule:'150 Min/Woche moderates Ausdauertraining bei Parkinson',sourceIds:['mak2017','shu2014','shen2022','vanderKolk2019'],population:'Parkinson HY I-III',outcomes:['UPDRS-III −0,40','TUG SMD −0,41','6-MWT +0,35','Balance SMD +0,99'],confidence:'high',lastReviewed:'2024-06',appliesTo:['buildPdWorkout','progression']},
+cueing_fog:{rule:'Personalisiertes Cueing (auditiv/visuell/taktil) bei Freezing of Gait',sourceIds:['nieuwboer2007','donovan2019'],population:'Parkinson mit FOG',outcomes:['Ganginitiierung verbessert','Schrittlänge +0,32 SD','Freezing-Episoden reduziert'],confidence:'high',lastReviewed:'2024-06',appliesTo:['fogCueSelection','fogExerciseDose','scoreExercise']},
+amplitude_training:{rule:'Übertriebene Amplitude (BIG-Konzept) kompensiert Hypokinesie',sourceIds:['shen2022','mak2017'],population:'Parkinson alle Stadien',outcomes:['Ganggeschwindigkeit +0,49 SD','Schrittlänge verbessert'],confidence:'high',lastReviewed:'2024-06',appliesTo:['buildPdWorkout','scoreExercise']},
+dual_task:{rule:'Gestuftes Dual-Task-Training nur bei stabiler motorischer Basis; kontraindiziert bei FOG/OFF',sourceIds:['mirelman2016','nocera2013'],population:'Parkinson ohne aktives FOG, ON-State',outcomes:['Sturzrisiko reduziert','Dual-Task-Interferenz verringert'],confidence:'moderate',lastReviewed:'2024-06',appliesTo:['isSafeForContext','buildPdWorkout']},
+reactive_balance:{rule:'Reaktive Schrittübungen immer abgesichert (Wand/Barren/Begleitperson)',sourceIds:['allen2010','sherrington2019'],population:'Parkinson, sturzgefährdete Ältere',outcomes:['Reaktionszeit verbessert','Sturzrate −24%','Frakturen −27%'],confidence:'high',lastReviewed:'2024-06',appliesTo:['isSafeForContext','computeRiskProfile']},
+strength_older:{rule:'Progressive Kraftsteigerung mit mind. 2 Einheiten/Woche',sourceIds:['liu2009'],population:'Ältere ≥ 60 Jahre',outcomes:['Beinkraft SMD 2,01','6-MWT +16 m','Ganggeschwindigkeit +0,05 m/s'],confidence:'high',lastReviewed:'2024-06',appliesTo:['buildLegacyWorkout','progression']},
+t2d_exercise:{rule:'Mind. 150 Min moderate Aktivität + 2-3 Krafteinheiten/Woche bei T2D',sourceIds:['colberg2016'],population:'Typ-2-Diabetes',outcomes:['6-MWT +51,6 m','Chair-Stand +4,66','VO₂max +2,41 ml/kg/min'],confidence:'high',lastReviewed:'2024-06',appliesTo:['buildWorkout','preCheck']},
+t1d_safety:{rule:'BZ 120-180 mg/dl vor moderatem Training; >250 + Ketone → nicht trainieren',sourceIds:['riddell2017'],population:'Typ-1-Diabetes',outcomes:['Hypo-Prävention','sichere Trainingssteuerung'],confidence:'high',lastReviewed:'2024-06',appliesTo:['preCheck','safetyRules']},
+fall_prevention:{rule:'Balance + Funktionstraining ≥ 3×/Woche reduziert Sturzrate',sourceIds:['sherrington2019'],population:'Ältere ≥ 60 in der Gemeinschaft',outcomes:['Stürze −24%','Sturzbedingte Frakturen −27%'],confidence:'high',lastReviewed:'2024-06',appliesTo:['buildWorkout','buildPdWorkout']},
+tug_cutoff:{rule:'TUG > 13,5 s = erhöhtes Sturzrisiko → Support-Übungen bevorzugen',sourceIds:['podsiadlo1991'],population:'Ältere, Parkinson',outcomes:['Sturzrisiko-Screening'],confidence:'high',lastReviewed:'2024-06',appliesTo:['benchClassify','computeRiskProfile']},
+pd_home_aerobic:{rule:'Heim-basiertes Ausdauertraining bei PD ist effektiv und sicher',sourceIds:['vanderKolk2019'],population:'Parkinson HY I-III',outcomes:['VO₂max +4,2%','UPDRS-Motor stabil','Adherence 78%'],confidence:'moderate',lastReviewed:'2024-06',appliesTo:['buildPdWorkout']},
+pd_adherence:{rule:'Gemeinschaftsbasierte Programme verbessern Langzeit-Adhärenz',sourceIds:['domingos2022','boucaMachado2020'],population:'Parkinson alle Stadien',outcomes:['Adhärenz verbessert','Aktivitätslevel langfristig höher'],confidence:'moderate',lastReviewed:'2024-06',appliesTo:['progression','guideView']},
+pd_exercise_definition:{rule:'Klare Abgrenzung von PA, Exercise und Physiotherapie bei PD',sourceIds:['boucaMachado2020'],population:'Parkinson',outcomes:['Konzeptuelle Klarheit für Trainingsplanung'],confidence:'low',lastReviewed:'2024-06',appliesTo:['guideView']},
+cue_fading:{rule:'Cue-Fading: visuell→kürzer→ohne; auditiv→langsamer→selbst-getaktet',sourceIds:['nieuwboer2007'],population:'Parkinson mit FOG',outcomes:['Langfristige Selbstständigkeit','Transfer in Alltag'],confidence:'moderate',lastReviewed:'2024-06',appliesTo:['fogCueFadingOptions','progression']},
+medication_timing:{rule:'Training im ON-State optimiert Leistung; OFF-State → nur sichere Übungen',sourceIds:['vanderKolk2019','boucaMachado2020'],population:'Parkinson mit L-Dopa',outcomes:['Bessere Trainingsqualität','Weniger Freezing während Training'],confidence:'moderate',lastReviewed:'2024-06',appliesTo:['inferMedicationState','isSafeForContext','preCheck']}
 };
 
 /* ===== EXERCISE LIBRARY ===== */
@@ -339,6 +373,73 @@ standing:{hy:['none','I','II'],cue:'Je 20 Sek. halten · Wade · Oberschenkel ·
 coaching:['Wade dehnen. Hintere Ferse am Boden. Zwanzig Sekunden.','Seite wechseln. Ruhig atmen in der Dehnung.','Jetzt Oberschenkel-Vorderseite. Fuß zum Po, Knie zeigt nach unten.','Seite wechseln. Nur leichtes Ziehen, kein Schmerz.','Oberschenkel-Rückseite. Ferse hoch, Bein strecken, leicht vorbeugen.','Seite wechseln. Ruhig atmen.','Wunderbar. Die Dehnung tut Ihren Muskeln gut.','Letzte Dehnung. Noch ein paar Sekunden.']},
 seated:{hy:['III'],cue:'Im Sitzen dehnen · Bein strecken · Zehen anziehen',safety:'Stabiler Stuhl. Sanft dehnen, nur bis zum leichten Ziehen. Nie federn.',voice:'Dehnungen im Sitzen.',audioDesc:'Setzen Sie sich auf die Stuhlkante. Strecken Sie ein Bein nach vorn aus, Ferse am Boden. Ziehen Sie die Zehen Richtung Körper. Sie spüren die Dehnung in der Oberschenkel-Rückseite. Zwanzig Sekunden halten, dann Seite wechseln. Dann Oberkörper sanft nach vorn beugen für mehr Dehnung. Alles langsam und ohne Federn.',
 coaching:['Bein strecken. Zehen anziehen. Zwanzig Sekunden.','Seite wechseln. Ruhig atmen.','Oberkörper sanft nach vorn für mehr Dehnung.','Andere Seite. Letzte Dehnung.','Sehr gut gedehnt. Fast fertig.']}}
+},
+/* ===== PD-SPEZIFISCHE ÜBUNGEN ===== */
+pd_gait_initiation:{id:'pd_gait_initiation',cat:'balance',name:'Gangstart mit Cue',type:'reps',baseReps:6,baseSets:2,restSec:20,secsPerRep:6,illus:'🎯',illusAlt:'Gangstart',citations:['nieuwboer2007','donovan2019'],tags:['gait-initiation','auditory-cue','visual-cue','fog-initiation'],outcomes:['initiationQuality','freezingCount','stepLength'],supported:true,variants:{
+free:{hy:['none','I','II'],cue:'Gewicht auf Standbein verlagern · auf Signal großen ersten Schritt machen · Ferse zuerst',safety:'Freie Fläche, Wand in Reichweite. Bei Freezing: stoppen, Gewicht verlagern, erneut versuchen.',voice:'Gangstart-Training mit Cue.',audioDesc:'Stehen Sie aufrecht, Füße hüftbreit. Auf das akustische Signal verlagern Sie Ihr Gewicht bewusst auf ein Bein und machen einen betont großen ersten Schritt mit dem anderen. Ferse zuerst aufsetzen. Drei bis vier Schritte gehen, stoppen, umdrehen, auf nächstes Signal warten. Diese Übung trainiert gezielt die Ganginitiierung, die bei Parkinson oft einfriert.',
+coaching:['Gewicht verlagern. Auf das Signal warten.','Großer erster Schritt! Ferse zuerst.','Stoppen. Umdrehen. Nächstes Signal abwarten.','Sehr gut. Bewusst den ersten Schritt übertreiben.','Weiter so. Jeder Start wird besser.']},
+supported:{hy:['III'],cue:'Hand an Wand · Gewicht verlagern · auf Signal starten',safety:'Hand bleibt an Wand oder Stuhllehne. Kleine, sichere Schritte nach Signal. Bei Freezing: rhythmisch wippen, dann starten.',voice:'Gangstart mit Halt.',audioDesc:'Eine Hand an der Wand. Auf das Signal verlagern Sie Ihr Gewicht und machen einen bewussten ersten Schritt. Drei Schritte, stoppen, zurück. Die Wandhand gibt Sicherheit.',
+coaching:['Hand an der Wand. Auf das Signal warten.','Gewicht verlagern und losgehen.','Gut gemacht. Stoppen und zurück.']}}},
+pd_big_steps_cued:{id:'pd_big_steps_cued',cat:'balance',name:'Große Schritte mit Takt',type:'time',baseSec:90,illus:'🥁',illusAlt:'Schritte im Takt',citations:['shen2022','nieuwboer2007'],tags:['amplitude-gait','auditory-cue','visual-cue'],outcomes:['gaitSpeed','stepLength','rhythmAccuracy'],supported:false,variants:{
+free:{hy:['none','I','II'],cue:'Im Takt gehen · betont GROSSE Schritte · Ferse-Abrollen · Arme schwingen',safety:'Freie Fläche mindestens 4 Meter. Feste Schuhe. Bei Freezing: stoppen, auf nächsten Takt warten, dann starten.',voice:'Große Schritte im Takt.',audioDesc:'Gehen Sie im Rhythmus eines inneren Metronoms betont große Schritte. Jeder Schritt auf den Takt. Ferse zuerst aufsetzen, bewusst abrollen. Arme kräftig gegenseitig mitschwingen. Stellen Sie sich vor, Sie steigen über Markierungen am Boden. Am Ende des Raums umdrehen und zurück.',
+coaching:['Im Takt. GROSS. Ferse zuerst.','Arme mitschwingen. Links-Rechts im Rhythmus.','Umdrehen. Gleich weiter im Takt.','Übertreiben Sie die Schrittlänge bewusst.','Sehr gut. Rhythmus halten.']},
+supported:{hy:['III'],cue:'Hand an Wand · im Takt große Schritte · Ferse zuerst',safety:'Hand an der Wand. Takt langsamer. Bei Freezing: stoppen, wippen, neu starten.',voice:'Große Schritte im Takt mit Halt.',audioDesc:'Hand leicht an der Wand. Gehen Sie im langsamen Takt betont große Schritte. Ferse zuerst. Am Ende umdrehen, andere Hand an die Wand.',
+coaching:['Im Takt. Große Schritte.','Hand gibt Sicherheit. Weiter im Rhythmus.','Umdrehen und zurück.']}}},
+pd_turn_90:{id:'pd_turn_90',cat:'balance',name:'90°-Drehung segmentiert',type:'reps',baseReps:6,baseSets:2,restSec:20,secsPerRep:8,illus:'↩️',illusAlt:'90-Grad-Drehung',citations:['nieuwboer2007','allen2010'],tags:['turning','visual-cue','segmented'],outcomes:['turningTime','freezingCount','balanceConfidence'],supported:true,equipment:['wall_or_chair'],variants:{
+guided:{hy:['none','I','II'],cue:'Kopf dreht zuerst · Schultern folgen · Füße in kleinen Schritten nachsetzen · nicht überkreuzen',safety:'Wand oder Stuhl in Griffweite. Kleine Schritte beim Drehen, nicht überkreuzen. Bei Schwindel sofort festhalten.',voice:'Neunzig-Grad-Drehung in Segmenten.',audioDesc:'Stehen Sie aufrecht. Bei der 90-Grad-Drehung führt der Kopf: drehen Sie zuerst den Kopf in die neue Richtung. Dann folgen die Schultern. Dann setzen Sie die Füße in kleinen Schritten nach, ohne sie zu überkreuzen. Mindestens drei kleine Schritte für eine 90-Grad-Drehung. Langsam und kontrolliert. Abwechselnd nach links und rechts drehen.',
+coaching:['Kopf zuerst. Dann Schultern. Dann Füße.','Kleine Schritte. Nicht überkreuzen.','Andere Richtung. Kopf führt.','Ruhig und kontrolliert. Kein Eilen.','Sehr gut segmentiert. Weiter so.']},
+supported:{hy:['III'],cue:'Hand an Halt · Kopf dreht · kleine Schritte nachsetzen',safety:'Eine Hand immer am Halt. Sehr kleine Schritte. Bei Freezing: stoppen, Gewicht verlagern, dann weiterdrehen.',voice:'Drehung mit Halt.',audioDesc:'Eine Hand an Wand oder Stuhl. Kopf dreht zuerst, Schultern folgen, Füße in ganz kleinen Schritten nachsetzen. Langsam und sicher.',
+coaching:['Hand bleibt am Halt. Kopf dreht zuerst.','Kleine Schritte nachsetzen.','Andere Richtung. Langsam.']}}},
+pd_turn_180:{id:'pd_turn_180',cat:'balance',name:'180°-Drehung segmentiert',type:'reps',baseReps:4,baseSets:2,restSec:25,secsPerRep:10,illus:'🔄',illusAlt:'180-Grad-Drehung',citations:['nieuwboer2007','allen2010'],tags:['turning','segmented','visual-cue'],outcomes:['turningTime','freezingCount','balanceConfidence'],supported:true,equipment:['wall_or_chair'],variants:{
+guided:{hy:['none','I','II'],cue:'Kopf führt · Schultern folgen · mindestens 5 kleine Schritte · nie überkreuzen',safety:'Wand oder Stuhl in Griffweite. Mindestens fünf Schritte für volle Drehung. Langsam, nicht schwungvoll drehen.',voice:'Einhundertachtzig-Grad-Drehung segmentiert.',audioDesc:'Stehen Sie aufrecht. Für die 180-Grad-Drehung: Kopf dreht zuerst in die neue Richtung, Schultern folgen, dann die Füße in mindestens fünf kleinen Schritten nachsetzen. Nie die Füße überkreuzen. Am Ende stehen Sie in der Gegenrichtung. Abwechselnd links und rechts herum.',
+coaching:['Kopf führt die Drehung. Langsam.','Mindestens fünf Schritte. Nicht hetzen.','Andere Richtung. Kopf zuerst.','Kontrolliert und sicher. Sehr gut.']},
+supported:{hy:['III'],cue:'Hand an Halt · Kopf führt · viele kleine Schritte',safety:'Hand bleibt am Halt. Sehr langsam drehen. Bei Freezing: stoppen, wippen, dann weiter.',voice:'Große Drehung mit Halt.',audioDesc:'Hand an Wand oder Stuhl. Kopf dreht, Schultern folgen, viele kleine Schritte. Mindestens sechs Schritte für die volle Drehung. Extrem langsam.',
+coaching:['Hand bleibt fest. Kopf führt.','Ganz kleine Schritte. Sehr langsam.','Gut gedreht. Andere Richtung.']}}},
+pd_reactive_forward:{id:'pd_reactive_forward',cat:'balance',name:'Reaktiver Vorwärtsschritt',type:'reps',baseReps:5,baseSets:2,restSec:20,secsPerRep:6,illus:'⬆️',illusAlt:'Schritt nach vorn',citations:['allen2010','sherrington2019'],tags:['reactive-balance','supported','forward-step'],outcomes:['reactionTime','stepAccuracy','nearFall'],supported:true,equipment:['wall'],variants:{
+wall:{hy:['none','I','II','III'],cue:'An Wand lehnen · auf Signal einen schnellen Schritt nach vorn · auffangen · zurück',safety:'Wand direkt hinter Ihnen. Beide Hände bereit zum Abstützen. Nur ein Schritt, nicht stolpern. Bei Unsicherheit: kleinerer Vorneigungswinkel.',voice:'Reaktiver Schritt nach vorn an der Wand.',audioDesc:'Stehen Sie mit dem Rücken zur Wand, Hände bereit. Lehnen Sie sich leicht von der Wand weg nach vorn. Auf das Signal machen Sie einen schnellen Schritt nach vorn, um sich aufzufangen. Dann kontrolliert zurück zur Wand. Diese Übung trainiert die Sturzprävention: die Fähigkeit, sich schnell mit einem Schritt abzufangen.',
+coaching:['Leicht nach vorn lehnen. Auf das Signal warten.','Schneller Schritt! Auffangen. Gut.','Zurück zur Wand. Nächste Wiederholung.','Schnell und sicher. Sehr gut.','Letzte Wiederholung. Bereit?']}}},
+pd_reactive_lateral:{id:'pd_reactive_lateral',cat:'balance',name:'Reaktiver Seitschritt',type:'reps',baseReps:5,baseSets:2,restSec:20,secsPerRep:6,illus:'↔️',illusAlt:'Schritt zur Seite',citations:['allen2010','sherrington2019'],tags:['reactive-balance','supported','lateral-step'],outcomes:['reactionTime','stepAccuracy','nearFall'],supported:true,equipment:['wall_or_chair'],variants:{
+supported:{hy:['none','I','II','III'],cue:'Gewicht zur Seite verlagern · auf Signal schnellen Seitschritt · auffangen · zurück',safety:'Wand oder Stuhl auf beiden Seiten erreichbar. Nur ein Schritt zur Seite. Nicht über eigene Füße stolpern.',voice:'Reaktiver Seitschritt.',audioDesc:'Stehen Sie aufrecht, Halt in Reichweite auf beiden Seiten. Verlagern Sie Ihr Gewicht leicht zur Seite. Auf das Signal machen Sie einen schnellen Schritt zur Seite, um sich abzufangen. Dann zurück zur Mitte. Abwechselnd links und rechts. Trainiert die seitliche Sturzprävention.',
+coaching:['Gewicht zur Seite. Signal abwarten.','Schneller Seitschritt! Auffangen.','Andere Seite. Bereit?','Gut reagiert. Weiter so.','Letzte Wiederholung.']}}},
+pd_reactive_backward:{id:'pd_reactive_backward',cat:'balance',name:'Reaktiver Rückschritt',type:'reps',baseReps:4,baseSets:2,restSec:25,secsPerRep:6,illus:'⬇️',illusAlt:'Schritt nach hinten',citations:['allen2010','sherrington2019'],tags:['reactive-balance','supported','backward-step'],outcomes:['reactionTime','stepAccuracy','nearFall'],supported:true,equipment:['wall'],variants:{
+wall:{hy:['none','I','II','III'],cue:'Leicht nach hinten lehnen · auf Signal Rückschritt · auffangen · zurück',safety:'Wand direkt hinter Ihnen als Sicherung. Nur ein kleiner Schritt nach hinten. Nicht zu weit lehnen. Bei Unsicherheit: Partner anwesend.',voice:'Reaktiver Schritt nach hinten.',audioDesc:'Stehen Sie mit dem Gesicht von der Wand weg, Wand hinter Ihnen als Sicherung. Lehnen Sie sich minimal nach hinten. Auf das Signal: schneller Schritt nach hinten, um sich abzufangen. Die Wand hinter Ihnen ist Ihre Sicherung. Rückwärts-Stürze sind bei Parkinson besonders gefährlich, daher ist diese Übung besonders wichtig.',
+coaching:['Minimal nach hinten lehnen. Signal abwarten.','Rückschritt! Auffangen. Wand gibt Sicherheit.','Zurück zur Ausgangsposition.','Gut reagiert. Diese Übung ist sehr wichtig.']}}},
+pd_stop_and_go:{id:'pd_stop_and_go',cat:'balance',name:'Stopp-und-Los',type:'time',baseSec:90,illus:'🚦',illusAlt:'Stopp und Los',citations:['nieuwboer2007','donovan2019'],tags:['fog-initiation','auditory-cue','stop-start'],outcomes:['initiationQuality','freezingCount','reactionTime'],supported:false,variants:{
+free:{hy:['none','I','II'],cue:'Auf "Los" gehen · auf "Stopp" sofort stehen bleiben · auf nächstes "Los" wieder starten',safety:'Freie Fläche. Keine Hindernisse. Bei Freezing beim Neustart: Gewicht verlagern, dann bewusst großen Schritt.',voice:'Stopp-und-Los-Training.',audioDesc:'Gehen Sie auf einer freien Fläche. Auf das Signal "Los" gehen Sie mit großen Schritten los. Auf "Stopp" bleiben Sie sofort stehen. Dann warten Sie auf das nächste "Los". Dieses Training verbessert die Ganginitiierung nach Stopps und hilft gegen Freezing-Episoden.',
+coaching:['Los! Große Schritte.','Stopp! Sofort stehen bleiben.','Warten auf das nächste Signal.','Los! Bewusst großer erster Schritt.','Stopp! Gut reagiert.','Weiter so. Los!']},
+supported:{hy:['III'],cue:'Hand an Wand · auf Signal gehen und stoppen',safety:'Hand an der Wand. Kleine, sichere Schritte. Bei Freezing: wippen, dann starten.',voice:'Stopp-und-Los mit Halt.',audioDesc:'Hand an der Wand. Auf "Los" gehen Sie los, auf "Stopp" bleiben Sie stehen. Sichere, kontrollierte Schritte.',
+coaching:['Los! Sicher gehen.','Stopp! Gut gehalten.','Nächstes Signal abwarten.','Los! Erster Schritt bewusst.']}}},
+pd_doorway_drill:{id:'pd_doorway_drill',cat:'balance',name:'Türdurchgangs-Training',type:'reps',baseReps:6,baseSets:2,restSec:20,secsPerRep:8,illus:'🚪',illusAlt:'Durch Tür gehen',citations:['nieuwboer2007','donovan2019'],tags:['doorway','visual-cue','fog-doorway'],outcomes:['freezingCount','gaitContinuity','confidence'],supported:false,variants:{
+standard:{hy:['none','I','II','III'],cue:'Vor Türrahmen: bewusst großen Schritt ÜBER die Schwelle denken · Blick auf Ziel hinter der Tür · nicht auf den Boden schauen',safety:'Türrahmen frei von Schwellen und Hindernissen. Keine Türklinke die stört. Bei Freezing: stoppen, Gewicht verlagern, Blick auf Ziel hinter Tür richten, dann großen Schritt.',voice:'Türdurchgangs-Training.',audioDesc:'Gehen Sie auf eine offene Tür zu. Vor dem Türrahmen: Blick hoch, auf ein Ziel hinter der Tür richten. Stellen Sie sich eine Linie am Boden vor, über die Sie bewusst einen großen Schritt machen. Durch die Tür gehen, umdrehen, zurückgehen. Türdurchgänge sind ein häufiger Freezing-Trigger. Dieses Training nutzt visuelle Cues um Freezing zu durchbrechen.',
+coaching:['Blick auf Ziel hinter der Tür.','Großer Schritt über die Schwelle.','Durch die Tür. Gut gemacht.','Umdrehen und zurück. Blick hoch.','Immer den Blick auf das Ziel richten.']}}},
+pd_dual_task_motor:{id:'pd_dual_task_motor',cat:'cardio',name:'Gehen + Motorische Aufgabe',type:'time',baseSec:120,illus:'🤹',illusAlt:'Dual-Task motorisch',citations:['mirelman2016','nocera2013'],tags:['dual-task','motor','graded'],outcomes:['gaitSpeed','taskAccuracy','freezingCount','nearFall'],supported:false,variants:{
+standard:{hy:['none','I','II'],cue:'Gehen + Ball oder Flasche von Hand zu Hand übergeben · Gehtempo beibehalten',safety:'Freie Fläche. Leichter Gegenstand (weicher Ball oder leere Flasche). Bei Gangverschlechterung: Aufgabe weglassen, nur Gehen. Nicht bei schwerem Freezing oder OFF-State.',voice:'Gehen mit motorischer Zusatzaufgabe.',audioDesc:'Gehen Sie auf einer freien Fläche mit normalem Tempo. Dabei übergeben Sie einen weichen Ball oder eine leichte Flasche von einer Hand in die andere. Versuchen Sie, das Gehtempo beizubehalten. Wenn Sie merken, dass der Gang stockt: Ball weglassen, nur Gehen. Diese Übung trainiert die Doppelaufgaben-Fähigkeit, die bei Parkinson oft eingeschränkt ist.',
+coaching:['Gehen und Ball übergeben. Tempo halten.','Gleichmäßig weitergehen. Ball wechselt.','Wenn Gang stockt: Ball weglassen, nur Gehen.','Sehr gut. Beides gleichzeitig.','Weiter so. Fast geschafft.']},
+skip:{hy:['III'],skip:true}}},
+pd_dual_task_cognitive:{id:'pd_dual_task_cognitive',cat:'cardio',name:'Gehen + Kopfrechnen',type:'time',baseSec:120,illus:'🧮',illusAlt:'Dual-Task kognitiv',citations:['mirelman2016','nocera2013'],tags:['dual-task','cognitive','graded'],outcomes:['gaitSpeed','taskAccuracy','freezingCount','nearFall'],supported:false,variants:{
+standard:{hy:['none','I','II'],cue:'Gehen + von 100 in 3er-Schritten rückwärts zählen · Gehtempo beibehalten',safety:'Freie Fläche. Bei Gangverschlechterung sofort Zählen stoppen und nur gehen. Nicht bei Freezing oder OFF-State. Nur einsetzen wenn Gehen allein stabil ist.',voice:'Gehen und dabei rückwärts zählen.',audioDesc:'Gehen Sie auf einer freien Fläche. Dabei zählen Sie laut von 100 in Dreierschritten rückwärts: 100, 97, 94, 91... Versuchen Sie, das Gehtempo beizubehalten. Es ist normal, dass der Gang etwas langsamer wird. Aber wenn er stark stockt oder einfriert: Zählen sofort stoppen, nur Gehen. Diese kognitive Dual-Task-Übung ist anspruchsvoller als die motorische.',
+coaching:['Gehen und zählen. 100, 97, 94...','Gehtempo halten. Weiter zählen.','Wenn Gang stockt: nur Gehen!','Gut gemacht. Beides gleichzeitig.','Letzte Minute. Weiter so.']},
+skip:{hy:['III'],skip:true}}},
+pd_step_up:{id:'pd_step_up',cat:'strength',name:'Step-up',type:'reps',baseReps:5,baseSets:2,restSec:40,secsPerRep:6,illus:'⬆️',illusAlt:'Stufe steigen',citations:['liu2009','allen2010'],tags:['lower-limb','step-up','functional'],outcomes:['legStrength','balanceConfidence'],supported:true,equipment:['step','wall_or_chair'],variants:{
+standard:{hy:['none','I','II'],cue:'Ganzer Fuß auf Stufe · nach oben drücken · kontrolliert runter',safety:'Niedrige, stabile Stufe. Wand oder Stuhl zum Festhalten. Ganzer Fuß muss auf die Stufe passen. Knie zeigt über Zehen, nicht nach innen.',voice:'Step-up auf niedrige Stufe.',audioDesc:'Stehen Sie vor einer niedrigen, stabilen Stufe. Wand oder Stuhl in Griffweite. Setzen Sie einen Fuß komplett auf die Stufe. Drücken Sie sich mit dem vorderen Bein nach oben, bis Sie oben stehen. Dann kontrolliert mit dem anderen Fuß zuerst wieder heruntersteigen. Abwechselnd links und rechts führend. Tempo: drei Sekunden hoch, drei Sekunden runter.',
+coaching:['Ganzer Fuß auf die Stufe.','Hochdrücken. Oben kurz stehen.','Kontrolliert runter. Andere Seite.','Knie über Zehen, nicht nach innen.','Gut gemacht. Weiter so.']},
+skip:{hy:['III'],skip:true}}},
+pd_hip_drive:{id:'pd_hip_drive',cat:'strength',name:'Hüftstreckung',type:'reps',baseReps:6,baseSets:2,restSec:30,secsPerRep:5,illus:'🦵',illusAlt:'Hüfte strecken',citations:['liu2009','allen2010'],tags:['lower-limb','hip-extension','functional'],outcomes:['hipStrength','gaitPush'],supported:true,equipment:['wall_or_chair'],variants:{
+standing:{hy:['none','I','II','III'],cue:'Hand an Halt · Bein gestreckt nach hinten führen · Po anspannen · kontrolliert zurück',safety:'Hand an Wand oder Stuhl. Oberkörper aufrecht, nicht nach vorn kippen. Bein nur so weit, wie Rücken gerade bleibt.',voice:'Hüftstreckung am Halt.',audioDesc:'Stehen Sie aufrecht, eine Hand an Wand oder Stuhllehne. Führen Sie ein Bein gestreckt nach hinten, als wollten Sie mit der Ferse nach hinten treten. Spüren Sie die Spannung im Po. Zwei Sekunden halten. Dann kontrolliert zurück. Fünf Mal pro Seite, dann wechseln. Diese Übung stärkt die Hüftstrecker, die für den Abstoß beim Gehen wichtig sind.',
+coaching:['Bein nach hinten. Po anspannen.','Halten. Und zurück.','Oberkörper bleibt aufrecht.','Seite wechseln.','Gut gemacht. Letzte Wiederholungen.']}}},
+pd_calf_raise_prog:{id:'pd_calf_raise_prog',cat:'strength',name:'Wadenheben progressiv',type:'reps',baseReps:8,baseSets:2,restSec:30,secsPerRep:5,illus:'🦶',illusAlt:'Wadenheben einbeinig',citations:['liu2009','allen2010'],tags:['lower-limb','calf','progressive'],outcomes:['calfStrength','ankleStability'],supported:true,equipment:['wall_or_chair'],variants:{
+bilateral:{hy:['none','I','II','III'],cue:'Beide Fersen hoch · 3 Sek. halten · betont langsam senken · Exzentrik!',safety:'Beide Hände an Wand oder Stuhl. Knie nicht durchdrücken. Langsames Senken ist der wichtigste Teil.',voice:'Wadenheben mit betontem Absenken.',audioDesc:'Stehen Sie mit beiden Händen an Wand oder Stuhllehne. Drücken Sie beide Fersen hoch auf die Zehenspitzen. Drei Sekunden oben halten. Dann ganz langsam — vier bis fünf Sekunden — die Fersen wieder absenken. Das langsame Absenken (exzentrisch) ist der trainingseffektivste Teil. Knie bleiben leicht gebeugt.',
+coaching:['Fersen hoch. Drei Sekunden halten.','Jetzt gaaaaanz langsam senken.','Und wieder hoch. Halten.','Langsam runter. Das ist der wichtige Teil.','Weiter so. Letzte Wiederholungen.']}}},
+pd_sit_to_stand_prog:{id:'pd_sit_to_stand_prog',cat:'strength',name:'Aufstehen progressiv',type:'reps',baseReps:5,baseSets:2,restSec:45,secsPerRep:8,illus:'💺',illusAlt:'Aufstehen Variation',citations:['liu2009','allen2010'],tags:['sit-to-stand','progressive','functional'],outcomes:['legStrength','riseSpeed','functionalMobility'],supported:true,equipment:['chair'],variants:{
+slow:{hy:['none','I','II'],cue:'Arme verschränkt · 4 Sek. hoch · 1 Sek. stehen · 4 Sek. kontrolliert setzen · LANGSAM!',safety:'Stuhl an Wand. Wenn nötig Hände auf Oberschenkel. Bei Schwindel oben: kurz stehen bleiben.',voice:'Langsames Aufstehen und Setzen.',audioDesc:'Stabiler Stuhl an der Wand. Arme über der Brust gekreuzt. Stehen Sie betont langsam auf: vier volle Sekunden für den Weg nach oben. Oben eine Sekunde stehen. Dann vier Sekunden kontrolliert hinsetzen. Das langsame Tempo ist der Trainingsreiz. Wenn es ohne Arme nicht geht: Hände auf die Oberschenkel ist erlaubt.',
+coaching:['Langsam hoch. Eins. Zwei. Drei. Vier.','Oben stehen. Gleichgewicht.','Jetzt langsam setzen. Eins. Zwei. Drei. Vier.','Nicht plumpsen! Kontrolliert.','Weiter so. Tempo ist perfekt.']},
+with_arms:{hy:['III'],cue:'Hände auf Armlehnen · langsam 4 Sek. hoch · 4 Sek. setzen',safety:'Stuhl mit Armlehnen an Wand. Bei Schwindel sitzen bleiben.',voice:'Langsames Aufstehen mit Armstütze.',audioDesc:'Stuhl mit Armlehnen an der Wand. Hände auf Armlehnen. Vier Sekunden zum Aufstehen. Oben stehen bleiben. Vier Sekunden zum Hinsetzen. Kontrolliert, nicht fallen lassen.',
+coaching:['Langsam hoch mit Armstütze.','Oben kurz stehen.','Langsam setzen. Kontrolliert.']}}},
+pd_weight_shift_cued:{id:'pd_weight_shift_cued',cat:'warmup',name:'Gewichtsverlagerung mit Cue',type:'time',baseSec:60,illus:'🎵',illusAlt:'Gewicht im Takt',citations:['nieuwboer2007','shen2022'],tags:['cueing','gait-initiation','weight-shift','auditory-cue'],outcomes:['shiftQuality','rhythmAccuracy'],supported:true,equipment:['wall_or_chair'],variants:{
+standing:{hy:['none','I','II'],cue:'Im Takt Gewicht links-rechts verlagern · Fuß darf kurz vom Boden · Rhythmus halten',safety:'Wand oder Stuhl in Griffweite. Bei Schwindel sofort festhalten. Nicht zu schnell.',voice:'Gewichtsverlagerung im Takt.',audioDesc:'Stehen Sie aufrecht, Wand oder Stuhl in Griffweite. Verlagern Sie Ihr Gewicht rhythmisch von links nach rechts und zurück. Auf jeden Takt ein Seitenwechsel. Der entlastete Fuß darf kurz den Boden verlassen. Wie ein sanftes Wiegen im Rhythmus. Diese Übung bereitet die Ganginitiierung vor.',
+coaching:['Links. Rechts. Im Takt.','Rhythmus halten. Gleichmäßig wiegen.','Fuß darf kurz vom Boden.','Weiter im Rhythmus. Gut so.','Letzte Sekunden. Auspendeln.']},
+supported:{hy:['III'],cue:'Beide Hände an Halt · sanft wiegen · im Takt',safety:'Beide Hände an Wand oder Stuhl. Langsamer Takt. Sanftes Wiegen.',voice:'Gewichtsverlagerung mit Halt im Takt.',audioDesc:'Beide Hände an Wand oder Stuhllehne. Wiegen Sie Ihr Gewicht sanft im Takt von links nach rechts. Langsam und kontrolliert.',
+coaching:['Sanft wiegen. Links. Rechts.','Rhythmus halten.','Gut gemacht. Weiter wiegen.']}}
 }};
 
 /* ===== BENCHMARK TESTS ===== */
@@ -363,7 +464,23 @@ sppb_balance:{id:'sppb_balance',name:'SPPB Balance-Test',unit:'Punkte (0–4)',
 protocol:'Drei Positionen je max. 10 Sekunden. 1) Side-by-Side: Füße nebeneinander. 2) Semi-Tandem: Ferse neben großem Zeh. 3) Tandem: Ferse direkt vor Zehen. Jede Position maximal 10 Sekunden halten.',
 audioProtocol:'SPPB Balance-Test nach Guralnik 1994. Drei Positionen, jede maximal zehn Sekunden. Position eins: Side-by-Side. Stellen Sie die Füße direkt nebeneinander, Seite an Seite. Halten Sie zehn Sekunden. Position zwei: Semi-Tandem. Die Ferse eines Fußes neben den großen Zeh des anderen. Zehn Sekunden halten. Position drei: Voll-Tandem. Die Ferse direkt vor die Zehen des anderen Fußes. Zehn Sekunden halten. Wand oder Stuhl in Griffweite. Bei jeder Position Start-Button drücken.',
 evidence:'SPPB-Gleichgewichtskomponente (Guralnik 1994). 0–4 Punkte. Teil der Short Physical Performance Battery.',
-type:'sppb_balance',higherIsBetter:true}
+type:'sppb_balance',higherIsBetter:true},
+/* PD-spezifische Assessments */
+turning_360:{id:'turning_360',name:'360°-Drehtest',unit:'Sekunden',
+protocol:'Aufrecht stehen. Auf "Los" eine volle 360°-Drehung auf der Stelle ausführen. So schnell wie sicher möglich. Stoppuhr läuft bis wieder Ausgangsposition erreicht. Anzahl der Schritte zählen.',
+audioProtocol:'Stehen Sie aufrecht, Wand oder Stuhl in Griffweite. Auf das Startsignal drehen Sie sich einmal komplett im Kreis um die eigene Achse, so schnell wie sicher möglich. Tippen Sie Stop wenn Sie wieder in der Ausgangsposition stehen. Zählen Sie die Schritte, die Sie für die Drehung brauchen.',
+evidence:'360-Grad-Drehtest. Normwerte PD: Stadium I ca. 3–4 s, Stadium II ca. 5–7 s, Stadium III ca. 8–12 s. >6 Schritte gilt als auffällig. Sensitiv für Freezing beim Drehen (Nieuwboer 2007).',
+type:'time',higherIsBetter:false,pdOnly:true,source:'observedTest'},
+dual_task_tug:{id:'dual_task_tug',name:'Dual-Task TUG',unit:'Sekunden',
+protocol:'Wie TUG (aufstehen, 3 m gehen, wenden, zurück, setzen), aber zusätzlich von einer genannten Zahl in 3er-Schritten rückwärts zählen. Kostenloses Dual-Task-Maß.',
+audioProtocol:'Wie beim normalen Timed Up and Go: aufstehen, drei Meter gehen, wenden, zurück, setzen. Aber diesmal zählen Sie gleichzeitig laut von einer genannten Zahl in Dreierschritten rückwärts. Zum Beispiel: 93, 90, 87, 84. Start drücken wenn Sie aufstehen, Stop wenn der Po den Stuhl berührt.',
+evidence:'Dual-Task TUG nach Nocera et al. 2013. Differenz zum einfachen TUG (Dual-Task-Cost) >3 s ist klinisch relevant. Sensitiv für kognitive Gangstörung und Sturzrisiko bei PD.',
+type:'time',higherIsBetter:false,pdOnly:true,source:'observedTest'},
+fog_weekly:{id:'fog_weekly',name:'Freezing-Häufigkeit (Woche)',unit:'Episoden',
+protocol:'Selbstbericht: Wie viele Freezing-Episoden hatten Sie in den letzten 7 Tagen? Schätzen Sie die Gesamtzahl der Momente, in denen Ihre Füße am Boden klebten.',
+audioProtocol:'Wie viele Freezing-Episoden hatten Sie in den letzten sieben Tagen? Zählen Sie alle Momente, in denen Ihre Füße plötzlich am Boden kleben blieben. Geben Sie die Zahl über das Nummernfeld ein.',
+evidence:'Selbstbericht-FOG-Tracking. Korreliert mit FOG-Q (Giladi 2009). Verlaufsmessung alle 4 Wochen empfohlen. Trend wichtiger als Einzelwert.',
+type:'count',higherIsBetter:false,pdOnly:true,source:'derivedProxy'}
 };
 
 /* ===== BEST-PRACTICE GUIDE ===== */
@@ -440,14 +557,18 @@ async function idbAll(s){const db=await openDB();return new Promise((res,rej)=>{
 async function idbDel(s,id){const db=await openDB();return new Promise((res,rej)=>{const r=db.transaction(s,'readwrite').objectStore(s).delete(id);r.onsuccess=()=>res();r.onerror=()=>rej(r.error);});}
 
 /* ===== STATE ===== */
-const DEFAULT_PROFILE={id:'profile',onboardingDone:false,name:'',birthYear:null,sex:null,diabetesType:'none',parkinsonStage:'none',unsureStage:false,targetSessionsPerWeek:3,voiceCues:true,equipment:{chair:true,wall:true,weights:false,step:false},notifications:false,createdAt:null,pendingHypoReminders:[],a11y:{fullNarration:false,haptics:true,highContrast:false,largeText:false,voiceRate:0.92,guideSeen:false,tapSound:true,tourCompleted:false}};
-const DEFAULT_PLAN={id:'plan',weekNumber:1,weekStartIso:null,walkMinutes:5,strengthSets:2,strengthRepsMultiplier:1.0,balanceSecMultiplier:1.0,consecutiveStableWeeks:0,progressionsSinceDeload:0,inDeload:false,lastProgressionDate:null,lastDeloadDate:null,baselineSessionsRemaining:2,progressionHistory:[]};
-let STATE={profile:null,plan:null,sessions:[],benchmarks:[],nutrition:[],wellbeing:[],view:'home',workout:null,preCheck:null,onboardStep:0,modal:null,autosaveTimer:null,lastFocusEl:null,historyTab:'week'};
+const DEFAULT_PROFILE={id:'profile',onboardingDone:false,name:'',birthYear:null,sex:null,diabetesType:'none',parkinsonStage:'none',unsureStage:false,targetSessionsPerWeek:3,voiceCues:true,equipment:{chair:true,wall:true,weights:false,step:false},notifications:false,reminderEnabled:false,reminderTime:'09:00',lastReminderDate:null,createdAt:null,pendingHypoReminders:[],a11y:{fullNarration:false,haptics:true,highContrast:false,largeText:false,voiceRate:0.92,guideSeen:false,tapSound:true,tourCompleted:false},parkinson:{stage:'none',unsure:false,medication:{doseTimes:[],lastDoseAt:null,expectedOnWindowMin:60,selfRatedState:null},freezing:{hasFOG:false,triggers:{initiation:false,turning:false,doorway:false,dualTask:false,stress:false},severity:0,cueResponse:{auditory:null,visual:null,tactile:null}},balanceProfile:{static:0,dynamic:0,turning:0,reactive:0,dualTask:0},falls:{falls30d:0,nearFalls7d:0,fearOfFalling:0}}};
+const DEFAULT_PLAN={id:'plan',weekNumber:1,weekStartIso:null,walkMinutes:5,strengthSets:2,strengthRepsMultiplier:1.0,balanceSecMultiplier:1.0,consecutiveStableWeeks:0,progressionsSinceDeload:0,inDeload:false,lastProgressionDate:null,lastDeloadDate:null,baselineSessionsRemaining:2,progressionHistory:[],pdDose:{gait:{walkMinutes:5,amplitudeLevel:0,cueComplexity:0},strength:{sets:2,repsMultiplier:1.0},balance:{secMultiplier:1.0,reactiveLevel:0,dualTaskLevel:0},cue:{complexity:0}}};
+let STATE={profile:null,plan:null,sessions:[],benchmarks:[],nutrition:[],wellbeing:[],view:'home',workout:null,preCheck:null,onboardStep:0,onboardPdSub:0,modal:null,autosaveTimer:null,lastFocusEl:null,historyTab:'week'};
 
 async function loadAll(){
 let pr=await idbGet('kv','profile');
 if(!pr){pr={...DEFAULT_PROFILE,createdAt:new Date().toISOString()};await idbPut('kv',pr);}
-else{for(const k in DEFAULT_PROFILE)if(!(k in pr))pr[k]=DEFAULT_PROFILE[k];if(!pr.a11y||typeof pr.a11y!=='object')pr.a11y={...DEFAULT_PROFILE.a11y};else for(const k in DEFAULT_PROFILE.a11y)if(!(k in pr.a11y))pr.a11y[k]=DEFAULT_PROFILE.a11y[k];}
+else{for(const k in DEFAULT_PROFILE)if(!(k in pr))pr[k]=DEFAULT_PROFILE[k];if(!pr.a11y||typeof pr.a11y!=='object')pr.a11y={...DEFAULT_PROFILE.a11y};else for(const k in DEFAULT_PROFILE.a11y)if(!(k in pr.a11y))pr.a11y[k]=DEFAULT_PROFILE.a11y[k];
+/* Migration: parkinson flat → nested */
+if(!pr.parkinson||typeof pr.parkinson!=='object'){const dp=JSON.parse(JSON.stringify(DEFAULT_PROFILE.parkinson));dp.stage=pr.parkinsonStage||'none';dp.unsure=!!pr.unsureStage;pr.parkinson=dp;}else{const dp=DEFAULT_PROFILE.parkinson;for(const k in dp){if(!(k in pr.parkinson)){pr.parkinson[k]=JSON.parse(JSON.stringify(dp[k]));}else if(typeof dp[k]==='object'&&dp[k]!==null&&!Array.isArray(dp[k])){for(const sk in dp[k]){if(!(sk in pr.parkinson[k]))pr.parkinson[k][sk]=JSON.parse(JSON.stringify(dp[k][sk]));else if(typeof dp[k][sk]==='object'&&dp[k][sk]!==null&&!Array.isArray(dp[k][sk])){for(const ssk in dp[k][sk])if(!(ssk in pr.parkinson[k][sk]))pr.parkinson[k][sk][ssk]=dp[k][sk][ssk];}}}}}
+/* Sync flat aliases ← nested */
+pr.parkinsonStage=pr.parkinson.stage;pr.unsureStage=pr.parkinson.unsure;}
 let pl=await idbGet('kv','plan');
 if(!pl){pl={...DEFAULT_PLAN,weekStartIso:mondayOf(new Date()).toISOString()};await idbPut('kv',pl);}
 else for(const k in DEFAULT_PLAN)if(!(k in pl))pl[k]=DEFAULT_PLAN[k];
@@ -569,6 +690,45 @@ function evalGlucose(mg,type){if(mg==null||isNaN(mg))return null;if(mg<70)return
 function evalKetones(l){if(!l||l==='none')return null;if(l==='trace')return{level:'warn',title:'Spuren von Ketonen (< 1,5 mmol/L)',msg:'Nur leichte Intensität, maximal 30 Minuten. Viel Wasser trinken. (Riddell 2017)'};return{level:'stop',title:'Moderate oder hohe Ketone (≥ 1,5 mmol/L)',msg:'Training kontraindiziert. Erst Insulin geben, Ketone senken. (Riddell 2017)'};}
 function evalSymptoms(f){if(f.chestPain||f.newShortness)return{level:'stop',title:'Akute Warnzeichen',msg:'Brustschmerz oder Luftnot: Training aussetzen. Bei anhaltenden Beschwerden 112.'};if(f.fallToday)return{level:'stop',title:'Sturz heute',msg:'Nach Sturz keine neue Belastung.'};if(f.severeDizziness||f.feverish)return{level:'warn',title:'Unwohlsein',msg:'Schwindel oder Fieber: heute ruhen.'};if(f.severeFreezing)return{level:'warn',title:'Starkes Freezing heute',msg:'Sehr langsam. Nur Übungen mit Halt.'};return null;}
 
+/* ===== MEDICATION STATE ===== */
+function inferMedicationState(){
+const pd=STATE.profile.parkinson;
+if(!pd||pd.stage==='none')return'unknown';
+const med=pd.medication;
+if(!med.doseTimes||med.doseTimes.length===0)return'unknown';
+if(med.selfRatedState&&med.selfRatedState!=='unknown')return med.selfRatedState;
+const now=new Date();const nowMin=now.getHours()*60+now.getMinutes();
+const windowMin=med.expectedOnWindowMin||60;
+let bestState='OFF';
+for(const t of med.doseTimes){
+const[hh,mm]=t.split(':').map(Number);
+const doseMin=hh*60+mm;
+const sinceMin=nowMin-doseMin;
+if(sinceMin>=30&&sinceMin<=30+windowMin){bestState='ON';break;}
+if(sinceMin>0&&sinceMin<30){bestState='wearing-in';break;}
+if(sinceMin>30+windowMin&&sinceMin<30+windowMin+30){bestState='wearing-off';break;}
+}
+return bestState;
+}
+function nextOnWindow(){
+const pd=STATE.profile.parkinson;
+if(!pd||pd.stage==='none'||!pd.medication.doseTimes||pd.medication.doseTimes.length===0)return null;
+const now=new Date();const nowMin=now.getHours()*60+now.getMinutes();
+const windowMin=pd.medication.expectedOnWindowMin||60;
+let best=null;
+for(const t of pd.medication.doseTimes){
+const[hh,mm]=t.split(':').map(Number);
+const onStart=hh*60+mm+30;
+if(onStart>nowMin&&(best===null||onStart<best))best=onStart;
+}
+if(best===null){
+const[hh,mm]=pd.medication.doseTimes[0].split(':').map(Number);
+best=hh*60+mm+30+1440;
+}
+const h=Math.floor(best/60)%24;const m=best%60;
+return`${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+}
+
 /* ===== BUILDER ===== */
 const PHASE_ORDER=['warmup','strength','posture','balance','cardio','cooldown'];
 const PHASE_LABELS={warmup:'Aufwärmen',strength:'Kraft',posture:'Haltung',balance:'Gleichgewicht',cardio:'Ausdauer',cooldown:'Cool-down'};
@@ -579,18 +739,19 @@ const PHASE_DESCS={warmup:'Kreislauf aktivieren und Gelenke mobilisieren.',stren
    - Gesamt pro Session: ~8-10 Übungen ≈ 25 Min.
    - Alle Übungen kommen über mehrere Sessions dran → Vielfalt + Progression */
 const PHASE_POOL={
-warmup:['march','trunk_rotation','big_arms','weight_shift','neck_mob','ankle_pump'],
-strength:['sit_to_stand','calf_raise','chair_squat'],
+warmup:['march','trunk_rotation','big_arms','weight_shift','neck_mob','ankle_pump','pd_weight_shift_cued'],
+strength:['sit_to_stand','calf_raise','chair_squat','pd_step_up','pd_hip_drive','pd_calf_raise_prog','pd_sit_to_stand_prog'],
 posture:['bottle_row','wall_pushup','thoracic_ext','trunk_rotation'],
-balance:['half_tandem','full_tandem','side_walk','big_steps','heel_toe_walk'],
-cardio:['walk_cool'],
+balance:['half_tandem','full_tandem','side_walk','big_steps','heel_toe_walk','pd_gait_initiation','pd_big_steps_cued','pd_turn_90','pd_turn_180','pd_reactive_forward','pd_reactive_lateral','pd_reactive_backward','pd_stop_and_go','pd_doorway_drill'],
+cardio:['walk_cool','pd_dual_task_motor','pd_dual_task_cognitive'],
 cooldown:['breathing','static_stretch']
 };
 const PHASE_CORE={warmup:['march'],strength:['sit_to_stand'],posture:[],balance:[],cardio:['walk_cool'],cooldown:['breathing']};
-const PHASE_PICK={warmup:1,strength:1,posture:1,balance:2,cardio:0,cooldown:0};
+const PHASE_PICK={warmup:1,strength:1,posture:1,balance:3,cardio:0,cooldown:0};
 function pickVariant(ex,hy){for(const k in ex.variants){const v=ex.variants[k];if(v.hy.includes(hy))return v.skip?null:v;}const f=Object.values(ex.variants)[0];return f.skip?null:f;}
 function hasEquipment(ex,eq){if(!ex.equipment)return true;for(const n of ex.equipment){if(n==='chair'&&!eq.chair)return false;if(n==='wall'&&!eq.wall)return false;if(n==='wall_or_chair'&&!eq.wall&&!eq.chair)return false;if(n==='weights'&&!eq.weights)return false;if(n==='step'&&!eq.step)return false;}return true;}
-function buildWorkout(){
+/* Legacy builder for non-PD users */
+function buildLegacyWorkout(){
 const p=STATE.profile,plan=STATE.plan,hy=p.parkinsonStage;
 const dF=plan.inDeload?0.7:1.0;
 const repMult=plan.strengthRepsMultiplier*dF,balMult=plan.balanceSecMultiplier*dF;
@@ -599,8 +760,7 @@ const walkMin=Math.max(3,Math.round(plan.walkMinutes*dF));
 const sessionNum=STATE.sessions.length;
 const blocks=[];
 for(const phase of PHASE_ORDER){
-/* Rotation: Kern-Übungen + rotierende Auswahl aus Pool */
-const pool=PHASE_POOL[phase]||[];
+const pool=(PHASE_POOL[phase]||[]).filter(id=>!id.startsWith('pd_'));
 const coreIds=PHASE_CORE[phase]||[];
 const rotateIds=pool.filter(id=>!coreIds.includes(id));
 const pickCount=PHASE_PICK[phase]!=null?PHASE_PICK[phase]:rotateIds.length;
@@ -632,6 +792,228 @@ let tot=0;for(const b of blocks){if(b.isPhaseHeader)continue;if(b.type==='time')
 return{blocks,estimatedMin:Math.max(1,Math.round(tot/60)),isDeload:plan.inDeload};
 }
 
+/* ===== PD SYMPTOM-DRIVEN BUILDER ===== */
+function _buildPdContext(){
+const p=STATE.profile,pd=p.parkinson,recent=STATE.sessions.slice(0,5);
+const recentGood={},recentBad={};
+for(const s of recent){
+if(!s.completed)continue;
+for(const c of(s.completed||[])){
+if(c.response==='easy')recentGood[c.id]=(recentGood[c.id]||0)+1;
+if(c.response==='hard')recentBad[c.id]=(recentBad[c.id]||0)+1;
+}}
+const medState=pd.medication.selfRatedState||inferMedicationState();
+const gaitSpeedLow=STATE.benchmarks.find(b=>b.testId==='gait_4m'&&b.value<0.8);
+const sitToStandLow=STATE.benchmarks.find(b=>b.testId==='chair_stand_30'&&b.value<8);
+const risk=computeRiskProfile();
+const fogDose=fogExerciseDose(pd,recent);
+const fogPriority=fogTriggerPriority(pd);
+const bestCues=fogCueSelection(pd);
+return{
+freezing:pd.freezing,balance:pd.balanceProfile,falls:pd.falls,
+medState,equipment:p.equipment,hy:pd.stage,
+gaitSpeedLow:!!gaitSpeedLow,sitToStandLow:!!sitToStandLow,
+recentGood,recentBad,
+requiresSupport:risk.requiresSupport,
+noDualTask:risk.noDualTask,
+noTurnsFast:risk.noTurnsFast,
+maxComplexity:risk.maxComplexity,
+assistLevel:risk.assistLevel,
+fogDose,fogPriority,bestCues
+};}
+
+function isSafeForContext(ex,ctx){
+if(!hasEquipment(ex,ctx.equipment))return false;
+const v=pickVariant(ex,ctx.hy);
+if(!v)return false;
+const tags=ex.tags||[];
+if(ctx.noDualTask&&tags.some(t=>t.startsWith('dual-task')))return false;
+if(ctx.requiresSupport&&ex.supported===false&&tags.some(t=>t.includes('reactive')))return false;
+if(ctx.medState==='OFF'&&tags.some(t=>t==='dual-task'))return false;
+if(ctx.noTurnsFast&&tags.includes('turning')&&!tags.includes('segmented'))return false;
+if(ctx.maxComplexity<=0&&tags.some(t=>t==='dual-task'||t==='reactive-balance'))return false;
+return true;
+}
+
+function scoreExercise(ex,ctx){
+let score=0;
+const tags=ex.tags||[];
+/* FOG-Trigger-Match */
+if(ctx.freezing.hasFOG){
+if(ctx.freezing.triggers.turning&&tags.includes('turning'))score+=5;
+if(ctx.freezing.triggers.initiation&&tags.includes('gait-initiation'))score+=5;
+if(ctx.freezing.triggers.initiation&&tags.includes('fog-initiation'))score+=5;
+if(ctx.freezing.triggers.doorway&&tags.includes('doorway'))score+=4;
+if(ctx.freezing.triggers.dualTask&&tags.includes('dual-task')&&!ctx.noDualTask)score+=3;
+if(ctx.freezing.triggers.stress&&tags.includes('stop-start'))score+=3;
+}
+/* Balance-Defizit-Match */
+if(ctx.balance.turning>=2&&tags.includes('turning'))score+=4;
+if(ctx.balance.reactive>=2&&tags.includes('reactive-balance'))score+=4;
+if(ctx.balance.dualTask>=2&&tags.includes('dual-task')&&!ctx.noDualTask)score+=3;
+if(ctx.balance.dynamic>=2&&tags.includes('amplitude-gait'))score+=3;
+/* Kraft-Defizit-Match */
+if(ctx.sitToStandLow&&tags.includes('sit-to-stand'))score+=3;
+if(ctx.gaitSpeedLow&&(tags.includes('amplitude-gait')||tags.includes('lower-limb')))score+=3;
+/* Response-Learning */
+if(ctx.recentBad[ex.id])score-=3*ctx.recentBad[ex.id];
+if(ctx.recentGood[ex.id])score+=2*Math.min(ctx.recentGood[ex.id],2);
+/* Cueing-Bonus für PD */
+if(tags.includes('auditory-cue')||tags.includes('visual-cue'))score+=1;
+/* FOG-Engine: Dosis-Boost für priorisierte Trigger */
+if(ctx.fogPriority&&ctx.fogPriority.length>0){
+for(let i=0;i<ctx.fogPriority.length;i++){
+const fp=ctx.fogPriority[i];
+if(fp.trigger==='turning'&&tags.includes('turning'))score+=(3-i);
+if(fp.trigger==='initiation'&&(tags.includes('gait-initiation')||tags.includes('fog-initiation')))score+=(3-i);
+if(fp.trigger==='doorway'&&tags.includes('doorway'))score+=(3-i);
+}}
+/* Risk-based penalty */
+if(ctx.noTurnsFast&&tags.includes('turning')&&!tags.includes('segmented'))score-=10;
+if(ctx.maxComplexity<=1&&tags.includes('dual-task'))score-=10;
+return score;
+}
+
+function buildPdWorkout(){
+const p=STATE.profile,plan=STATE.plan,hy=p.parkinson.stage;
+const ctx=_buildPdContext();
+const dF=plan.inDeload?0.7:1.0;
+const repMult=plan.strengthRepsMultiplier*dF,balMult=plan.balanceSecMultiplier*dF;
+const sets=Math.max(1,Math.round(plan.strengthSets*(plan.inDeload?0.75:1)));
+const walkMin=Math.max(3,Math.round(plan.walkMinutes*dF));
+const sessionNum=STATE.sessions.length;
+const blocks=[];
+for(const phase of PHASE_ORDER){
+const pool=PHASE_POOL[phase]||[];
+const coreIds=PHASE_CORE[phase]||[];
+/* Filter safe exercises and score them */
+const candidates=pool.filter(id=>!coreIds.includes(id)).map(id=>({id,ex:EX[id]})).filter(c=>c.ex&&isSafeForContext(c.ex,ctx)&&pickVariant(c.ex,hy));
+candidates.forEach(c=>c.score=scoreExercise(c.ex,ctx));
+candidates.sort((a,b)=>b.score-a.score);
+const pickCount=PHASE_PICK[phase]!=null?PHASE_PICK[phase]:candidates.length;
+/* Core + top-scored picks */
+const selectedIds=[...coreIds];
+let picked=0;
+for(const c of candidates){
+if(picked>=pickCount)break;
+if(!selectedIds.includes(c.id)){selectedIds.push(c.id);picked++;}
+}
+/* Fallback rotation if not enough scored candidates */
+if(picked<pickCount){
+const rotateIds=pool.filter(id=>!selectedIds.includes(id)&&!id.startsWith('pd_'));
+let offs=sessionNum;
+while(picked<pickCount&&offs-sessionNum<rotateIds.length*2){
+const cand=rotateIds[offs%rotateIds.length];
+if(!selectedIds.includes(cand)){
+const ex=EX[cand];
+if(ex){const v=pickVariant(ex,hy);if(v&&hasEquipment(ex,p.equipment)){selectedIds.push(cand);picked++;}}
+}offs++;
+}}
+const phaseBlocks=[];
+for(const eid of selectedIds){
+const ex=EX[eid];if(!ex)continue;
+const v=pickVariant(ex,hy);if(!v)continue;
+if(!hasEquipment(ex,p.equipment))continue;
+const b={id:ex.id,name:ex.name,cat:ex.cat,phase,type:ex.type,illus:ex.illus,illusAlt:ex.illusAlt,cue:v.cue,safety:v.safety,voice:v.voice,audioDesc:v.audioDesc,coaching:v.coaching||[],citations:ex.citations,tags:ex.tags||[]};
+if(ex.type==='time'){const sec=ex.id==='walk_cool'?walkMin*60:(ex.cat==='balance'?Math.round(ex.baseSec*balMult):ex.baseSec);b.sec=sec;b.sets=ex.baseSets||1;}
+else{b.reps=Math.max(3,Math.round(ex.baseReps*(ex.cat==='strength'?repMult:1)));b.sets=ex.cat==='strength'?sets:(ex.baseSets||1);b.restSec=ex.restSec||30;b.secsPerRep=ex.secsPerRep||5;b.setSec=b.reps*b.secsPerRep;}
+phaseBlocks.push(b);
+}
+if(phaseBlocks.length>0){
+blocks.push({isPhaseHeader:true,phase,label:PHASE_LABELS[phase],desc:PHASE_DESCS[phase]});
+blocks.push(...phaseBlocks);
+}
+}
+let tot=0;for(const b of blocks){if(b.isPhaseHeader)continue;if(b.type==='time')tot+=(b.sec||0)*(b.sets||1)+15*Math.max(0,(b.sets||1)-1);else tot+=(b.setSec||b.reps*5)*(b.sets||1)+(b.restSec||30)*Math.max(0,(b.sets||1)-1);}
+return{blocks,estimatedMin:Math.max(1,Math.round(tot/60)),isDeload:plan.inDeload};
+}
+
+/* Dispatch */
+function buildWorkout(){
+const isPD=STATE.profile.parkinson&&STATE.profile.parkinson.stage&&STATE.profile.parkinson.stage!=='none';
+return isPD?buildPdWorkout():buildLegacyWorkout();
+}
+
+/* ===== RISK PROFILE ===== */
+function computeRiskProfile(){
+const pd=STATE.profile.parkinson;
+if(!pd||pd.stage==='none')return{maxComplexity:3,requiresSupport:false,noDualTask:false,noTurnsFast:false,assistLevel:'none'};
+const recent=STATE.sessions.slice(0,5);
+const recentFreezing=recent.filter(s=>s.freezing!=null&&s.freezing>=3).length;
+const recentNearFall=recent.some(s=>s.balance!=null&&s.balance<=1);
+const medState=inferMedicationState();
+const highFallRisk=pd.falls.falls30d>=2||pd.falls.fearOfFalling>=3;
+const requiresSupport=highFallRisk||pd.stage==='III';
+const noDualTask=medState==='OFF'||pd.freezing.severity>=3||pd.falls.fearOfFalling>=3||recentFreezing>=2;
+const noTurnsFast=pd.freezing.triggers.turning&&pd.freezing.severity>=2;
+let maxComplexity=3;
+if(pd.falls.fearOfFalling>=3)maxComplexity=Math.min(maxComplexity,1);
+else if(pd.falls.fearOfFalling>=2)maxComplexity=Math.min(maxComplexity,2);
+if(medState==='OFF')maxComplexity=Math.min(maxComplexity,1);
+if(recentNearFall)maxComplexity=Math.min(maxComplexity,1);
+let assistLevel='none';
+if(pd.falls.falls30d>=3||pd.falls.fearOfFalling>=4)assistLevel='hands-on';
+else if(highFallRisk)assistLevel='standby';
+return{maxComplexity,requiresSupport,noDualTask,noTurnsFast,assistLevel};
+}
+
+/* ===== FOG ENGINE ===== */
+function fogTriggerPriority(pd){
+if(!pd.freezing.hasFOG)return[];
+const triggers=pd.freezing.triggers;
+const priorities=[];
+if(triggers.turning)priorities.push({trigger:'turning',weight:5,label:'Drehen'});
+if(triggers.initiation)priorities.push({trigger:'initiation',weight:5,label:'Gangstart'});
+if(triggers.doorway)priorities.push({trigger:'doorway',weight:4,label:'Türdurchgang'});
+if(triggers.dualTask)priorities.push({trigger:'dualTask',weight:3,label:'Doppelaufgabe'});
+if(triggers.stress)priorities.push({trigger:'stress',weight:2,label:'Stress'});
+priorities.sort((a,b)=>b.weight-a.weight);
+return priorities;
+}
+
+function fogCueSelection(pd){
+const resp=pd.freezing.cueResponse;
+const cues=[];
+if(resp.auditory!=null)cues.push({type:'auditory',effectiveness:resp.auditory,label:'Auditiv (Takt/Metronom)'});
+if(resp.visual!=null)cues.push({type:'visual',effectiveness:resp.visual,label:'Visuell (Linien/Markierungen)'});
+if(resp.tactile!=null)cues.push({type:'tactile',effectiveness:resp.tactile,label:'Taktil (Vibration)'});
+cues.sort((a,b)=>b.effectiveness-a.effectiveness);
+if(cues.length===0)return[{type:'auditory',effectiveness:null,label:'Auditiv (Standard — noch nicht getestet)'},{type:'visual',effectiveness:null,label:'Visuell (Standard — noch nicht getestet)'}];
+return cues;
+}
+
+function fogExerciseDose(pd,sessions){
+if(!pd.freezing.hasFOG)return{initiation:0,turning:0,stopGo:0,doorway:0};
+const sev=pd.freezing.severity;
+const triggers=pd.freezing.triggers;
+const base=sev>=3?3:sev>=2?2:1;
+return{
+initiation:triggers.initiation?base:0,
+turning:triggers.turning?base:0,
+stopGo:(triggers.initiation||triggers.stress)?Math.max(1,base-1):0,
+doorway:triggers.doorway?Math.max(1,base-1):0
+};
+}
+
+function fogCueFadingOptions(pd,plan){
+const d=plan.pdDose||{cue:{complexity:0}};
+const complexity=d.cue.complexity;
+const labels=['Visuell (volle Markierung)','Auditiv (Metronom, volles Tempo)','Kombiniert (visuell + auditiv)','Fading (reduzierte Cues, Selbststeuerung)'];
+return{current:labels[complexity]||labels[0],next:complexity<3?labels[complexity+1]:null,canFade:complexity<3};
+}
+
+/* ===== EXERCISE RESPONSE HISTORY ===== */
+function exerciseResponseHistory(exId,limit){
+limit=limit||10;
+const results=[];
+for(const s of STATE.sessions){
+if(!s.completed)continue;
+for(const c of s.completed){
+if(c.id===exId){results.push({date:s.date,response:c.response||c.exerciseRating,freezingCount:c.freezingCount,nearFall:c.nearFall,cueUsed:c.cueUsed,turningDifficulty:c.turningDifficulty,assistNeeded:c.assistNeeded});if(results.length>=limit)return results;}
+}}
+return results;
+}
+
 /* ===== PROGRESSION ===== */
 function sessionsInWeek(start,end){return STATE.sessions.filter(s=>{const d=new Date(s.startedAt);return d>=start&&d<end;});}
 function isProblem(s){if(s.stopReason)return true;if(s.preGlucose!=null&&s.preGlucose<70)return true;if(s.postGlucose!=null&&s.postGlucose<70)return true;if(s.freezing!=null&&s.freezing>=4)return true;return false;}
@@ -646,16 +1028,51 @@ if(STATE.plan.baselineSessionsRemaining>0){stable=false;reasons.push(`Noch ${STA
 if(count<target){stable=false;reasons.push(`${target-count} Einheit(en) bis Wochenziel`);}
 if(avgRpe>6.5){stable=false;reasons.push(`Durchschnitts-RPE hoch (${avgRpe.toFixed(1)})`);}
 if(sess.some(isProblem)){stable=false;reasons.push('Sicherheitsereignis aufgetreten');}
-return{count,target,avgRpe,stable,reasons,sessions:sess};
+/* PD domain stability */
+const isPD=STATE.profile.parkinson&&STATE.profile.parkinson.stage!=='none';
+const domainStability={gait:true,strength:true,balance:true,cue:true};
+if(isPD&&count>0){
+const avgFreezing=sess.reduce((a,s)=>a+(s.freezing||0),0)/count;
+const avgBalance=sess.reduce((a,s)=>a+(s.balance||2),0)/count;
+if(avgFreezing>=2){domainStability.gait=false;domainStability.cue=false;reasons.push(`Freezing-Durchschnitt hoch (${avgFreezing.toFixed(1)})`);}
+if(avgBalance<=1){domainStability.balance=false;reasons.push(`Balance-Konfidenz niedrig (${avgBalance.toFixed(1)})`);}
+}
+return{count,target,avgRpe,stable,reasons,sessions:sess,domainStability};
 }
 function shouldOfferProgression(){const p=STATE.plan;if(p.inDeload)return false;if(p.baselineSessionsRemaining>0)return false;return p.consecutiveStableWeeks>=2;}
 function shouldTriggerDeload(){return STATE.plan.progressionsSinceDeload>=4&&!STATE.plan.inDeload;}
-function getProgressionOptions(){const p=STATE.plan;return[
+function getProgressionOptions(){
+const p=STATE.plan;
+const isPD=STATE.profile.parkinson&&STATE.profile.parkinson.stage!=='none';
+if(!isPD){return[
 {id:'walk+3',label:'+3 Min Gehen am Ende',detail:`${p.walkMinutes} → ${p.walkMinutes+3} Min`,apply:pl=>{pl.walkMinutes+=3;}},
 {id:'reps+10',label:'+10 % Wiederholungen (Kraft)',detail:`${p.strengthRepsMultiplier.toFixed(2)} → ${(p.strengthRepsMultiplier+0.1).toFixed(2)}`,apply:pl=>{pl.strengthRepsMultiplier=Math.min(1.8,pl.strengthRepsMultiplier+0.1);}},
 {id:'set+1',label:'+1 Satz (Kraft)',detail:`${p.strengthSets} → ${p.strengthSets+1}`,apply:pl=>{pl.strengthSets=Math.min(4,pl.strengthSets+1);}},
 {id:'balance+20',label:'+20 % Balance-Dauer',detail:`${p.balanceSecMultiplier.toFixed(2)} → ${(p.balanceSecMultiplier+0.2).toFixed(2)}`,apply:pl=>{pl.balanceSecMultiplier=Math.min(2.0,pl.balanceSecMultiplier+0.2);}}
 ];}
+/* PD domain-specific progressions */
+const ev=evaluateCurrentWeek();const ds=ev.domainStability;
+const d=p.pdDose||DEFAULT_PLAN.pdDose;
+const opts=[];
+if(ds.gait){
+opts.push({id:'pd_walk+2',label:'🚶 Gehen +2 Min',detail:`${p.walkMinutes} → ${p.walkMinutes+2} Min`,apply:pl=>{pl.walkMinutes+=2;if(pl.pdDose)pl.pdDose.gait.walkMinutes+=2;}});
+if(d.gait.amplitudeLevel<3)opts.push({id:'pd_amplitude+1',label:'🦶 Amplitude +1 Stufe',detail:`Stufe ${d.gait.amplitudeLevel} → ${d.gait.amplitudeLevel+1}`,apply:pl=>{if(pl.pdDose)pl.pdDose.gait.amplitudeLevel=Math.min(3,pl.pdDose.gait.amplitudeLevel+1);}});
+}
+if(ds.strength){
+opts.push({id:'pd_reps+10',label:'💪 Kraft-Wdh. +10%',detail:`${p.strengthRepsMultiplier.toFixed(2)} → ${(p.strengthRepsMultiplier+0.1).toFixed(2)}`,apply:pl=>{pl.strengthRepsMultiplier=Math.min(1.8,pl.strengthRepsMultiplier+0.1);if(pl.pdDose)pl.pdDose.strength.repsMultiplier=pl.strengthRepsMultiplier;}});
+if(p.strengthSets<4)opts.push({id:'pd_set+1',label:'💪 Kraft +1 Satz',detail:`${p.strengthSets} → ${p.strengthSets+1}`,apply:pl=>{pl.strengthSets=Math.min(4,pl.strengthSets+1);if(pl.pdDose)pl.pdDose.strength.sets=pl.strengthSets;}});
+}
+if(ds.balance){
+opts.push({id:'pd_balance+15',label:'⚖️ Balance +15%',detail:`${p.balanceSecMultiplier.toFixed(2)} → ${(p.balanceSecMultiplier+0.15).toFixed(2)}`,apply:pl=>{pl.balanceSecMultiplier=Math.min(2.0,pl.balanceSecMultiplier+0.15);if(pl.pdDose)pl.pdDose.balance.secMultiplier=pl.balanceSecMultiplier;}});
+if(d.balance.reactiveLevel<3)opts.push({id:'pd_reactive+1',label:'⚡ Reaktiv-Balance +1 Stufe',detail:`Stufe ${d.balance.reactiveLevel} → ${d.balance.reactiveLevel+1}`,apply:pl=>{if(pl.pdDose)pl.pdDose.balance.reactiveLevel=Math.min(3,pl.pdDose.balance.reactiveLevel+1);}});
+if(d.balance.dualTaskLevel<3&&!STATE.profile.parkinson.freezing.hasFOG)opts.push({id:'pd_dualtask+1',label:'🧠 Dual-Task +1 Stufe',detail:`Stufe ${d.balance.dualTaskLevel} → ${d.balance.dualTaskLevel+1}`,apply:pl=>{if(pl.pdDose)pl.pdDose.balance.dualTaskLevel=Math.min(3,pl.pdDose.balance.dualTaskLevel+1);}});
+}
+if(ds.cue&&d.cue.complexity<3){
+const cueLabels=['Visuell','Auditiv','Kombiniert','Fading'];
+opts.push({id:'pd_cue+1',label:'🎯 Cue-Komplexität +1',detail:`${cueLabels[d.cue.complexity]} → ${cueLabels[d.cue.complexity+1]}`,apply:pl=>{if(pl.pdDose)pl.pdDose.cue.complexity=Math.min(3,pl.pdDose.cue.complexity+1);}});
+}
+return opts.length>0?opts:[{id:'pd_walk+2',label:'🚶 Gehen +2 Min',detail:`${p.walkMinutes} → ${p.walkMinutes+2} Min`,apply:pl=>{pl.walkMinutes+=2;}}];
+}
 async function applyProgression(id){const o=getProgressionOptions().find(x=>x.id===id);if(!o)return;o.apply(STATE.plan);STATE.plan.lastProgressionDate=new Date().toISOString();STATE.plan.consecutiveStableWeeks=0;STATE.plan.progressionsSinceDeload+=1;STATE.plan.progressionHistory.push({date:new Date().toISOString(),change:o.label,plan:snapshotPlan()});await savePlan();narrator.announce(`Steigerung angewendet: ${o.label}`);}
 async function startDeload(){STATE.plan.inDeload=true;STATE.plan.lastDeloadDate=new Date().toISOString();await savePlan();narrator.announce('Deload-Woche gestartet. Volumen auf 70 Prozent reduziert.');}
 async function endDeload(){STATE.plan.inDeload=false;STATE.plan.progressionsSinceDeload=0;STATE.plan.consecutiveStableWeeks=0;await savePlan();}
@@ -665,6 +1082,38 @@ async function maybeCloseWeek(){const plan=STATE.plan;const pS=new Date(plan.wee
 /* ===== BENCHMARKS ===== */
 function benchDueDays(){const l=STATE.benchmarks[0];if(!l)return 0;return Math.max(0,28-daysAgo(l.date));}
 function benchIsDue(){if(STATE.plan.baselineSessionsRemaining>0)return false;return benchDueDays()===0;}
+/* PD-Tests: nur anzeigen wenn PD */
+function benchTestsForProfile(){
+const isPD=STATE.profile.parkinson&&STATE.profile.parkinson.stage!=='none';
+return Object.values(BENCH).filter(t=>!t.pdOnly||isPD);
+}
+/* Derived proxy benchmarks from session data */
+function computeDerivedBenchmarks(){
+const isPD=STATE.profile.parkinson&&STATE.profile.parkinson.stage!=='none';
+if(!isPD)return[];
+const recent=STATE.sessions.slice(0,4);
+if(recent.length<2)return[];
+const derived=[];
+/* Freezing-Trend */
+const freezingVals=recent.filter(s=>s.freezing!=null).map(s=>s.freezing);
+if(freezingVals.length>=2){
+const avg=freezingVals.reduce((a,v)=>a+v,0)/freezingVals.length;
+derived.push({type:'derivedProxy',metric:'freezingSeverityTrend',value:Math.round(avg*10)/10,label:'Freezing-Schwere (Trend)',detail:avg<=1?'Niedrig — gute Kontrolle':avg<=2.5?'Moderat — Cueing weiter üben':'Hoch — Medikation/Cueing prüfen',sessions:freezingVals.length});
+}
+/* Balance-Konfidenz-Trend */
+const balanceVals=recent.filter(s=>s.balance!=null).map(s=>s.balance);
+if(balanceVals.length>=2){
+const avg=balanceVals.reduce((a,v)=>a+v,0)/balanceVals.length;
+derived.push({type:'derivedProxy',metric:'balanceConfidenceTrend',value:Math.round(avg*10)/10,label:'Balance-Konfidenz (Trend)',detail:avg>=3?'Gut — Training zeigt Wirkung':avg>=1.5?'Moderat — Balance-Übungen intensivieren':'Niedrig — Sturzrisiko erhöht, Unterstützung empfohlen',sessions:balanceVals.length});
+}
+/* Stiffness-Trend */
+const stiffVals=recent.filter(s=>s.stiffness!=null).map(s=>s.stiffness);
+if(stiffVals.length>=2){
+const avg=stiffVals.reduce((a,v)=>a+v,0)/stiffVals.length;
+derived.push({type:'derivedProxy',metric:'stiffnessTrend',value:Math.round(avg*10)/10,label:'Steifheit (Trend)',detail:avg<=1?'Gering — Beweglichkeit gut':avg<=2.5?'Moderat — Dehnungen beibehalten':'Hoch — Medikation prüfen, mehr Mobilisierung',sessions:stiffVals.length});
+}
+return derived;
+}
 function benchClassify(tid,v){const t=BENCH[tid],p=STATE.profile,age=p.birthYear?(new Date().getFullYear()-p.birthYear):null,isPD=p.parkinsonStage&&p.parkinsonStage!=='none';
 /* — Chair Stand: Rikli & Jones Normtabelle 25.–75. Perzentile — */
 const CS_NORMS={60:{M:[14,19],W:[12,17]},65:{M:[12,18],W:[11,16]},70:{M:[12,17],W:[10,15]},75:{M:[11,17],W:[10,15]},80:{M:[10,15],W:[9,14]},85:{M:[8,14],W:[8,13]},90:{M:[7,12],W:[4,11]}};
@@ -727,6 +1176,42 @@ if(tid==='sppb_balance'){
     if(total<=6)parts.push('Score 4–6: 4,2-faches Risiko für Behinderung in 4 Jahren (Guralnik 1994).');
   }else{parts.push('Für den SPPB-Gesamtscore (0–12) auch Gangtest und Stuhltest durchführen.');}
   return parts.join(' ');
+}
+/* PD-spezifische Assessments */
+if(tid==='turning_360'){
+  const parts=[];
+  if(isPD){
+    const norms={'I':{time:3.5,steps:4},'II':{time:6,steps:5},'III':{time:10,steps:7}};
+    const n=norms[p.parkinsonStage];
+    if(n){
+      if(v<=n.time)parts.push(`Gute Drehzeit (${v} s) für Stadium ${p.parkinsonStage} (Norm: ~${n.time} s).`);
+      else parts.push(`Drehzeit erhöht (${v} s) vs. Stadium-${p.parkinsonStage}-Norm (~${n.time} s). Turning-Training empfohlen.`);
+    }
+  }
+  if(v>8)parts.push('⚠ >8 s: Deutlich verlangsamte Drehung. Sturzrisiko beim Drehen erhöht.');
+  else if(v>5)parts.push('Moderate Drehgeschwindigkeit. Segmentiertes Drehen weiter üben.');
+  else parts.push('Gute Drehgeschwindigkeit.');
+  return parts.join(' ');
+}
+if(tid==='dual_task_tug'){
+  const parts=[];
+  const simpleTug=STATE.benchmarks.find(b=>b.testId==='tug');
+  if(simpleTug){
+    const cost=v-simpleTug.value;
+    parts.push(`Dual-Task-Cost: ${cost.toFixed(1)} s (einfacher TUG: ${simpleTug.value} s, Dual-Task: ${v} s).`);
+    if(cost>3)parts.push('⚠ >3 s Differenz: Klinisch relevante kognitive Gangstörung (Nocera 2013). Dual-Task-Training vorsichtig dosieren.');
+    else if(cost>1.5)parts.push('Moderate Dual-Task-Einbuße. Gestuftes Dual-Task-Training sinnvoll.');
+    else parts.push('Geringe Dual-Task-Einbuße. Gute kognitive Gangkontrolle.');
+  }else{
+    parts.push(`Dual-Task TUG: ${v} s. Für Dual-Task-Cost-Berechnung auch einfachen TUG durchführen.`);
+  }
+  return parts.join(' ');
+}
+if(tid==='fog_weekly'){
+  if(v===0)return 'Keine Freezing-Episoden diese Woche. Sehr gut!';
+  if(v<=3)return `${v} Freezing-Episoden. Mild. Cueing-Training weiter fortsetzen.`;
+  if(v<=7)return `${v} Freezing-Episoden. Moderat. Cueing-Strategien intensivieren, Trigger identifizieren.`;
+  return `${v} Freezing-Episoden. Hoch. Bitte mit Neurologen besprechen. Medikations-Timing prüfen.`;
 }
 return null;}
 
@@ -797,25 +1282,25 @@ guide:()=>'Anleitung. Zehn Kapitel mit Best-Practice-Informationen.',
 nutrition:()=>{const today=STATE.nutrition.filter(n=>n.date===todayIso());return`Ernährung. ${today.length} Einträge heute.`;}
 };
 const VIEW_GUIDE={
-home:()=>{const wk=evaluateCurrentWeek();const st=STATE.sessions.filter(s=>s.date===todayIso());const twb=STATE.wellbeing.find(w=>w.date===todayIso());return`Sie sind auf der Heute-Seite. ${st.length>0?'Heute haben Sie bereits trainiert.':'Sie haben heute noch nicht trainiert.'} Diese Woche ${wk.count} von ${wk.target} Einheiten. ${twb?'':'Ganz oben können Sie Ihr Wohlbefinden bewerten: Stimmung, Schlaf, Schmerzen und Stress auf einer Skala von 0 bis 4. '} Weiter unten finden Sie den großen grünen Button Training starten. Er beginnt mit einem Sicherheits-Check. Am unteren Rand sind fünf Reiter: Heute, Ernährung, Tagebuch, Plan und Mehr.`;},
+home:()=>{const wk=evaluateCurrentWeek();const st=STATE.sessions.filter(s=>s.date===todayIso());const twb=STATE.wellbeing.find(w=>w.date===todayIso());const p=STATE.profile;const isPD=p.parkinson&&p.parkinson.stage!=='none';let g=`Sie sind auf der Heute-Seite. ${st.length>0?'Heute haben Sie bereits trainiert.':'Sie haben heute noch nicht trainiert.'} Diese Woche ${wk.count} von ${wk.target} Einheiten. `;if(!twb)g+='Ganz oben können Sie Ihr Wohlbefinden bewerten: Stimmung, Schlaf, Schmerzen und Stress auf einer Skala von 0 bis 4. Tippen Sie auf die Emojis und dann Speichern. ';if(isPD&&p.parkinson.medication.doseTimes.length>0){const ms=inferMedicationState();g+=`Ihr Medikationsstatus: ${ms==='ON'?'ON-Phase, guter Zeitpunkt zum Trainieren':ms==='OFF'?'OFF-Phase, Training eingeschränkt':ms==='wearing-off'?'Wearing-Off, bald OFF':'Medikament wirkt ein'}. `;}g+='Weiter unten finden Sie den großen grünen Button Training starten. Er beginnt mit einem Sicherheits-Check. ';if(shouldOfferProgression())g+='Eine Steigerung ist verfügbar — scrollen Sie nach unten zum Steigerung-wählen-Button. ';g+='Am unteren Rand sind fünf Reiter: Heute, Ernährung, Tagebuch, Plan und Mehr.';return g;},
 nutrition:()=>{const today=STATE.nutrition.filter(n=>n.date===todayIso());const tc=today.reduce((s,n)=>s+(n.calories||0),0);const tcarbs=today.reduce((s,n)=>s+(n.carbsG||0),0);return`Ernährungsseite. Heute ${today.length} Einträge erfasst. ${tc} Kalorien, ${tcarbs} Gramm Kohlenhydrate. Oben sehen Sie die Tagesübersicht. Dann ein Bereich zum Wasser zählen, jedes Antippen zählt 250 Milliliter. Darunter vier Buttons für Mahlzeiten: Frühstück, Mittagessen, Abendessen, Snack. ${STATE.profile.diabetesType!=='none'?'Als Diabetiker sehen Sie auch einen Kohlenhydrat-Schnellrechner mit häufigen Lebensmitteln.':''}`;},
 history:()=>`Tagebuch. ${STATE.sessions.length} Einheiten insgesamt. Oben können Sie den Zeitraum wählen: Tag, Woche, Monat oder Jahr. Darunter sehen Sie Statistiken: Einheiten, Minuten, durchschnittliche Anstrengung und Adhärenz. Weiter unten eine Liste aller Trainingseinheiten. Tippen Sie auf eine Einheit, um Details zu sehen.`,
-plan:()=>`Plan-Seite. Woche ${STATE.plan.weekNumber}. Hier sehen Sie Ihre aktuellen Trainingseinstellungen: Wochenziel, Kraft-Sätze, Wiederholungs-Faktor, Balance-Dauer und Gehzeit. Darunter die Wochenauswertung und ob eine Steigerung verfügbar ist.${STATE.plan.inDeload?' Deload ist aktiv, Volumen auf 70 Prozent reduziert.':''}`,
-settings:()=>'Einstellungen. Hier können Sie Barrierefreiheit anpassen: Sprachführung, Kontrast, Schriftgröße, Vibration, Tastenton und Spracheingabe. Darunter Ihr Profil: Name, Diabetes-Typ, Parkinson-Stadium, Wochenziel und Ausrüstung. Ganz unten können Sie Daten sichern, laden oder löschen.',
+plan:()=>{const p=STATE.profile;const isPD=p.parkinson&&p.parkinson.stage!=='none';let g=`Plan-Seite. Woche ${STATE.plan.weekNumber}. Hier sehen Sie Ihre aktuellen Trainingseinstellungen: Wochenziel, Kraft-Sätze, Wiederholungs-Faktor, Balance-Dauer und Gehzeit. `;if(isPD)g+='Als Parkinson-Nutzer haben Sie domänenspezifische Steigerungen: Gehen, Kraft, Balance und Cue-Komplexität werden einzeln gesteuert. ';g+=`Darunter die Wochenauswertung mit Minuten-Fortschritt und ob eine Steigerung verfügbar ist. `;if(STATE.plan.inDeload)g+='Deload ist aktiv, Volumen auf 70 Prozent reduziert. ';g+='Weiter unten die Evidenz-Quellen mit den wissenschaftlichen Studien hinter Ihrem Programm.';return g;},
+settings:()=>{const p=STATE.profile;const isPD=p.parkinson&&p.parkinson.stage!=='none';let g='Einstellungen. Hier können Sie Barrierefreiheit anpassen: Sprachführung, hoher Kontrast, große Schrift, Vibration, Tastenton und Spracheingabe. Darunter Ihr Profil: Name, Diabetes-Typ, Parkinson-Stadium, Wochenziel und Ausrüstung. ';if(isPD)g+='Als Parkinson-Nutzer können Sie hier auch Ihre Freezing-Trigger, Sturzhistorie und Medikationszeiten bearbeiten. ';g+='Weiter unten: Benachrichtigungen aktivieren für Trainings-Erinnerungen. Ganz unten können Sie Daten sichern, laden oder löschen.';return g;},
 bench:()=>`Messungen. Hier testen Sie Ihre Fitness alle vier Wochen mit standardisierten Tests. Nächste Messung in ${benchDueDays()} Tagen. Für jeden Test gibt es einen Starten-Button und einen Vorlesen-Button für den Ablauf.`,
-guide:()=>'Anleitung. Zehn Kapitel mit Informationen zu Sicherheit, Anstrengung, Tests und mehr. Oben ein Inhaltsverzeichnis. Jedes Kapitel hat einen Vorlesen-Button.'
+guide:()=>'Anleitung. Kapitel mit Informationen zu Sicherheit, Anstrengung, Tests, Parkinson-spezifischen Themen und mehr. Oben ein Inhaltsverzeichnis — tippen Sie auf ein Kapitel um dorthin zu scrollen. Jedes Kapitel hat einen Vorlesen-Button. Am Ende finden Sie das Evidenz-Register: alle wissenschaftlichen Regeln mit Quellen, Zielgruppe und Konfidenz-Bewertung.'
 };
 function render(){const app=document.getElementById('app');app.innerHTML='';if(!STATE.profile?.onboardingDone){app.appendChild(renderOnboarding());return;}if(STATE.workout){app.appendChild(renderWorkout());if(STATE.modal)app.appendChild(renderModal());return;}const v=h('div',{class:'view',id:'main-content'});if(STATE.view==='home')v.appendChild(renderHome());else if(STATE.view==='nutrition')v.appendChild(renderNutrition());else if(STATE.view==='history')v.appendChild(renderHistory());else if(STATE.view==='plan')v.appendChild(renderPlan());else if(STATE.view==='settings')v.appendChild(renderSettings());else if(STATE.view==='bench')v.appendChild(renderBench());else if(STATE.view==='guide')v.appendChild(renderGuide());app.appendChild(v);app.appendChild(renderNav());if(STATE.modal)app.appendChild(renderModal());}
 function navTo(view){STATE.view=view;render();window.scrollTo(0,0);const guide=VIEW_GUIDE[view]?.();if(guide)narrator.guide(guide);}
 
 /* ===== ONBOARDING ===== */
-let _onboardGuideStep=-1;
+let _onboardGuideKey='';
 function renderOnboarding(){
 const step=STATE.onboardStep||0,p=STATE.profile;
 const wrap=h('div',{class:'view'});
 wrap.appendChild(h('h1',{},'Willkommen bei VitalPlan'));
 wrap.appendChild(h('p',{class:'subtitle','aria-live':'polite'},`Schritt ${step+1} von 6 · Einrichtung dauert etwa 2 Minuten.`));
-const guideOnce=(text)=>{if(_onboardGuideStep!==step){_onboardGuideStep=step;narrator.guide(text);}};
+const guideOnce=(text,subKey)=>{const key=step+'_'+(subKey||'');if(_onboardGuideKey!==key){_onboardGuideKey=key;narrator.cue(text);}};
 
 if(step===0&&!p.a11y.fullNarration){
 wrap.appendChild(h('div',{class:'card',style:'background:#eff6ff;border-color:#c7d2fe'},
@@ -867,13 +1352,101 @@ wrap.appendChild(next('Weiter',true,()=>{STATE.onboardStep=3;render();}));
 wrap.appendChild(back(()=>{STATE.onboardStep=1;render();}));
 }
 else if(step===3){
-guideOnce('Schritt 4 von 6. Haben Sie Parkinson? Falls ja, welches Stadium? Kein Parkinson wählt das Standardprogramm. Stadium 1 ist einseitig, Gang noch unauffällig. Stadium 2 beidseitig, Gleichgewicht noch erhalten. Stadium 3 mit leichter Gleichgewichtsstörung. Falls Sie unsicher sind, wählen wir konservativ Stadium 2. Tippen Sie auf eine Option, dann Weiter.');
+/* Defensive init: ensure nested parkinson objects exist before onboarding UI accesses them */
+if(!p.parkinson||typeof p.parkinson!=='object')p.parkinson=JSON.parse(JSON.stringify(DEFAULT_PROFILE.parkinson));
+if(!p.parkinson.freezing)p.parkinson.freezing={hasFOG:false,triggers:{initiation:false,turning:false,doorway:false,dualTask:false,stress:false},severity:0,cueResponse:{auditory:null,visual:null,tactile:null}};
+if(!p.parkinson.freezing.triggers)p.parkinson.freezing.triggers={initiation:false,turning:false,doorway:false,dualTask:false,stress:false};
+if(!p.parkinson.falls)p.parkinson.falls={falls30d:0,nearFalls7d:0,fearOfFalling:0};
+if(!p.parkinson.medication)p.parkinson.medication={doseTimes:[],lastDoseAt:null,expectedOnWindowMin:60,selfRatedState:null};
+if(!Array.isArray(p.parkinson.medication.doseTimes))p.parkinson.medication.doseTimes=[];
+if(typeof p.parkinson.medication.expectedOnWindowMin!=='number')p.parkinson.medication.expectedOnWindowMin=60;
+if(typeof p.parkinson.falls.falls30d!=='number')p.parkinson.falls.falls30d=0;
+if(typeof p.parkinson.falls.nearFalls7d!=='number')p.parkinson.falls.nearFalls7d=0;
+if(typeof p.parkinson.falls.fearOfFalling!=='number')p.parkinson.falls.fearOfFalling=0;
+if(typeof p.parkinson.freezing.severity!=='number')p.parkinson.freezing.severity=0;
+const pdSub=STATE.onboardPdSub||0;
+const isPD=p.parkinson.stage&&p.parkinson.stage!=='none';
+if(pdSub===0){
+guideOnce('Schritt 4 von 6. Haben Sie Parkinson? Falls ja, welches Stadium? Kein Parkinson wählt das Standardprogramm. Stadium 1 ist einseitig, Gang noch unauffällig. Stadium 2 beidseitig, Gleichgewicht noch erhalten. Stadium 3 mit leichter Gleichgewichtsstörung. Falls Sie unsicher sind, wählen wir konservativ Stadium 2.','pd0');
 const c=h('div',{class:'card'});c.appendChild(h('h2',{},'Parkinson-Stadium?'));c.appendChild(h('p',{class:'text-muted'},'Bei "Unsicher" wählen wir konservativ Stadium 2.'));
 const grp=h('div',{role:'radiogroup','aria-label':'Parkinson-Stadium'});
-[{id:'none',icon:'➖',label:'Kein Parkinson',sub:'Standardprogramm'},{id:'I',icon:'🟢',label:'Stadium 1',sub:'Einseitig, Gang unauffällig'},{id:'II',icon:'🟡',label:'Stadium 2',sub:'Beidseitig, Gleichgewicht erhalten'},{id:'III',icon:'🟠',label:'Stadium 3',sub:'Leichte Gleichgewichtsstörung'},{id:'unsure',icon:'❓',label:'Unsicher',sub:'Konservativ Stadium 2'}].forEach(o=>{const active=o.id==='unsure'?(p.parkinsonStage==='II'&&p.unsureStage):(p.parkinsonStage===o.id&&!p.unsureStage);grp.appendChild(h('button',{class:'choice'+(active?' active':''),role:'radio','aria-checked':active?'true':'false','aria-label':`${o.label}. ${o.sub}`,onclick:()=>{if(o.id==='unsure'){p.parkinsonStage='II';p.unsureStage=true;}else{p.parkinsonStage=o.id;p.unsureStage=false;}narrator.cue(o.label);render();}},h('span',{class:'choice-icon','aria-hidden':'true'},o.icon),h('div',{class:'choice-text'},h('div',{},o.label),h('div',{class:'choice-sub'},o.sub))));});
+[{id:'none',icon:'➖',label:'Kein Parkinson',sub:'Standardprogramm'},{id:'I',icon:'🟢',label:'Stadium 1',sub:'Einseitig, Gang unauffällig'},{id:'II',icon:'🟡',label:'Stadium 2',sub:'Beidseitig, Gleichgewicht erhalten'},{id:'III',icon:'🟠',label:'Stadium 3',sub:'Leichte Gleichgewichtsstörung'},{id:'unsure',icon:'❓',label:'Unsicher',sub:'Konservativ Stadium 2'}].forEach(o=>{const active=o.id==='unsure'?(p.parkinson.stage==='II'&&p.parkinson.unsure):(p.parkinson.stage===o.id&&!p.parkinson.unsure);grp.appendChild(h('button',{class:'choice'+(active?' active':''),role:'radio','aria-checked':active?'true':'false','aria-label':`${o.label}. ${o.sub}`,onclick:()=>{if(o.id==='unsure'){p.parkinson.stage='II';p.parkinson.unsure=true;}else{p.parkinson.stage=o.id;p.parkinson.unsure=false;}p.parkinsonStage=p.parkinson.stage;p.unsureStage=p.parkinson.unsure;narrator.cue(o.label);render();}},h('span',{class:'choice-icon','aria-hidden':'true'},o.icon),h('div',{class:'choice-text'},h('div',{},o.label),h('div',{class:'choice-sub'},o.sub))));});
 c.appendChild(grp);wrap.appendChild(c);
-wrap.appendChild(next('Weiter',!!p.parkinsonStage,()=>{STATE.onboardStep=4;render();}));
+const canProceed=!!p.parkinson.stage;
+const nextStep=()=>{if(p.parkinson.stage!=='none'){STATE.onboardPdSub=1;render();}else{STATE.onboardPdSub=0;STATE.onboardStep=4;render();}};
+wrap.appendChild(next('Weiter',canProceed,nextStep));
 wrap.appendChild(back(()=>{STATE.onboardStep=2;render();}));
+}
+else if(pdSub===1){
+guideOnce('Schritt 4 von 6, Teil 2: Freezing of Gait. Freezing bedeutet, dass Ihr Gang manchmal plötzlich einfriert — die Füße kleben am Boden und Sie können sich nicht bewegen. Das ist ein häufiges Parkinson-Symptom. In der Mitte sehen Sie einen großen Button: Ja, ich erlebe Freezing. Tippen Sie darauf, wenn Sie Freezing kennen. Es erscheinen dann weitere Fragen zu den genauen Situationen und dem Schweregrad. Wenn Sie kein Freezing haben, lassen Sie den Button deaktiviert und tippen Sie direkt auf Weiter.','pd1');
+const c=h('div',{class:'card'});c.appendChild(h('h2',{},'Freezing of Gait (FOG)?'));c.appendChild(h('p',{class:'text-muted'},'Bleibt Ihr Gang manchmal plötzlich stecken?'));
+const fr=p.parkinson.freezing;
+c.appendChild(h('button',{class:'choice'+(fr.hasFOG?' active':''),role:'switch','aria-checked':fr.hasFOG?'true':'false',onclick:()=>{fr.hasFOG=!fr.hasFOG;if(!fr.hasFOG){fr.triggers.initiation=false;fr.triggers.turning=false;fr.triggers.doorway=false;fr.triggers.dualTask=false;fr.triggers.stress=false;fr.severity=0;}narrator.cue(fr.hasFOG?'Freezing aktiviert. Unterhalb sind jetzt fünf Trigger-Situationen erschienen, in denen Freezing auftreten kann. Tippen Sie auf jede Situation die auf Sie zutrifft. Starten bedeutet der erste Schritt fällt schwer. Drehen bedeutet beim Umdrehen oder Kurven. Türdurchgänge in schmalen Durchgängen. Doppelaufgaben beim gleichzeitigen Gehen und Denken. Stress in stressigen Situationen. Darunter wählen Sie den Schweregrad von 0 bis 4. Tippen Sie auf alle zutreffenden Situationen.':'Freezing deaktiviert. Alle Trigger und der Schweregrad wurden zurückgesetzt. Tippen Sie Weiter.');render();}},h('span',{class:'choice-icon','aria-hidden':'true'},fr.hasFOG?'✅':'❄️'),h('div',{class:'choice-text'},h('div',{},'Ja, ich erlebe Freezing'),h('div',{class:'choice-sub'},'Gang bleibt manchmal stecken'))));
+if(fr.hasFOG){
+c.appendChild(h('h3',{style:'margin-top:16px'},'Bei welchen Situationen?'));
+[{key:'initiation',icon:'🚶',label:'Starten / Losgehen',sub:'Erster Schritt fällt schwer'},{key:'turning',icon:'🔄',label:'Drehen / Richtungswechsel',sub:'Beim Umdrehen oder Kurven'},{key:'doorway',icon:'🚪',label:'Türdurchgänge / Engstellen',sub:'In schmalen Durchgängen'},{key:'dualTask',icon:'🧠',label:'Doppelaufgaben',sub:'Beim Gehen und gleichzeitig Denken/Sprechen'},{key:'stress',icon:'😰',label:'Stress / Zeitdruck',sub:'In stressigen Situationen'}].forEach(t=>{c.appendChild(h('button',{class:'choice'+(fr.triggers[t.key]?' active':''),role:'switch','aria-checked':fr.triggers[t.key]?'true':'false',onclick:()=>{fr.triggers[t.key]=!fr.triggers[t.key];narrator.cue(fr.triggers[t.key]?t.label+' ausgewählt. '+t.sub+'. Diese Situation wird im Training gezielt berücksichtigt.':t.label+' entfernt. Diese Situation wird nicht mehr berücksichtigt.');render();}},h('span',{class:'choice-icon','aria-hidden':'true'},fr.triggers[t.key]?'✅':t.icon),h('div',{class:'choice-text'},h('div',{},t.label),h('div',{class:'choice-sub'},t.sub))));});
+c.appendChild(h('h3',{style:'margin-top:16px'},'Schweregrad'));
+const sevLabels=['Kein Freezing','Selten, kurz','Gelegentlich','Häufig','Sehr häufig, lange'];
+const sevRow=h('div',{class:'scale',role:'radiogroup','aria-label':'Freezing-Schweregrad'});
+[0,1,2,3,4].forEach(i=>{sevRow.appendChild(h('button',{class:'scale-btn'+(fr.severity===i?' active':''),role:'radio','aria-checked':fr.severity===i?'true':'false','aria-label':`Schweregrad ${i}: ${sevLabels[i]}. ${fr.severity===i?'Ausgewählt.':''}`,style:`font-size:22px;min-height:64px;min-width:64px;border-radius:14px;background:${fr.severity===i?'#1e40af':'#e2e8f0'};color:${fr.severity===i?'#fff':'inherit'};font-weight:700;border:2px solid ${fr.severity===i?'#1e3a8a':'#cbd5e1'};cursor:pointer`,onclick:()=>{fr.severity=i;const sevExplain=['Sie erleben kein Freezing. Die Skala dient nur zur Dokumentation.','Freezing tritt selten auf und dauert nur kurz. Übungen fokussieren auf Prävention.','Freezing tritt gelegentlich auf. Gezielte Cueing-Übungen werden eingebaut.','Freezing tritt häufig auf. Mehr Sicherheitsübungen und Cues im Training.','Freezing ist sehr häufig und dauert lange. Training wird besonders sicher gestaltet mit durchgehender Unterstützung.'];narrator.cue('Schweregrad '+i+': '+sevLabels[i]+'. '+sevExplain[i]);render();}},String(i)));});
+c.appendChild(sevRow);
+c.appendChild(h('div',{class:'text-muted',style:'font-size:14px;margin-top:4px;text-align:center'},sevLabels[fr.severity]));
+}
+wrap.appendChild(c);
+wrap.appendChild(next('Weiter',true,()=>{STATE.onboardPdSub=2;render();}));
+wrap.appendChild(back(()=>{STATE.onboardPdSub=0;render();}));
+}
+else if(pdSub===2){
+guideOnce('Schritt 4 von 6, Teil 3: Gleichgewicht und Stürze. Diese Angaben bestimmen, wie sicher Ihre Übungen gestaltet werden. Erste Frage: Angst vor Stürzen auf einer Skala von 0 bis 4. 0 bedeutet keine Angst, 4 sehr große Angst. Tippen Sie auf die passende Zahl. Zweite Frage: Wie oft sind Sie in den letzten 30 Tagen gestürzt? Nutzen Sie die Minus- und Plus-Buttons, um die Zahl einzustellen. Dritte Frage: Beinahe-Stürze in den letzten 7 Tagen, ebenfalls mit Minus und Plus. Bei 2 oder mehr Stürzen werden alle Übungen mit Haltemöglichkeit angeboten. Tippen Sie dann Weiter.','pd2');
+const c=h('div',{class:'card'});c.appendChild(h('h2',{},'Gleichgewicht & Stürze'));
+const fa=p.parkinson.falls;
+c.appendChild(h('h3',{},'Angst vor Stürzen'));
+const fearLabels=['Keine Angst','Wenig Angst','Mäßige Angst','Große Angst','Sehr große Angst'];
+const fearRow=h('div',{class:'scale',role:'radiogroup','aria-label':'Sturzangst'});
+[0,1,2,3,4].forEach(i=>{fearRow.appendChild(h('button',{class:'scale-btn'+(fa.fearOfFalling===i?' active':''),role:'radio','aria-checked':fa.fearOfFalling===i?'true':'false','aria-label':`Sturzangst ${i}: ${fearLabels[i]}. ${fa.fearOfFalling===i?'Ausgewählt.':''}`,style:`font-size:22px;min-height:64px;min-width:64px;border-radius:14px;background:${fa.fearOfFalling===i?'#1e40af':'#e2e8f0'};color:${fa.fearOfFalling===i?'#fff':'inherit'};font-weight:700;border:2px solid ${fa.fearOfFalling===i?'#1e3a8a':'#cbd5e1'};cursor:pointer`,onclick:()=>{fa.fearOfFalling=i;narrator.cue('Sturzangst '+i+': '+fearLabels[i]);render();}},String(i)));});
+c.appendChild(fearRow);
+c.appendChild(h('div',{class:'text-muted',style:'font-size:14px;margin-top:4px;text-align:center'},fearLabels[fa.fearOfFalling]));
+c.appendChild(h('h3',{style:'margin-top:18px'},'Stürze in den letzten 30 Tagen'));
+const fallRow=h('div',{style:'display:flex;gap:10px;align-items:center;justify-content:center;margin:10px 0'});
+fallRow.appendChild(h('button',{class:'btn secondary',style:'font-size:30px;width:72px;height:72px;padding:0;border-radius:16px','aria-label':`Stürze verringern. Aktuell ${fa.falls30d}.`,onclick:()=>{fa.falls30d=Math.max(0,fa.falls30d-1);narrator.cue(fa.falls30d+' Stürze in 30 Tagen');render();}},'-'));
+fallRow.appendChild(h('div',{style:'font-size:40px;font-weight:700;min-width:64px;text-align:center','aria-live':'polite','aria-label':fa.falls30d+' Stürze in den letzten 30 Tagen'},String(fa.falls30d)));
+fallRow.appendChild(h('button',{class:'btn secondary',style:'font-size:30px;width:72px;height:72px;padding:0;border-radius:16px','aria-label':`Stürze erhöhen. Aktuell ${fa.falls30d}.`,onclick:()=>{fa.falls30d=Math.min(20,fa.falls30d+1);narrator.cue(fa.falls30d+' Stürze in 30 Tagen');render();}},'+'));
+c.appendChild(fallRow);
+c.appendChild(h('h3',{style:'margin-top:18px'},'Beinahe-Stürze in den letzten 7 Tagen'));
+const nearRow=h('div',{style:'display:flex;gap:10px;align-items:center;justify-content:center;margin:10px 0'});
+nearRow.appendChild(h('button',{class:'btn secondary',style:'font-size:30px;width:72px;height:72px;padding:0;border-radius:16px','aria-label':`Beinahe-Stürze verringern. Aktuell ${fa.nearFalls7d}.`,onclick:()=>{fa.nearFalls7d=Math.max(0,fa.nearFalls7d-1);narrator.cue(fa.nearFalls7d+' Beinahe-Stürze in 7 Tagen');render();}},'-'));
+nearRow.appendChild(h('div',{style:'font-size:40px;font-weight:700;min-width:64px;text-align:center','aria-live':'polite','aria-label':fa.nearFalls7d+' Beinahe-Stürze in den letzten 7 Tagen'},String(fa.nearFalls7d)));
+nearRow.appendChild(h('button',{class:'btn secondary',style:'font-size:30px;width:72px;height:72px;padding:0;border-radius:16px','aria-label':`Beinahe-Stürze erhöhen. Aktuell ${fa.nearFalls7d}.`,onclick:()=>{fa.nearFalls7d=Math.min(20,fa.nearFalls7d+1);narrator.cue(fa.nearFalls7d+' Beinahe-Stürze in 7 Tagen');render();}},'+'));
+c.appendChild(nearRow);
+wrap.appendChild(c);
+wrap.appendChild(next('Weiter',true,()=>{STATE.onboardPdSub=3;render();}));
+wrap.appendChild(back(()=>{STATE.onboardPdSub=1;render();}));
+}
+else if(pdSub===3){
+guideOnce('Schritt 4 von 6, Teil 4: Medikationszeiten. Diese Angabe ist optional, aber sehr hilfreich. Wann nehmen Sie Ihre Parkinson-Medikamente? Oben sehen Sie eine Zeitauswahl. Stellen Sie die Uhrzeit ein und tippen Sie Hinzufügen. Sie können bis zu 6 Dosiszeiten eintragen. Jede eingetragene Zeit kann mit dem X-Button wieder entfernt werden. Darunter stellen Sie das ON-Fenster ein: Wie viele Minuten nach Einnahme wirkt die Medikation am besten? Standard ist 60 Minuten. Nutzen Sie die Minus- und Plus-Buttons in 15-Minuten-Schritten. Die App empfiehlt dann Training in Ihrem besten Bewegungsfenster. Tippen Sie Weiter wenn fertig.','pd3');
+const c=h('div',{class:'card'});c.appendChild(h('h2',{},'Medikationszeiten'));c.appendChild(h('p',{class:'text-muted'},'Wann nehmen Sie Ihre PD-Medikamente? (Optional)'));
+const med=p.parkinson.medication;
+const timeList=h('div',{style:'margin:12px 0'});
+med.doseTimes.forEach((t,i)=>{timeList.appendChild(h('div',{style:'display:flex;align-items:center;gap:12px;margin-bottom:10px;padding:10px 14px;background:#f1f5f9;border-radius:14px'},h('span',{style:'font-size:24px;font-weight:700;flex:1'},`${t} ⏰`),h('button',{class:'btn danger',style:'font-size:18px;padding:10px 18px;border-radius:12px;min-height:48px','aria-label':`Dosis um ${t} Uhr entfernen. Noch ${med.doseTimes.length} Dosen.`,onclick:()=>{med.doseTimes.splice(i,1);narrator.cue('Dosis um '+t+' entfernt. Noch '+med.doseTimes.length+' Dosen.');render();}},'✕ Entfernen')));});
+c.appendChild(timeList);
+if(med.doseTimes.length<6){
+const addRow=h('div',{style:'display:flex;gap:10px;align-items:center'});
+const timeInput=h('input',{type:'time',value:'08:00',style:'font-size:22px;padding:12px 16px;border-radius:14px;border:2px solid #cbd5e1;min-height:56px','aria-label':'Uhrzeit der nächsten Dosis eingeben'});
+addRow.appendChild(timeInput);
+addRow.appendChild(h('button',{class:'btn secondary',style:'font-size:20px;min-height:56px;padding:12px 20px;border-radius:14px',onclick:()=>{const val=timeInput.value;if(val&&!med.doseTimes.includes(val)){med.doseTimes.push(val);med.doseTimes.sort();narrator.cue('Dosis um '+val+' Uhr hinzugefügt. Insgesamt '+med.doseTimes.length+' Dosen.');render();}else if(med.doseTimes.includes(val)){narrator.cue('Diese Uhrzeit ist bereits eingetragen.');}}},'+ Hinzufügen'));
+c.appendChild(addRow);
+}
+c.appendChild(h('h3',{style:'margin-top:18px'},'ON-Fenster nach Einnahme'));
+c.appendChild(h('p',{class:'text-muted',style:'font-size:14px'},'Wie lange nach Einnahme wirkt die Medikation am besten? (Minuten)'));
+const winRow=h('div',{style:'display:flex;gap:10px;align-items:center;justify-content:center;margin:10px 0'});
+winRow.appendChild(h('button',{class:'btn secondary',style:'font-size:30px;width:72px;height:72px;padding:0;border-radius:16px','aria-label':`ON-Fenster verringern. Aktuell ${med.expectedOnWindowMin} Minuten.`,onclick:()=>{med.expectedOnWindowMin=Math.max(15,med.expectedOnWindowMin-15);narrator.cue('ON-Fenster: '+med.expectedOnWindowMin+' Minuten');render();}},'-'));
+winRow.appendChild(h('div',{style:'font-size:36px;font-weight:700;min-width:100px;text-align:center','aria-live':'polite','aria-label':'ON-Fenster: '+med.expectedOnWindowMin+' Minuten'},med.expectedOnWindowMin+' Min'));
+winRow.appendChild(h('button',{class:'btn secondary',style:'font-size:30px;width:72px;height:72px;padding:0;border-radius:16px','aria-label':`ON-Fenster erhöhen. Aktuell ${med.expectedOnWindowMin} Minuten.`,onclick:()=>{med.expectedOnWindowMin=Math.min(180,med.expectedOnWindowMin+15);narrator.cue('ON-Fenster: '+med.expectedOnWindowMin+' Minuten');render();}},'+'));
+c.appendChild(winRow);
+wrap.appendChild(c);
+wrap.appendChild(next('Weiter',true,()=>{STATE.onboardPdSub=0;STATE.onboardStep=4;render();}));
+wrap.appendChild(back(()=>{STATE.onboardPdSub=2;render();}));
+}
 }
 else if(step===4){
 guideOnce('Schritt 5 von 6. Welche Hilfsmittel haben Sie? Tippen Sie auf alle, die verfügbar sind. Ein stabiler Stuhl ohne Rollen für Aufsteh-Übungen. Eine freie Wandfläche für Wandliegestütz und Balance. Wasserflaschen oder Hanteln für Ruder-Übungen. Eine niedrige Stufe ist optional. Mindestens Stuhl oder Wand werden benötigt.');
@@ -955,6 +1528,17 @@ h('button',{class:'btn',onclick:()=>navTo('guide')},'📖 Zur Anleitung')
 
 const hypo=checkPendingHypoReminders();
 if(hypo){out.appendChild(h('div',{class:'gate gate-warn',role:'alert'},h('strong',{},`🩸 Blutzucker prüfen (${hypo.hours} h nach Training)`),'Nach Bewegung kann bei Typ 1 der Wert Stunden später fallen.'));narrator.critical(`Achtung. Blutzucker prüfen. ${hypo.hours} Stunden nach Training.`);}
+
+/* PD: Medikations-ON-Window Banner */
+if(p.parkinson&&p.parkinson.stage!=='none'&&p.parkinson.medication.doseTimes.length>0){
+const medState=inferMedicationState();
+const nextOn=nextOnWindow();
+const medCard=h('div',{class:'card',style:`background:${medState==='ON'?'#f0fdf4;border-color:#bbf7d0':medState==='OFF'?'#fef2f2;border-color:#fecaca':'#fffbeb;border-color:#fde68a'}`,role:'region','aria-label':'Medikationsstatus'});
+const stateLabel=medState==='ON'?'🟢 ON-Phase — Guter Zeitpunkt zum Trainieren':medState==='OFF'?'🔴 OFF-Phase — Training eingeschränkt möglich':medState==='wearing-off'?'🟡 Wearing-Off — Bald OFF':medState==='wearing-in'?'⏳ Medikament wirkt ein — Bald ON':'💊 Medikationsstatus unbekannt';
+medCard.appendChild(h('div',{style:'display:flex;align-items:center;gap:10px'},h('div',{style:'font-weight:700;font-size:17px'},stateLabel)));
+if(nextOn&&medState!=='ON')medCard.appendChild(h('div',{class:'text-muted',style:'font-size:15px;margin-top:4px'},`Nächste ON-Phase: ca. ${nextOn}`));
+out.appendChild(medCard);
+}
 
 // Wellbeing check-in
 const todayWellbeing=STATE.wellbeing.find(w=>w.date===todayIso());
@@ -1094,7 +1678,7 @@ return out;
 }
 
 /* ===== PRE-CHECK ===== */
-function startPreCheck(){STATE.preCheck={step:0,symptoms:{},preGlucose:null,preKetones:null};STATE.workout={phase:'pre'};render();const hasPk=STATE.profile.parkinsonStage!=='none';narrator.guide(`Sicherheits-Check vor dem Training. Schritt 1: Warnzeichen. Falls eines der folgenden Symptome heute auf Sie zutrifft, tippen Sie darauf: Brustschmerz, Luftnot, starker Schwindel, Fieber, heutiger Sturz${hasPk?', oder starkes Freezing':''}. Falls nichts davon zutrifft, tippen Sie auf Nichts davon alles OK. Dann den blauen Button Weiter.`);}
+function startPreCheck(){STATE.preCheck={step:0,symptoms:{},preGlucose:null,preKetones:null,medState:null};STATE.workout={phase:'pre'};render();const hasPk=STATE.profile.parkinson&&STATE.profile.parkinson.stage!=='none';narrator.guide(`Sicherheits-Check vor dem Training. Schritt 1: Warnzeichen. Falls eines der folgenden Symptome heute auf Sie zutrifft, tippen Sie darauf: Brustschmerz, Luftnot, starker Schwindel, Fieber, heutiger Sturz${hasPk?', oder starkes Freezing':''}. Falls nichts davon zutrifft, tippen Sie auf Nichts davon alles OK. Dann den blauen Button Weiter.`);}
 function renderPreCheck(){
 const p=STATE.profile,pc=STATE.preCheck;
 const w=h('div',{class:'workout',role:'region','aria-label':'Sicherheits-Check vor Training'});
@@ -1109,6 +1693,21 @@ const grp=h('div',{role:'group','aria-label':'Warnzeichen-Liste. Mehrfachauswahl
 opts.forEach(o=>{const a=!!pc.symptoms[o.key];grp.appendChild(h('button',{class:'choice'+(a?' active':''),role:'checkbox','aria-checked':a?'true':'false','aria-label':`${o.label}. ${a?'Ausgewählt.':''}`,onclick:()=>{pc.symptoms[o.key]=!a;narrator.cue(a?`${o.label} entfernt.`:`${o.label} ausgewählt.`);render();}},h('span',{class:'choice-icon','aria-hidden':'true'},a?'⚠️':'○'),h('div',{class:'choice-text'},o.label)));});
 grp.appendChild(h('button',{class:'choice',style:'border-color:#059669;background:#f0fdf4','aria-label':'Nichts davon, alles OK',onclick:()=>{pc.symptoms={};narrator.cue('Alles OK. Keine Symptome.');render();}},h('span',{class:'choice-icon','aria-hidden':'true'},'✅'),h('div',{class:'choice-text'},'Nichts davon – alles OK')));
 c.appendChild(grp);w.appendChild(c);
+/* PD: Medikationsstatus abfragen */
+const _isPdPre=p.parkinson&&p.parkinson.stage&&p.parkinson.stage!=='none';
+if(_isPdPre&&p.parkinson.medication.doseTimes.length>0){
+const mc=h('div',{class:'card'});mc.appendChild(h('h3',{},'Wie fühlen Sie sich gerade?'));
+const inferred=inferMedicationState();
+mc.appendChild(h('p',{class:'text-muted',style:'font-size:14px;margin-bottom:10px'},inferred!=='unknown'?`Geschätzt: ${inferred==='ON'?'ON-Phase':inferred==='OFF'?'OFF-Phase':inferred==='wearing-off'?'Wearing-Off':'Einwirkung'}`:''));
+const mgrp=h('div',{role:'radiogroup','aria-label':'Medikationsstatus'});
+[{id:'ON',icon:'🟢',label:'ON-Phase',sub:'Medikamente wirken gut'},{id:'OFF',icon:'🔴',label:'OFF-Phase',sub:'Medikamente wirken kaum'},{id:'wearing-off',icon:'🟡',label:'Wearing-Off',sub:'Wirkung lässt nach'}].forEach(o=>{mgrp.appendChild(h('button',{class:'choice'+(pc.medState===o.id?' active':''),role:'radio','aria-checked':pc.medState===o.id?'true':'false','aria-label':`${o.label}. ${o.sub}`,onclick:()=>{pc.medState=o.id;p.parkinson.medication.selfRatedState=o.id;narrator.cue(o.label);render();}},h('span',{class:'choice-icon','aria-hidden':'true'},o.icon),h('div',{class:'choice-text'},h('div',{},o.label),h('div',{class:'choice-sub'},o.sub))));});
+mc.appendChild(mgrp);w.appendChild(mc);
+if(pc.medState==='OFF')w.appendChild(h('div',{class:'gate gate-warn',role:'alert'},h('strong',{},'OFF-Phase erkannt'),'Training möglich, aber komplexe Übungen (Dual-Task, schnelle Drehungen) werden reduziert.'));
+/* Risikoprofil-Warnung */
+const _risk=computeRiskProfile();
+if(_risk.assistLevel==='hands-on')w.appendChild(h('div',{class:'gate gate-warn',role:'alert'},h('strong',{},'Hohe Sturzgefahr erkannt'),'Bitte nur mit Begleitperson trainieren. Reactive-Balance und Dual-Task werden eingeschränkt.'));
+else if(_risk.assistLevel==='standby')w.appendChild(h('div',{class:'gate gate-warn',role:'alert'},h('strong',{},'Erhöhte Sturzgefahr'),'Halten Sie sich heute besonders an Halt-Übungen. Eine Begleitperson in Rufweite ist empfehlenswert.'));
+}
 const r=evalSymptoms(pc.symptoms);
 if(r){w.appendChild(h('div',{class:'gate gate-'+r.level,role:'alert'},h('strong',{},r.title),r.msg));if(r.level==='stop')narrator.critical(`Stopp. ${r.title}. ${r.msg}`);}
 const b=h('div',{class:'workout-bottom'});
@@ -1174,9 +1773,15 @@ function initBlock(){const w=STATE.workout,b=currentBlock();if(!b)return;if(b.is
 function startCurrentExercise(){const w=STATE.workout,b=currentBlock();if(!b)return;w.timedReps=0;narrator.stop();if(b.type==='time'){w.timer=new MonoTimer(b.sec,onTimerTick,onTimerComplete,{coaching:b.coaching||[]});w.timer.start();narrator.cue('Los geht es.');}else{/* Reps mit Timer-Führung: setSec = reps × secsPerRep */const setSec=b.setSec||b.reps*5;const ZAHL=['','Eins','Zwei','Drei','Vier','Fünf','Sechs','Sieben','Acht','Neun','Zehn','Elf','Zwölf','Dreizehn','Vierzehn','Fünfzehn'];const repCues=[];for(let i=1;i<=b.reps;i++)repCues.push(ZAHL[i]||String(i));w.timer=new MonoTimer(setSec,onTimerTick,onTimerComplete,{coaching:repCues});w.timer.start();narrator.cue(`Satz ${w.setIdx+1}. ${b.reps} Wiederholungen. Folgen Sie dem Tempo.`);}render();}
 function onTimerTick(){render();}
 function onTimerComplete(){const w=STATE.workout,b=currentBlock();if(w.resting){w.resting=false;w.setIdx++;w.repCount=0;w.timedReps=0;if(w.setIdx>=(b.sets||1))showExerciseFeedback();else if(b.type==='time'){w.timer=new MonoTimer(b.sec,onTimerTick,onTimerComplete,{coaching:b.coaching||[]});w.timer.start();narrator.announce(`Satz ${w.setIdx+1} von ${b.sets}. Los geht es.`);}else{/* Reps: neuen Satz-Timer starten */const setSec=b.setSec||b.reps*5;const ZAHL=['','Eins','Zwei','Drei','Vier','Fünf','Sechs','Sieben','Acht','Neun','Zehn','Elf','Zwölf','Dreizehn','Vierzehn','Fünfzehn'];const repCues=[];for(let i=1;i<=b.reps;i++)repCues.push(ZAHL[i]||String(i));w.timer=new MonoTimer(setSec,onTimerTick,onTimerComplete,{coaching:repCues});w.timer.start();narrator.announce(`Satz ${w.setIdx+1} von ${b.sets}. Los.`);}}else if(b.type==='reps'){/* Reps-Satz-Timer abgelaufen → Bestätigung */w.timer=null;w.awaitingRepConfirm=true;w._showRepNumpad=false;haptic(HAPTIC.SET);narrator.cue(`Satz fertig. Alle ${b.reps} geschafft?`);}else{/* Time: set complete */w.timer=null;if(w.setIdx<(b.sets||1)-1){w.resting=true;const restSec=b.restSec||15;narrator.announce(`Satz fertig. ${restSec} Sekunden Pause.`);w.timer=new MonoTimer(restSec,onTimerTick,onTimerComplete);w.timer.start();}else{/* Last set → feedback */w.exerciseFeedback=true;w.exerciseRating=null;w.exerciseActual={type:'time',finishedEarly:false,plannedSec:b.sec,actualSec:b.sec,timedReps:w.timedReps||0};haptic(HAPTIC.SET);narrator.cue(`${b.name} geschafft! Wie war die Übung?`);}}render();}
-function showExerciseFeedback(){const w=STATE.workout,b=currentBlock();w.exerciseFeedback=true;w.exerciseRating=null;if(b.type==='time'){w.exerciseActual={type:'time',finishedEarly:false,plannedSec:b.sec,actualSec:b.sec,timedReps:w.timedReps||0};}else{w.exerciseActual={type:'reps',targetReps:b.reps,totalSets:b.sets||1,setResults:w.setResults||[],completedSets:(w.setResults||[]).length,avgActualReps:(w.setResults||[]).length?Math.round((w.setResults||[]).reduce((a,s)=>a+s.actualReps,0)/(w.setResults||[]).length):b.reps};}haptic(HAPTIC.SET);narrator.cue(`${b.name} geschafft! Wie war die Übung? Leicht, Passt, oder Zu schwer?`);render();}
+function showExerciseFeedback(){const w=STATE.workout,b=currentBlock();w.exerciseFeedback=true;w.exerciseRating=null;if(b.type==='time'){w.exerciseActual={type:'time',finishedEarly:false,plannedSec:b.sec,actualSec:b.sec,timedReps:w.timedReps||0};}else{w.exerciseActual={type:'reps',targetReps:b.reps,totalSets:b.sets||1,setResults:w.setResults||[],completedSets:(w.setResults||[]).length,avgActualReps:(w.setResults||[]).length?Math.round((w.setResults||[]).reduce((a,s)=>a+s.actualReps,0)/(w.setResults||[]).length):b.reps};}
+/* Init PD per-exercise feedback for tagged exercises */
+const _isPdEx=STATE.profile.parkinson&&STATE.profile.parkinson.stage!=='none'&&b.tags&&b.tags.length>0;
+if(_isPdEx){w._pdExFeedback={cueUsed:null,assistNeeded:false,freezingCount:0,turningDifficulty:null,nearFall:false};w._pdExShowDetail=false;}
+haptic(HAPTIC.SET);narrator.cue(`${b.name} geschafft! Wie war die Übung? Leicht, Passt, oder Zu schwer?`);render();}
 function finishEarly(){const w=STATE.workout,b=currentBlock();if(!b)return;if(w.exerciseFeedback||w.awaitingRepConfirm||w.resting)return;const totalSec=b.type==='time'?b.sec:(b.setSec||b.reps*5);let actualSec=totalSec;if(w.timer){const rem=w.timer.snapshot();actualSec=totalSec-rem;w.timer.stop();w.timer=null;}if(b.type==='reps'){w.awaitingRepConfirm=true;w._showRepNumpad=false;haptic(HAPTIC.SET);narrator.cue('Wie viele haben Sie geschafft?');render();return;}w.exerciseFeedback=true;w.exerciseRating=null;w.exerciseActual={type:'time',finishedEarly:actualSec<totalSec,plannedSec:b.sec,actualSec,timedReps:w.timedReps||0};haptic(HAPTIC.SET);narrator.cue(`${b.name} nach ${fmtSpoken(actualSec)} beendet. Wie war die Übung?`);render();}
-function confirmExerciseFeedback(){const w=STATE.workout,b=currentBlock();if(!b)return;const rating=w.exerciseRating||'ok';const actual=w.exerciseActual||{};const entry={id:b.id,at:new Date().toISOString(),type:b.type,phase:b.phase,exerciseRating:rating};if(actual.type==='time'){entry.finishedEarly=actual.finishedEarly||false;entry.plannedSec=actual.plannedSec||b.sec;entry.actualSec=actual.actualSec||b.sec;entry.timedReps=actual.timedReps||0;}else{entry.targetReps=b.reps;entry.totalSets=b.sets||1;entry.setResults=actual.setResults||w.setResults||[];entry.completedSets=entry.setResults.length;entry.allSetsCompleted=entry.completedSets>=(b.sets||1);entry.avgActualReps=entry.setResults.length?Math.round(entry.setResults.reduce((a,s)=>a+s.actualReps,0)/entry.setResults.length):b.reps;}w.completed.push(entry);w.exerciseFeedback=false;w.exerciseRating=null;w.exerciseActual={};const ratingLabel={easy:'Leicht',ok:'Passt',hard:'Zu schwer'}[rating]||'Passt';haptic(HAPTIC.SET);const prevName=b.name;w.blockIdx++;if(w.blockIdx>=w.blocks.length){narrator.announce(`${prevName}: ${ratingLabel}. Letzte Übung geschafft!`);finishWorkout();}else{const next=w.blocks[w.blockIdx];narrator.announce(`${prevName}: ${ratingLabel}.${next&&!next.isPhaseHeader?' Als nächstes: '+next.name+'.':''}`);initBlock();}}
+function confirmExerciseFeedback(){const w=STATE.workout,b=currentBlock();if(!b)return;const rating=w.exerciseRating||'ok';const actual=w.exerciseActual||{};const entry={id:b.id,at:new Date().toISOString(),type:b.type,phase:b.phase,exerciseRating:rating,response:rating};if(actual.type==='time'){entry.finishedEarly=actual.finishedEarly||false;entry.plannedSec=actual.plannedSec||b.sec;entry.actualSec=actual.actualSec||b.sec;entry.timedReps=actual.timedReps||0;}else{entry.targetReps=b.reps;entry.totalSets=b.sets||1;entry.setResults=actual.setResults||w.setResults||[];entry.completedSets=entry.setResults.length;entry.allSetsCompleted=entry.completedSets>=(b.sets||1);entry.avgActualReps=entry.setResults.length?Math.round(entry.setResults.reduce((a,s)=>a+s.actualReps,0)/entry.setResults.length):b.reps;}
+/* PD per-exercise outcome fields */
+if(w._pdExFeedback){entry.cueUsed=w._pdExFeedback.cueUsed||null;entry.assistNeeded=w._pdExFeedback.assistNeeded||false;entry.freezingCount=w._pdExFeedback.freezingCount||0;entry.turningDifficulty=w._pdExFeedback.turningDifficulty||null;entry.nearFall=w._pdExFeedback.nearFall||false;w._pdExFeedback=null;}w.completed.push(entry);w.exerciseFeedback=false;w.exerciseRating=null;w.exerciseActual={};const ratingLabel={easy:'Leicht',ok:'Passt',hard:'Zu schwer'}[rating]||'Passt';haptic(HAPTIC.SET);const prevName=b.name;w.blockIdx++;if(w.blockIdx>=w.blocks.length){narrator.announce(`${prevName}: ${ratingLabel}. Letzte Übung geschafft!`);finishWorkout();}else{const next=w.blocks[w.blockIdx];narrator.announce(`${prevName}: ${ratingLabel}.${next&&!next.isPhaseHeader?' Als nächstes: '+next.name+'.':''}`);initBlock();}}
 function advanceBlock(){const w=STATE.workout,b=currentBlock();if(b&&!b.isPhaseHeader){const entry={id:b.id,at:new Date().toISOString(),type:b.type,phase:b.phase,exerciseRating:'ok'};if(b.type==='time'){entry.finishedEarly=false;entry.plannedSec=b.sec;entry.actualSec=b.sec;entry.timedReps=w.timedReps||0;}else{entry.targetReps=b.reps;entry.totalSets=b.sets||1;entry.setResults=w.setResults||[];entry.completedSets=entry.setResults.length;entry.allSetsCompleted=entry.completedSets>=(b.sets||1);entry.avgActualReps=entry.setResults.length?Math.round(entry.setResults.reduce((a,s)=>a+s.actualReps,0)/entry.setResults.length):b.reps;}w.completed.push(entry);}haptic(HAPTIC.SET);const prevName=b&&!b.isPhaseHeader?b.name:null;w.blockIdx++;if(w.blockIdx>=w.blocks.length){if(prevName)narrator.announce(`${prevName} abgeschlossen. Letzte Übung geschafft!`);finishWorkout();}else{const next=w.blocks[w.blockIdx];if(prevName&&next&&!next.isPhaseHeader)narrator.announce(`${prevName} abgeschlossen. Als nächstes: ${next.name}.`);initBlock();}}
 function confirmReps(actualReps){const w=STATE.workout,b=currentBlock();if(!b)return;if(!w.setResults)w.setResults=[];w.setResults.push({set:w.setIdx,targetReps:b.reps,actualReps});w.awaitingRepConfirm=false;w._showRepNumpad=false;w._repStr='';const info=actualReps<b.reps?`${actualReps} von ${b.reps} geschafft. `:'';if(w.setIdx<(b.sets||1)-1){w.resting=true;w.repCount=0;narrator.announce(`Satz ${w.setIdx+1} fertig. ${info}${b.restSec||30} Sekunden Pause.`);w.timer=new MonoTimer(b.restSec||30,onTimerTick,onTimerComplete);w.timer.start();}else{/* Last set → feedback screen */showExerciseFeedback();}render();}
 function finishCurrentSet(){/* Zeigt Rep-Bestätigung */const w=STATE.workout;if(w.timer)w.timer.stop();w.timer=null;w.awaitingRepConfirm=true;w._showRepNumpad=false;haptic(HAPTIC.SET);render();}
@@ -1255,6 +1860,37 @@ emojis.appendChild(h('button',{class:'fb-easy'+(w.exerciseRating==='easy'?' acti
 emojis.appendChild(h('button',{class:'fb-ok'+(w.exerciseRating==='ok'?' active':''),onclick:()=>{w.exerciseRating='ok';render();}},h('span',{class:'fb-emoji'},'👍'),h('span',{},'Passt')));
 emojis.appendChild(h('button',{class:'fb-hard'+(w.exerciseRating==='hard'?' active':''),onclick:()=>{w.exerciseRating='hard';render();}},h('span',{class:'fb-emoji'},'😣'),h('span',{},'Zu schwer')));
 wrap.appendChild(emojis);
+/* PD per-exercise detail feedback */
+if(w._pdExFeedback&&b.tags&&b.tags.length>0){
+const pf=w._pdExFeedback;
+const hasFog=b.tags.some(t=>t.includes('fog')||t.includes('gait-initiation')||t.includes('turning')||t.includes('doorway')||t.includes('stop-start'));
+const hasTurning=b.tags.includes('turning');
+const detBtn=h('button',{class:'btn secondary',style:'margin:10px auto;display:block;font-size:15px',onclick:()=>{w._pdExShowDetail=!w._pdExShowDetail;render();}},w._pdExShowDetail?'▲ PD-Details einklappen':'▼ PD-Details (optional)');
+wrap.appendChild(detBtn);
+if(w._pdExShowDetail){
+const dc=h('div',{class:'card',style:'background:#f8fafc;margin-top:8px'});
+/* Freezing count */
+if(hasFog){
+dc.appendChild(h('div',{style:'display:flex;align-items:center;gap:10px;margin-bottom:10px'},h('span',{style:'font-weight:600;min-width:130px;font-size:15px'},'Freezing-Episoden:'),h('button',{class:'btn secondary',style:'width:36px;height:36px;padding:0;font-size:18px',onclick:()=>{pf.freezingCount=Math.max(0,pf.freezingCount-1);render();}},'-'),h('span',{style:'font-size:20px;font-weight:700;min-width:28px;text-align:center'},String(pf.freezingCount)),h('button',{class:'btn secondary',style:'width:36px;height:36px;padding:0;font-size:18px',onclick:()=>{pf.freezingCount=Math.min(10,pf.freezingCount+1);render();}},'+') ));
+}
+/* Turning difficulty */
+if(hasTurning){
+dc.appendChild(h('div',{style:'margin-bottom:10px'},h('span',{style:'font-weight:600;font-size:15px'},'Dreh-Schwierigkeit:  '),h('span',{style:'font-size:14px;color:#64748b'},pf.turningDifficulty!=null?['Keine','Leicht','Mäßig','Stark','Sehr stark'][pf.turningDifficulty]:'')));
+const tRow=h('div',{style:'display:flex;gap:6px;margin-top:4px'});
+[0,1,2,3,4].forEach(i=>{tRow.appendChild(h('button',{class:'scale-btn'+(pf.turningDifficulty===i?' active':''),style:`font-size:15px;min-height:40px;min-width:40px;border-radius:8px;background:${pf.turningDifficulty===i?'#1e40af':'#e2e8f0'};color:${pf.turningDifficulty===i?'#fff':'inherit'};border:none;cursor:pointer;font-weight:700`,onclick:()=>{pf.turningDifficulty=i;render();}},String(i)));});
+dc.appendChild(tRow);
+}
+/* Near fall */
+dc.appendChild(h('button',{class:'choice'+(pf.nearFall?' active':''),role:'switch','aria-checked':pf.nearFall?'true':'false',style:'margin-top:8px',onclick:()=>{pf.nearFall=!pf.nearFall;render();}},h('span',{class:'choice-icon','aria-hidden':'true'},pf.nearFall?'⚠️':'○'),h('div',{class:'choice-text'},'Beinahe-Sturz bei dieser Übung')));
+/* Assist needed */
+dc.appendChild(h('button',{class:'choice'+(pf.assistNeeded?' active':''),role:'switch','aria-checked':pf.assistNeeded?'true':'false',style:'margin-top:6px',onclick:()=>{pf.assistNeeded=!pf.assistNeeded;render();}},h('span',{class:'choice-icon','aria-hidden':'true'},pf.assistNeeded?'🤝':'○'),h('div',{class:'choice-text'},'Hilfe/Unterstützung nötig')));
+/* Cue used */
+dc.appendChild(h('div',{style:'margin-top:10px'},h('span',{style:'font-weight:600;font-size:15px'},'Cue benutzt:')));
+const cRow=h('div',{style:'display:flex;gap:6px;margin-top:4px;flex-wrap:wrap'});
+['auditory','visual','tactile','none'].forEach(c=>{const lbl={auditory:'Auditiv',visual:'Visuell',tactile:'Taktil',none:'Keiner'}[c];cRow.appendChild(h('button',{class:'choice'+(pf.cueUsed===c?' active':''),style:'flex:1;min-width:70px;padding:8px 4px;font-size:14px',onclick:()=>{pf.cueUsed=c;render();}},h('div',{class:'choice-text'},lbl)));});
+dc.appendChild(cRow);
+wrap.appendChild(dc);
+}}
 wrap.appendChild(h('div',{class:'workout-bottom'},h('button',{class:'btn big success',disabled:!w.exerciseRating,onclick:confirmExerciseFeedback},w.exerciseRating?'✓ Weiter':'Bitte bewerten'),h('button',{class:'btn ghost',onclick:skipBlock},'Überspringen')));
 return wrap;
 }
@@ -1492,13 +2128,14 @@ function startBenchmark(tid){saveFocus();STATE.modal={type:'benchStart',testId:t
 function renderGuide(){
 const out=frag();
 out.appendChild(h('h1',{},'Anleitung'));
-out.appendChild(h('p',{class:'subtitle'},'Zehn Kapitel mit Best-Practice-Informationen. Jedes kann vorgelesen werden.'));
+out.appendChild(h('p',{class:'subtitle'},'Kapitel mit Best-Practice-Informationen und vollständiges Evidenz-Register. Jedes kann vorgelesen werden.'));
 if(!STATE.profile.a11y.guideSeen){STATE.profile.a11y.guideSeen=true;saveProfile();}
 
 // TOC
 const toc=h('div',{class:'card',role:'navigation','aria-label':'Kapitel-Übersicht'});
 toc.appendChild(h('h3',{},'Kapitel'));
 GUIDE.forEach((g,i)=>{toc.appendChild(h('button',{class:'choice',style:'min-height:52px;padding:12px 16px;font-size:16px',onclick:()=>{document.getElementById('g-'+g.id)?.scrollIntoView({behavior:'smooth'});}},h('span',{class:'choice-icon','aria-hidden':'true'},String(i+1)+'.'),h('div',{class:'choice-text'},g.title)));});
+toc.appendChild(h('button',{class:'choice',style:'min-height:52px;padding:12px 16px;font-size:16px',onclick:()=>{document.getElementById('g-evidenz-register')?.scrollIntoView({behavior:'smooth'});}},h('span',{class:'choice-icon','aria-hidden':'true'},'📋'),h('div',{class:'choice-text'},'Evidenz-Register')));
 out.appendChild(toc);
 
 // Sections
@@ -1510,6 +2147,24 @@ const fullText=`${g.title}. ${g.content.join(' ')}`;
 sec.appendChild(h('button',{class:'btn secondary','aria-label':`Kapitel ${g.title} vorlesen`,style:'margin-top:8px',onclick:()=>{unlockVoice();narrator.cue(fullText);}},'🔊 Vorlesen'));
 out.appendChild(sec);
 });
+
+// Evidenz-Register
+const erSec=h('div',{class:'guide-section',id:'g-evidenz-register',role:'region','aria-label':'Evidenz-Register'});
+erSec.appendChild(h('h3',{},'Evidenz-Register'));
+erSec.appendChild(h('p',{},'Jede Trainingsregel in VitalPlan ist durch wissenschaftliche Studien belegt. Dieses Register zeigt alle Regeln mit Quellen, Zielgruppe und Konfidenz.'));
+const confLabel={high:'🟢 Hoch',moderate:'🟡 Mittel',low:'🔴 Niedrig'};
+Object.values(EVIDENCE_REGISTRY).forEach(er=>{
+const card=h('div',{style:'background:#f8fafc;border-radius:10px;padding:12px 14px;margin-top:10px'});
+card.appendChild(h('p',{style:'font-weight:600;margin:0 0 4px'},er.rule));
+card.appendChild(h('p',{class:'text-muted',style:'font-size:14px;margin:2px 0'},`Zielgruppe: ${er.population}`));
+card.appendChild(h('p',{class:'text-muted',style:'font-size:14px;margin:2px 0'},`Konfidenz: ${confLabel[er.confidence]||er.confidence} · Geprüft: ${er.lastReviewed}`));
+if(er.outcomes.length>0)card.appendChild(h('p',{class:'text-muted',style:'font-size:13px;margin:4px 0'},`Outcomes: ${er.outcomes.join(' · ')}`));
+er.sourceIds.forEach(sid=>{card.appendChild(h('p',{class:'text-muted',style:'font-size:12px;margin:2px 0;font-style:italic'},fmtCitationFull(sid)));});
+erSec.appendChild(card);
+});
+const erFullText='Evidenz-Register. '+Object.values(EVIDENCE_REGISTRY).map(er=>`${er.rule}. Zielgruppe: ${er.population}. Konfidenz: ${er.confidence}.`).join(' ');
+erSec.appendChild(h('button',{class:'btn secondary','aria-label':'Evidenz-Register vorlesen',style:'margin-top:8px',onclick:()=>{unlockVoice();narrator.cue(erFullText);}},'🔊 Vorlesen'));
+out.appendChild(erSec);
 
 out.appendChild(h('button',{class:'btn ghost',onclick:()=>navTo('home')},'Zurück zur Heute-Seite'));
 return out;
@@ -1561,8 +2216,28 @@ dc.appendChild(dgrp);out.appendChild(dc);
 
 // Parkinson
 const pc=h('div',{class:'card'});pc.appendChild(h('h3',{id:'pcl'},'Parkinson-Stadium'));const pgrp=h('div',{role:'radiogroup','aria-labelledby':'pcl'});
-[['none','Keines'],['I','Stadium 1'],['II','Stadium 2'],['III','Stadium 3']].forEach(([id,lbl])=>pgrp.appendChild(h('button',{class:'choice'+(p.parkinsonStage===id?' active':''),role:'radio','aria-checked':p.parkinsonStage===id?'true':'false',onclick:async()=>{p.parkinsonStage=id;p.unsureStage=false;await saveProfile();narrator.cue(`Parkinson: ${lbl} ausgewählt.`);render();}},h('div',{class:'choice-text'},lbl))));
-pc.appendChild(pgrp);out.appendChild(pc);
+[['none','Keines'],['I','Stadium 1'],['II','Stadium 2'],['III','Stadium 3']].forEach(([id,lbl])=>pgrp.appendChild(h('button',{class:'choice'+(p.parkinson.stage===id?' active':''),role:'radio','aria-checked':p.parkinson.stage===id?'true':'false',onclick:async()=>{p.parkinson.stage=id;p.parkinson.unsure=false;p.parkinsonStage=id;p.unsureStage=false;await saveProfile();narrator.cue(`Parkinson: ${lbl} ausgewählt.`);render();}},h('div',{class:'choice-text'},lbl))));
+pc.appendChild(pgrp);
+/* PD-spezifische Einstellungen */
+if(p.parkinson.stage&&p.parkinson.stage!=='none'){
+const fr=p.parkinson.freezing;
+pc.appendChild(h('h3',{style:'margin-top:18px;border-top:1px solid #e2e8f0;padding-top:14px'},'Freezing of Gait'));
+pc.appendChild(h('button',{class:'choice'+(fr.hasFOG?' active':''),role:'switch','aria-checked':fr.hasFOG?'true':'false',onclick:async()=>{fr.hasFOG=!fr.hasFOG;if(!fr.hasFOG){for(const k in fr.triggers)fr.triggers[k]=false;fr.severity=0;}await saveProfile();narrator.cue(fr.hasFOG?'Freezing aktiviert':'Freezing deaktiviert');render();}},h('span',{class:'choice-icon','aria-hidden':'true'},fr.hasFOG?'✅':'❄️'),h('div',{class:'choice-text'},'Ich erlebe Freezing')));
+if(fr.hasFOG){
+[{key:'initiation',label:'Starten'},{key:'turning',label:'Drehen'},{key:'doorway',label:'Türdurchgang'},{key:'dualTask',label:'Doppelaufgabe'},{key:'stress',label:'Stress'}].forEach(t=>{pc.appendChild(h('button',{class:'choice'+(fr.triggers[t.key]?' active':''),role:'switch','aria-checked':fr.triggers[t.key]?'true':'false',style:'margin-left:20px',onclick:async()=>{fr.triggers[t.key]=!fr.triggers[t.key];await saveProfile();render();}},h('span',{class:'choice-icon','aria-hidden':'true'},fr.triggers[t.key]?'✅':'○'),h('div',{class:'choice-text'},t.label)));});
+}
+const fa=p.parkinson.falls;
+pc.appendChild(h('h3',{style:'margin-top:18px;border-top:1px solid #e2e8f0;padding-top:14px'},'Stürze & Sicherheit'));
+pc.appendChild(h('div',{style:'display:flex;align-items:center;gap:12px;margin:8px 0'},h('span',{style:'font-weight:600;min-width:160px'},'Stürze (30 Tage):'),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{fa.falls30d=Math.max(0,fa.falls30d-1);await saveProfile();render();}},'-'),h('span',{style:'font-size:22px;font-weight:700;min-width:32px;text-align:center'},String(fa.falls30d)),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{fa.falls30d=Math.min(20,fa.falls30d+1);await saveProfile();render();}},'+') ));
+pc.appendChild(h('div',{style:'display:flex;align-items:center;gap:12px;margin:8px 0'},h('span',{style:'font-weight:600;min-width:160px'},'Beinahe-Stürze (7 T):'),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{fa.nearFalls7d=Math.max(0,fa.nearFalls7d-1);await saveProfile();render();}},'-'),h('span',{style:'font-size:22px;font-weight:700;min-width:32px;text-align:center'},String(fa.nearFalls7d)),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{fa.nearFalls7d=Math.min(20,fa.nearFalls7d+1);await saveProfile();render();}},'+') ));
+pc.appendChild(h('div',{style:'display:flex;align-items:center;gap:12px;margin:8px 0'},h('span',{style:'font-weight:600;min-width:160px'},'Sturzangst (0–4):'),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{fa.fearOfFalling=Math.max(0,fa.fearOfFalling-1);await saveProfile();render();}},'-'),h('span',{style:'font-size:22px;font-weight:700;min-width:32px;text-align:center'},String(fa.fearOfFalling)),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{fa.fearOfFalling=Math.min(4,fa.fearOfFalling+1);await saveProfile();render();}},'+') ));
+const med=p.parkinson.medication;
+pc.appendChild(h('h3',{style:'margin-top:18px;border-top:1px solid #e2e8f0;padding-top:14px'},'Medikationszeiten'));
+med.doseTimes.forEach((t,i)=>{pc.appendChild(h('div',{style:'display:flex;align-items:center;gap:8px;margin:6px 0'},h('span',{style:'font-size:17px'},`${i+1}. Dosis: ${t}`),h('button',{class:'btn danger',style:'font-size:12px;padding:2px 10px',onclick:async()=>{med.doseTimes.splice(i,1);await saveProfile();render();}},'✕')));});
+if(med.doseTimes.length<6){const addRow=h('div',{style:'display:flex;gap:8px;align-items:center;margin:8px 0'});const ti=h('input',{type:'time',value:'08:00',style:'font-size:16px;padding:6px 10px;border-radius:8px;border:2px solid #cbd5e1'});addRow.appendChild(ti);addRow.appendChild(h('button',{class:'btn secondary',style:'font-size:14px',onclick:async()=>{const v=ti.value;if(v&&!med.doseTimes.includes(v)){med.doseTimes.push(v);med.doseTimes.sort();await saveProfile();render();}}},'+ Hinzufügen'));pc.appendChild(addRow);}
+pc.appendChild(h('div',{style:'display:flex;align-items:center;gap:12px;margin:8px 0'},h('span',{style:'font-weight:600;min-width:160px'},'ON-Fenster (Min):'),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{med.expectedOnWindowMin=Math.max(15,med.expectedOnWindowMin-15);await saveProfile();render();}},'-'),h('span',{style:'font-size:22px;font-weight:700;min-width:60px;text-align:center'},med.expectedOnWindowMin+''),h('button',{class:'btn secondary',style:'width:40px;height:40px;padding:0;font-size:20px',onclick:async()=>{med.expectedOnWindowMin=Math.min(180,med.expectedOnWindowMin+15);await saveProfile();render();}},'+') ));
+}
+out.appendChild(pc);
 
 // Weekly target
 const tc=h('div',{class:'card'});tc.appendChild(h('h3',{id:'tcl'},'Wochenziel'));const tgrp=h('div',{role:'radiogroup','aria-labelledby':'tcl'});
@@ -1575,10 +2250,24 @@ const ec=h('div',{class:'card'});ec.appendChild(h('h3',{},'Ausrüstung'));
 out.appendChild(ec);
 
 // Notifications
-const nnc=h('div',{class:'card'});nnc.appendChild(h('h3',{},'Benachrichtigungen'));nnc.appendChild(h('p',{class:'text-muted',style:'margin-bottom:10px'},'Für Hypo-Erinnerungen nach T1-Training.'));
-if(!('Notification' in window))nnc.appendChild(h('p',{class:'text-muted'},'Nicht verfügbar.'));
-else if(Notification.permission==='granted')nnc.appendChild(h('p',{style:'color:#059669;font-weight:600'},'✓ Erlaubt'));
-else nnc.appendChild(h('button',{class:'btn secondary',onclick:async()=>{const r=await Notification.requestPermission();if(r==='granted'){p.notifications=true;await saveProfile();}render();}},'Berechtigung anfordern'));
+const nnc=h('div',{class:'card'});nnc.appendChild(h('h2',{},'🔔 Benachrichtigungen'));nnc.appendChild(h('p',{class:'text-muted',style:'margin-bottom:10px'},'Erinnerungen an Training, Messungen und Blutzucker-Checks.'));
+if(!('Notification' in window)){nnc.appendChild(h('p',{class:'text-muted'},'Benachrichtigungen werden von diesem Browser nicht unterstützt.'));}
+else if(Notification.permission==='denied'){nnc.appendChild(h('p',{style:'color:#dc2626;font-weight:600'},'✕ Blockiert — bitte in den Browser-Einstellungen erlauben.'));}
+else if(Notification.permission!=='granted'){nnc.appendChild(h('button',{class:'btn',style:'min-height:56px;font-size:18px',onclick:async()=>{const r=await Notification.requestPermission();if(r==='granted'){p.notifications=true;await saveProfile();narrator.cue('Benachrichtigungen erlaubt. Sie können jetzt Erinnerungen aktivieren.');}else{narrator.cue('Berechtigung wurde nicht erteilt.');}render();}},'🔔 Berechtigung anfordern'));nnc.appendChild(h('p',{class:'text-muted',style:'font-size:14px;margin-top:8px'},'Wird benötigt für Trainings-Erinnerungen, auch wenn die App geschlossen ist.'));}
+else{
+nnc.appendChild(h('p',{style:'color:#059669;font-weight:600;margin-bottom:12px'},'✓ Berechtigung erteilt'));
+nnc.appendChild(h('button',{class:'choice'+(p.reminderEnabled?' active':''),role:'switch','aria-checked':p.reminderEnabled?'true':'false','aria-label':`Tägliche Trainings-Erinnerung. ${p.reminderEnabled?'Aktiviert':'Deaktiviert'}.`,onclick:async()=>{p.reminderEnabled=!p.reminderEnabled;p.notifications=true;await saveProfile();narrator.cue(p.reminderEnabled?'Tägliche Erinnerung aktiviert um '+p.reminderTime+' Uhr.':'Erinnerung deaktiviert.');render();}},h('span',{class:'choice-icon','aria-hidden':'true'},p.reminderEnabled?'✅':'🔕'),h('div',{class:'choice-text'},h('div',{},'Tägliche Trainings-Erinnerung'),h('div',{class:'choice-sub'},p.reminderEnabled?'Aktiv — erinnert wenn noch nicht trainiert':'Aus — keine Erinnerung'))));
+if(p.reminderEnabled){
+const timeRow=h('div',{style:'display:flex;gap:12px;align-items:center;margin:12px 0;padding:10px 14px;background:#f1f5f9;border-radius:14px'});
+timeRow.appendChild(h('span',{style:'font-size:18px;font-weight:600'},'Erinnerung um:'));
+const tInp=h('input',{type:'time',value:p.reminderTime||'09:00',style:'font-size:22px;padding:10px 14px;border-radius:12px;border:2px solid #cbd5e1;min-height:52px','aria-label':'Uhrzeit der Trainings-Erinnerung'});
+tInp.addEventListener('change',async e=>{p.reminderTime=e.target.value;await saveProfile();narrator.cue('Erinnerung auf '+e.target.value+' Uhr gestellt.');});
+timeRow.appendChild(tInp);
+nnc.appendChild(timeRow);
+nnc.appendChild(h('p',{class:'text-muted',style:'font-size:14px'},'Die Erinnerung erscheint nur, wenn Sie an diesem Tag noch nicht trainiert haben.'));
+}
+nnc.appendChild(h('button',{class:'btn secondary',style:'margin-top:10px;min-height:48px',onclick:()=>{sendNotification('VitalPlan — Test','Diese Test-Benachrichtigung funktioniert! 🎉','test');narrator.cue('Test-Benachrichtigung gesendet.');}},'🔔 Test-Benachrichtigung senden'));
+}
 out.appendChild(nnc);
 
 // Guide link
@@ -1788,6 +2477,49 @@ nav.appendChild(h('button',{class:'nav-item'+(isActive?' active':''),'aria-label
 return nav;
 }
 
+/* ===== NOTIFICATION ENGINE ===== */
+async function requestNotificationPermission(){
+if(!('Notification' in window))return false;
+if(Notification.permission==='granted')return true;
+const r=await Notification.requestPermission();
+return r==='granted';
+}
+function sendNotification(title,body,tag){
+if(!('Notification' in window)||Notification.permission!=='granted')return;
+try{new Notification(title,{body,icon:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">🏋️</text></svg>',tag:tag||'vitalplan',badge:'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><text y=".9em" font-size="90">💪</text></svg>',requireInteraction:false});}catch(e){if('serviceWorker' in navigator&&navigator.serviceWorker.controller){navigator.serviceWorker.ready.then(reg=>{reg.showNotification(title,{body,tag:tag||'vitalplan'});}).catch(()=>{});}}
+}
+let _reminderInterval=null;
+function startReminderEngine(){
+if(_reminderInterval)clearInterval(_reminderInterval);
+_reminderInterval=setInterval(()=>{
+if(!STATE.profile||!STATE.profile.reminderEnabled||!STATE.profile.notifications)return;
+if(Notification.permission!=='granted')return;
+const now=new Date();const today=todayIso();
+if(STATE.profile.lastReminderDate===today)return;
+const[rh,rm]=STATE.profile.reminderTime.split(':').map(Number);
+if(now.getHours()<rh||(now.getHours()===rh&&now.getMinutes()<rm))return;
+const sessToday=STATE.sessions.filter(s=>s.date===today);
+if(sessToday.length>0)return;
+STATE.profile.lastReminderDate=today;saveProfile();
+const p=STATE.profile;const isPD=p.parkinson&&p.parkinson.stage!=='none';
+let body='Zeit für Ihre Trainingseinheit! ';
+if(isPD&&p.parkinson.medication.doseTimes.length>0){
+const ms=inferMedicationState();
+if(ms==='ON')body+='Ihr Medikament wirkt gerade — optimaler Zeitpunkt.';
+else if(ms==='wearing-off')body+='Wearing-Off Phase — bald nächste Dosis?';
+else body+='Prüfen Sie Ihren Medikationsstatus.';
+}else{const wk=evaluateCurrentWeek();body+=`Diese Woche: ${wk.count} von ${wk.target} Einheiten.`;}
+sendNotification('VitalPlan — Training',body,'reminder');
+/* Benchmark-Erinnerung */
+if(benchIsDue()){sendNotification('VitalPlan — Messung fällig','Ihre 4-Wochen-Messung steht an. Testen Sie Ihre Fortschritte!','bench-reminder');}
+/* Diabetes: BZ-Check Erinnerung */
+if(p.diabetesType!=='none'){
+const lastSess=STATE.sessions[0];
+if(lastSess&&!sessToday.length){const sinceLast=Math.round((now-new Date(lastSess.startedAt))/3600000);
+if(sinceLast>=2&&sinceLast<=8&&p.diabetesType==='T1'){sendNotification('VitalPlan — Blutzucker prüfen',`${sinceLast} Stunden nach Training. Späte Unterzuckerung möglich (Riddell 2017).`,'hypo-reminder');}}}
+},60000);
+}
+
 /* ===== INIT ===== */
 (async function init(){
 try{
@@ -1796,6 +2528,7 @@ narrator.init();
 await maybeCloseWeek();
 if(navigator.storage?.persist)navigator.storage.persist().catch(()=>{});
 if('serviceWorker'in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
+startReminderEngine();
 const saved=await loadActiveWorkout();
 if(saved&&STATE.profile?.onboardingDone)STATE.modal={type:'resume',saved};
 render();
