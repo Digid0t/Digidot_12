@@ -2706,8 +2706,52 @@ window.addEventListener('appinstalled',()=>{_deferredInstallPrompt=null;hideInst
 function showInstallBanner(){let b=document.getElementById('pwa-install-banner');if(b)return;b=document.createElement('div');b.id='pwa-install-banner';b.setAttribute('role','alert');b.style.cssText='position:fixed;bottom:80px;left:12px;right:12px;background:linear-gradient(135deg,#1e40af,#1e3a8a);color:#fff;padding:20px;border-radius:20px;z-index:9999;box-shadow:0 8px 32px rgba(0,0,0,0.3);display:flex;flex-direction:column;gap:12px;animation:slideUp 0.4s ease';
 b.innerHTML=`<div style="display:flex;align-items:center;gap:12px"><span style="font-size:40px">📲</span><div><div style="font-size:20px;font-weight:700">VitalPlan installieren</div><div style="font-size:16px;opacity:0.9">Als App auf dem Startbildschirm — offline verfügbar, Benachrichtigungen, schnellerer Zugriff</div></div></div><div style="display:flex;gap:10px"><button id="pwa-install-btn" style="flex:1;padding:14px;font-size:18px;font-weight:700;background:#fff;color:#1e40af;border:none;border-radius:14px;cursor:pointer;min-height:52px">✓ Jetzt installieren</button><button id="pwa-dismiss-btn" style="padding:14px 20px;font-size:16px;background:rgba(255,255,255,0.2);color:#fff;border:2px solid rgba(255,255,255,0.4);border-radius:14px;cursor:pointer;min-height:52px">Später</button></div>`;
 document.body.appendChild(b);narrator.cue('VitalPlan kann als App installiert werden. Sie erhalten dann Benachrichtigungen und können offline trainieren. Tippen Sie auf Jetzt installieren oder auf Später.');
-document.getElementById('pwa-install-btn').addEventListener('click',async()=>{if(!_deferredInstallPrompt)return;_deferredInstallPrompt.prompt();const r=await _deferredInstallPrompt.userChoice;if(r.outcome==='accepted'){narrator.announce('Installation gestartet.');}else{narrator.cue('Installation abgebrochen. Sie können jederzeit über die Einstellungen installieren.');}hideInstallBanner();});
-document.getElementById('pwa-dismiss-btn').addEventListener('click',()=>{hideInstallBanner();narrator.cue('Installation wird übersprungen. Sie können jederzeit in den Einstellungen installieren.');});}
+document.getElementById('pwa-install-btn').addEventListener('click', async () => {
+document.getElementById('pwa-install-btn').addEventListener('click', async () => {
+
+    const installPrompt = _deferredInstallPrompt;
+
+    // Check whether installation is supported
+    if (!installPrompt) {
+        const message =
+            'App installation is not available through this browser right now. ' +
+            'Please check your browser menu for an Install App option.';
+
+        narrator.cue(message);
+        alert(message);
+
+        hideInstallBanner();
+        return;
+    }
+
+    try {
+        // Show the browser installation prompt
+        await installPrompt.prompt();
+
+        const result = await installPrompt.userChoice;
+
+        if (result.outcome === 'accepted') {
+            narrator.announce('Installation started successfully.');
+        } else {
+            narrator.cue('Installation was cancelled. You can try again later.');
+        }
+
+    } catch (error) {
+        const message =
+            'Unable to start app installation. Please try again using your browser menu.';
+
+        narrator.cue(message);
+        alert(message);
+
+        console.error('PWA installation error:', error);
+
+    } finally {
+        _deferredInstallPrompt = null;
+        hideInstallBanner();
+    }
+
+});
+
 function hideInstallBanner(){const b=document.getElementById('pwa-install-banner');if(b)b.remove();}
 startReminderEngine();
 const saved=await loadActiveWorkout();
